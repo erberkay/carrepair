@@ -2180,17 +2180,17 @@ textarea:focus-visible {
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.09a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
       </svg>
-      Ara
+      <span data-i18n="nav_call">Ara</span>
     </a>
 
     <div id="navAuthWrap">
-      <button class="nav-auth-btn" id="navLoginBtn" aria-label="Giriş yap">Giriş Yap</button>
+      <button class="nav-auth-btn" id="navLoginBtn" aria-label="Giriş yap" data-i18n="nav_login">Giriş Yap</button>
     </div>
     <div id="navUserWrap" style="display:none">
       <div class="nav-user-group">
         <span class="nav-user-name" id="navUserName"></span>
         <button class="nav-admin-btn" id="navAdminBtn" style="display:none" aria-label="Admin paneli">⚙ Admin</button>
-        <button class="nav-auth-btn" id="navLogoutBtn" aria-label="Çıkış yap">Çıkış</button>
+        <button class="nav-auth-btn" id="navLogoutBtn" aria-label="Çıkış yap" data-i18n="nav_logout">Çıkış</button>
       </div>
     </div>
 
@@ -2206,12 +2206,12 @@ textarea:focus-visible {
 
 <!-- Mobile menu overlay -->
 <div class="mobile-menu" role="dialog" aria-label="Mobil menü">
-  <a href="#hizmetler">Hizmetler</a>
-  <a href="#arac-tipleri">Araçlar</a>
-  <a href="#galeri">Galeri</a>
-  <a href="#hakkimizda">Hakkımızda</a>
-  <a href="#sss">SSS</a>
-  <a href="#iletisim">İletişim</a>
+  <a href="#hizmetler" data-i18n="nav_services">Hizmetler</a>
+  <a href="#arac-tipleri" data-i18n="nav_vehicles">Araçlar</a>
+  <a href="#galeri" data-i18n="nav_gallery">Galeri</a>
+  <a href="#hakkimizda" data-i18n="nav_about">Hakkımızda</a>
+  <a href="#sss" data-i18n="nav_faq">SSS</a>
+  <a href="#iletisim" data-i18n="nav_contact">İletişim</a>
 </div>
 
 <main>
@@ -2220,24 +2220,24 @@ textarea:focus-visible {
     <div class="container hero-inner">
       <div class="hero-left">
         <div class="hero-badge">⚙ Kuşadası • Aydın</div>
-        <h1 class="hero-title">Kuşadası'nın Güvenilir <span class="accent">Oto, Yat &amp; Karavan Tamir</span> Servisi</h1>
-        <p class="hero-desc">Otomobiliniz, yatınız veya karavanınız için elektrik, elektronik, şanzıman ve tesisat tamirinde profesyonel hizmet. Hızlı, garantili, uygun fiyatlı.</p>
+        <h1 class="hero-title" data-i18n-html="hero_title">Kuşadası'nın Güvenilir <span class="accent">Oto, Yat &amp; Karavan Tamir</span> Servisi</h1>
+        <p class="hero-desc" data-i18n="hero_subtitle">Otomobiliniz, yatınız veya karavanınız için elektrik, elektronik, şanzıman ve tesisat tamirinde profesyonel hizmet. Hızlı, garantili, uygun fiyatlı.</p>
         <div class="hero-buttons">
-          <a href="#hizmetler" class="btn-primary">Hizmetlerimizi Keşfet →</a>
-          <a href="tel:05523070067" class="btn-ghost">📞 Hemen Ara</a>
+          <a href="#hizmetler" class="btn-primary" data-i18n="hero_cta1">Hizmetlerimizi Keşfet →</a>
+          <a href="tel:05523070067" class="btn-ghost">📞 <span data-i18n="hero_cta2">Hemen Ara</span></a>
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="hero-stat-num">15+</div>
-            <div class="hero-stat-label">Yıl Deneyim</div>
+            <div class="hero-stat-label" data-i18n="hero_stat1">Yıl Deneyim</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-num">500+</div>
-            <div class="hero-stat-label">Mutlu Müşteri</div>
+            <div class="hero-stat-label" data-i18n="hero_stat2">Mutlu Müşteri</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-num">3</div>
-            <div class="hero-stat-label">Araç Tipi</div>
+            <div class="hero-stat-label" data-i18n="hero_stat3">Araç Tipi</div>
           </div>
         </div>
       </div>
@@ -2245,35 +2245,35 @@ textarea:focus-visible {
         <div class="hero-card hero-card-3">
           <div class="card-icon-row">
             <div class="card-icon-circle">🔩</div>
-            <span class="card-label">Tesisat Kontrolü</span>
+            <span class="card-label" data-i18n="hero_card1">Tesisat Kontrolü</span>
           </div>
         </div>
         <div class="hero-card hero-card-2">
           <div class="card-icon-row">
             <div class="card-icon-circle">⚙️</div>
-            <span class="card-label">Şanzıman Revizyonu</span>
+            <span class="card-label" data-i18n="hero_card2">Şanzıman Revizyonu</span>
           </div>
         </div>
         <div class="hero-card hero-card-1">
           <div class="card-icon-row">
             <div class="card-icon-circle">⚡</div>
-            <span class="card-label">Elektrik Arıza Tespiti</span>
+            <span class="card-label" data-i18n="hero_card3">Elektrik Arıza Tespiti</span>
           </div>
-          <div class="card-badge-success">✓ Tamamlandı</div>
+          <div class="card-badge-success" data-i18n="hero_done">✓ Tamamlandı</div>
         </div>
       </div>
     </div>
     <div class="scroll-indicator" id="scrollIndicator" aria-hidden="true">
-      <span>Aşağı Kaydır</span>
+      <span data-i18n="hero_scroll">Aşağı Kaydır</span>
       <div class="scroll-chevron"></div>
     </div>
   </section>
   <section id="arac-tipleri">
     <div class="container">
       <div class="section-header">
-        <div class="section-label fade-in">Araç Tipleri</div>
-        <h2 class="section-title fade-in">Hangi Araç İçin Hizmet Alıyorsunuz?</h2>
-        <p class="section-subtitle fade-in">Tüm araç tiplerine özel uzman servis hizmeti sunuyoruz</p>
+        <div class="section-label fade-in" data-i18n="vehicles_label">Araç Tipleri</div>
+        <h2 class="section-title fade-in" data-i18n="vehicles_title">Hangi Araç İçin Hizmet Alıyorsunuz?</h2>
+        <p class="section-subtitle fade-in" data-i18n="vehicles_sub">Tüm araç tiplerine özel uzman servis hizmeti sunuyoruz</p>
       </div>
       <div class="vehicle-grid">
 
@@ -2288,14 +2288,14 @@ textarea:focus-visible {
               <path d="M14 22h36"/>
             </svg>
           </div>
-          <h3>Otomobil</h3>
-          <p>Her marka ve model otomobil için kapsamlı tamir ve bakım hizmeti. Sorununuzu en kısa sürede çözüyoruz.</p>
+          <h3 data-i18n="veh1_title">Otomobil</h3>
+          <p data-i18n="veh1_desc">Her marka ve model otomobil için kapsamlı tamir ve bakım hizmeti. Sorununuzu en kısa sürede çözüyoruz.</p>
           <ul class="vehicle-services">
-            <li>✓ Elektrik &amp; Elektronik</li>
-            <li>✓ Şanzıman Tamiri</li>
-            <li>✓ Motor Bakımı</li>
+            <li data-i18n="veh1_s1">✓ Elektrik &amp; Elektronik</li>
+            <li data-i18n="veh1_s2">✓ Şanzıman Tamiri</li>
+            <li data-i18n="veh1_s3">✓ Motor Bakımı</li>
           </ul>
-          <a href="#hizmetler" class="btn-outline vehicle-btn">Hizmetleri Gör →</a>
+          <a href="#hizmetler" class="btn-outline vehicle-btn" data-i18n="veh_btn">Hizmetleri Gör →</a>
         </article>
 
         <article class="vehicle-card fade-in" style="transition-delay:0.1s">
@@ -2311,14 +2311,14 @@ textarea:focus-visible {
               <path d="M50 42v6"/>
             </svg>
           </div>
-          <h3>Yat &amp; Tekne</h3>
-          <p>Deniz araçlarınız için özel elektronik ve mekanik servis hizmeti. Marina ve kara tamiri yapıyoruz.</p>
+          <h3 data-i18n="veh2_title">Yat &amp; Tekne</h3>
+          <p data-i18n="veh2_desc">Deniz araçlarınız için özel elektronik ve mekanik servis hizmeti. Marina ve kara tamiri yapıyoruz.</p>
           <ul class="vehicle-services">
-            <li>✓ Deniz Elektroniği</li>
-            <li>✓ Tekne Tesisatı</li>
-            <li>✓ Motor Revizyonu</li>
+            <li data-i18n="veh2_s1">✓ Deniz Elektroniği</li>
+            <li data-i18n="veh2_s2">✓ Tekne Tesisatı</li>
+            <li data-i18n="veh2_s3">✓ Motor Revizyonu</li>
           </ul>
-          <a href="#hizmetler" class="btn-outline vehicle-btn">Hizmetleri Gör →</a>
+          <a href="#hizmetler" class="btn-outline vehicle-btn" data-i18n="veh_btn">Hizmetleri Gör →</a>
         </article>
 
         <article class="vehicle-card fade-in" style="transition-delay:0.2s">
@@ -2334,14 +2334,14 @@ textarea:focus-visible {
               <path d="M19 52h17"/>
             </svg>
           </div>
-          <h3>Karavan</h3>
-          <p>Karavanınızın tüm mekanik ve elektrik ihtiyaçları için profesyonel çözüm. Solar sistemden frene kadar.</p>
+          <h3 data-i18n="veh3_title">Karavan</h3>
+          <p data-i18n="veh3_desc">Karavanınızın tüm mekanik ve elektrik ihtiyaçları için profesyonel çözüm. Solar sistemden frene kadar.</p>
           <ul class="vehicle-services">
-            <li>✓ Elektrik Sistemi</li>
-            <li>✓ Şasi &amp; Fren</li>
-            <li>✓ Tesisat Tamiri</li>
+            <li data-i18n="veh3_s1">✓ Elektrik Sistemi</li>
+            <li data-i18n="veh3_s2">✓ Şasi &amp; Fren</li>
+            <li data-i18n="veh3_s3">✓ Tesisat Tamiri</li>
           </ul>
-          <a href="#hizmetler" class="btn-outline vehicle-btn">Hizmetleri Gör →</a>
+          <a href="#hizmetler" class="btn-outline vehicle-btn" data-i18n="veh_btn">Hizmetleri Gör →</a>
         </article>
 
       </div>
@@ -2350,112 +2350,112 @@ textarea:focus-visible {
   <section id="hizmetler">
     <div class="container">
       <div class="section-header">
-        <div class="section-label fade-in">Hizmetler</div>
-        <h2 class="section-title fade-in">Hizmetlerimiz</h2>
-        <p class="section-subtitle fade-in">Geniş hizmet yelpazemizle araçlarınız her zaman güvende</p>
+        <div class="section-label fade-in" data-i18n="services_label">Hizmetler</div>
+        <h2 class="section-title fade-in" data-i18n="services_title">Hizmetlerimiz</h2>
+        <p class="section-subtitle fade-in" data-i18n="services_sub">Geniş hizmet yelpazemizle araçlarınız her zaman güvende</p>
       </div>
       <div class="filter-tabs" role="tablist" aria-label="Hizmet filtresi">
-        <button class="filter-tab active" data-filter="tumü" role="tab" aria-selected="true">Tümü</button>
-        <button class="filter-tab" data-filter="otomobil" role="tab" aria-selected="false">Otomobil</button>
-        <button class="filter-tab" data-filter="yat" role="tab" aria-selected="false">Yat &amp; Tekne</button>
-        <button class="filter-tab" data-filter="karavan" role="tab" aria-selected="false">Karavan</button>
+        <button class="filter-tab active" data-filter="tumü" role="tab" aria-selected="true" data-i18n="filter_all">Tümü</button>
+        <button class="filter-tab" data-filter="otomobil" role="tab" aria-selected="false" data-i18n="filter_car">Otomobil</button>
+        <button class="filter-tab" data-filter="yat" role="tab" aria-selected="false" data-i18n="filter_yacht">Yat &amp; Tekne</button>
+        <button class="filter-tab" data-filter="karavan" role="tab" aria-selected="false" data-i18n="filter_caravan">Karavan</button>
       </div>
       <div class="services-grid" id="servicesGrid">
 
         <article class="service-card fade-in" data-category="genel">
           <div class="service-icon-wrap"><span class="service-icon">⚡</span></div>
-          <h3 class="service-title">Elektrik &amp; Elektronik</h3>
-          <p class="service-desc">Araç elektrik sistemleri, ECU okuma/sıfırlama, kablo arıza tespiti ve onarımı.</p>
-          <span class="service-tag">Tüm Araçlar</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc1_title">Elektrik &amp; Elektronik</h3>
+          <p class="service-desc" data-i18n="svc1_desc">Araç elektrik sistemleri, ECU okuma/sıfırlama, kablo arıza tespiti ve onarımı.</p>
+          <span class="service-tag" data-i18n="svc1_tag">Tüm Araçlar</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="genel">
           <div class="service-icon-wrap"><span class="service-icon">⚙</span></div>
-          <h3 class="service-title">Şanzıman Tamiri</h3>
-          <p class="service-desc">Manuel ve otomatik şanzıman revizyonu, yağ değişimi, vites problemi çözümü.</p>
-          <span class="service-tag">Uzman İşçilik</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc2_title">Şanzıman Tamiri</h3>
+          <p class="service-desc" data-i18n="svc2_desc">Manuel ve otomatik şanzıman revizyonu, yağ değişimi, vites problemi çözümü.</p>
+          <span class="service-tag" data-i18n="svc2_tag">Uzman İşçilik</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="otomobil">
           <div class="service-icon-wrap"><span class="service-icon">🔧</span></div>
-          <h3 class="service-title">Motor Bakım &amp; Revizyon</h3>
-          <p class="service-desc">Yağ değişimi, triger seti, soğutma sistemi, motor revizyon hizmetleri.</p>
-          <span class="service-tag">Otomobil</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc3_title">Motor Bakım &amp; Revizyon</h3>
+          <p class="service-desc" data-i18n="svc3_desc">Yağ değişimi, triger seti, soğutma sistemi, motor revizyon hizmetleri.</p>
+          <span class="service-tag" data-i18n="svc3_tag">Otomobil</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="otomobil">
           <div class="service-icon-wrap"><span class="service-icon">🛞</span></div>
-          <h3 class="service-title">Fren &amp; Süspansiyon</h3>
-          <p class="service-desc">Balata, disk, amortisör, rot-rotil kontrolü ve değişimi.</p>
-          <span class="service-tag">Otomobil</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc4_title">Fren &amp; Süspansiyon</h3>
+          <p class="service-desc" data-i18n="svc4_desc">Balata, disk, amortisör, rot-rotil kontrolü ve değişimi.</p>
+          <span class="service-tag" data-i18n="svc3_tag">Otomobil</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="otomobil">
           <div class="service-icon-wrap"><span class="service-icon">❄️</span></div>
-          <h3 class="service-title">Klima Servisi</h3>
-          <p class="service-desc">Klima gazı dolumu, kompresör kontrolü, kalorifer tamiri.</p>
-          <span class="service-tag">Otomobil</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc5_title">Klima Servisi</h3>
+          <p class="service-desc" data-i18n="svc5_desc">Klima gazı dolumu, kompresör kontrolü, kalorifer tamiri.</p>
+          <span class="service-tag" data-i18n="svc3_tag">Otomobil</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="otomobil">
           <div class="service-icon-wrap"><span class="service-icon">🔋</span></div>
-          <h3 class="service-title">Akü &amp; Marş</h3>
-          <p class="service-desc">Akü ölçümü, değişimi, marş ve alternatör tamiri.</p>
-          <span class="service-tag">Otomobil</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc6_title">Akü &amp; Marş</h3>
+          <p class="service-desc" data-i18n="svc6_desc">Akü ölçümü, değişimi, marş ve alternatör tamiri.</p>
+          <span class="service-tag" data-i18n="svc3_tag">Otomobil</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="yat">
           <div class="service-icon-wrap"><span class="service-icon">📡</span></div>
-          <h3 class="service-title">Deniz Elektroniği</h3>
-          <p class="service-desc">GPS, VHF telsiz, echo sounder, otomat kurulum ve onarımı.</p>
-          <span class="service-tag">Yat &amp; Tekne</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc7_title">Deniz Elektroniği</h3>
+          <p class="service-desc" data-i18n="svc7_desc">GPS, VHF telsiz, echo sounder, otomat kurulum ve onarımı.</p>
+          <span class="service-tag" data-i18n="svc7_tag">Yat &amp; Tekne</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="yat">
           <div class="service-icon-wrap"><span class="service-icon">💧</span></div>
-          <h3 class="service-title">Tekne Tesisat</h3>
-          <p class="service-desc">Su, yakıt, atık su sistemleri, pompa değişimi.</p>
-          <span class="service-tag">Yat &amp; Tekne</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc8_title">Tekne Tesisat</h3>
+          <p class="service-desc" data-i18n="svc8_desc">Su, yakıt, atık su sistemleri, pompa değişimi.</p>
+          <span class="service-tag" data-i18n="svc7_tag">Yat &amp; Tekne</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="yat">
           <div class="service-icon-wrap"><span class="service-icon">⚓</span></div>
-          <h3 class="service-title">Deniz Motoru</h3>
-          <p class="service-desc">İçten ve dıştan takma motor bakım, revizyon ve onarımı.</p>
-          <span class="service-tag">Yat &amp; Tekne</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc9_title">Deniz Motoru</h3>
+          <p class="service-desc" data-i18n="svc9_desc">İçten ve dıştan takma motor bakım, revizyon ve onarımı.</p>
+          <span class="service-tag" data-i18n="svc7_tag">Yat &amp; Tekne</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="karavan">
           <div class="service-icon-wrap"><span class="service-icon">☀️</span></div>
-          <h3 class="service-title">Karavan Elektrik</h3>
-          <p class="service-desc">Solar panel, inverter, akü grubu, 12V/230V sistem kurulumu.</p>
-          <span class="service-tag">Karavan</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc10_title">Karavan Elektrik</h3>
+          <p class="service-desc" data-i18n="svc10_desc">Solar panel, inverter, akü grubu, 12V/230V sistem kurulumu.</p>
+          <span class="service-tag" data-i18n="svc10_tag">Karavan</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="karavan">
           <div class="service-icon-wrap"><span class="service-icon">🚿</span></div>
-          <h3 class="service-title">Karavan Tesisat</h3>
-          <p class="service-desc">Su deposu, pompa, ısıtma sistemi, gaz tesisatı kontrolü.</p>
-          <span class="service-tag">Karavan</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc11_title">Karavan Tesisat</h3>
+          <p class="service-desc" data-i18n="svc11_desc">Su deposu, pompa, ısıtma sistemi, gaz tesisatı kontrolü.</p>
+          <span class="service-tag" data-i18n="svc10_tag">Karavan</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
         <article class="service-card fade-in" data-category="karavan">
           <div class="service-icon-wrap"><span class="service-icon">🔩</span></div>
-          <h3 class="service-title">Şasi &amp; Fren</h3>
-          <p class="service-desc">Karavan fren sistemi, çeki sistemi, tekerlek yatağı kontrolü.</p>
-          <span class="service-tag">Karavan</span>
-          <a href="#iletisim" class="btn-outline service-btn">Teklif Al →</a>
+          <h3 class="service-title" data-i18n="svc12_title">Şasi &amp; Fren</h3>
+          <p class="service-desc" data-i18n="svc12_desc">Karavan fren sistemi, çeki sistemi, tekerlek yatağı kontrolü.</p>
+          <span class="service-tag" data-i18n="svc10_tag">Karavan</span>
+          <a href="#iletisim" class="btn-outline service-btn" data-i18n="svc_btn">Teklif Al →</a>
         </article>
 
       </div>
@@ -2465,48 +2465,48 @@ textarea:focus-visible {
   <section id="neden-biz">
     <div class="container">
       <div class="section-header">
-        <div class="section-label fade-in" style="background:rgba(255,255,255,0.15);color:#fff;">Neden Biz?</div>
-        <h2 class="section-title fade-in" style="color:#fff;">Neden Bizi Tercih Etmelisiniz?</h2>
-        <p class="section-subtitle fade-in" style="color:rgba(255,255,255,0.75);margin:0 auto;">Kalite, hız ve güven bir arada</p>
+        <div class="section-label fade-in" style="background:rgba(255,255,255,0.15);color:#fff;" data-i18n="stats_label">Neden Biz?</div>
+        <h2 class="section-title fade-in" style="color:#fff;" data-i18n="stats_title">Neden Bizi Tercih Etmelisiniz?</h2>
+        <p class="section-subtitle fade-in" style="color:rgba(255,255,255,0.75);margin:0 auto;" data-i18n="stats_sub">Kalite, hız ve güven bir arada</p>
       </div>
       <div class="stats-grid">
         <div class="stat-item fade-in">
           <div class="stat-num" data-target="15" data-suffix="+">0+</div>
-          <div class="stat-label">Yıl Deneyim</div>
+          <div class="stat-label" data-i18n="stat1_label">Yıl Deneyim</div>
         </div>
         <div class="stat-item fade-in" style="transition-delay:0.1s">
           <div class="stat-num" data-target="500" data-suffix="+">0+</div>
-          <div class="stat-label">Tamamlanan İş</div>
+          <div class="stat-label" data-i18n="stat2_label">Tamamlanan İş</div>
         </div>
         <div class="stat-item fade-in" style="transition-delay:0.2s">
           <div class="stat-num" data-target="3" data-suffix="">0</div>
-          <div class="stat-label">Araç Tipi Uzmanlığı</div>
+          <div class="stat-label" data-i18n="stat3_label">Araç Tipi Uzmanlığı</div>
         </div>
         <div class="stat-item fade-in" style="transition-delay:0.3s">
           <div class="stat-num" data-target="100" data-suffix="%">0%</div>
-          <div class="stat-label">Müşteri Memnuniyeti</div>
+          <div class="stat-label" data-i18n="stat4_label">Müşteri Memnuniyeti</div>
         </div>
       </div>
       <div class="features-grid">
         <div class="feature-box fade-in">
           <div class="feature-icon">🚀</div>
-          <h3>Hızlı Servis</h3>
-          <p>Aynı gün servis, acil müdahale imkanı</p>
+          <h3 data-i18n="feat1_title">Hızlı Servis</h3>
+          <p data-i18n="feat1_desc">Aynı gün servis, acil müdahale imkanı</p>
         </div>
         <div class="feature-box fade-in" style="transition-delay:0.1s">
           <div class="feature-icon">💰</div>
-          <h3>Uygun Fiyat</h3>
-          <p>Piyasa fiyatlarının altında kaliteli hizmet</p>
+          <h3 data-i18n="feat2_title">Uygun Fiyat</h3>
+          <p data-i18n="feat2_desc">Piyasa fiyatlarının altında kaliteli hizmet</p>
         </div>
         <div class="feature-box fade-in" style="transition-delay:0.2s">
           <div class="feature-icon">✅</div>
-          <h3>Garantili İşçilik</h3>
-          <p>Tüm işlemlerde işçilik garantisi veriyoruz</p>
+          <h3 data-i18n="feat3_title">Garantili İşçilik</h3>
+          <p data-i18n="feat3_desc">Tüm işlemlerde işçilik garantisi veriyoruz</p>
         </div>
         <div class="feature-box fade-in" style="transition-delay:0.3s">
           <div class="feature-icon">🔧</div>
-          <h3>Uzman Ekip</h3>
-          <p>Sertifikalı, deneyimli teknisyen kadrosu</p>
+          <h3 data-i18n="feat4_title">Uzman Ekip</h3>
+          <p data-i18n="feat4_desc">Sertifikalı, deneyimli teknisyen kadrosu</p>
         </div>
       </div>
     </div>
@@ -2516,15 +2516,15 @@ textarea:focus-visible {
   <section id="galeri">
     <div class="container">
       <div class="section-header">
-        <div class="section-label fade-in">Galeri</div>
-        <h2 class="section-title fade-in">Tamamlanan İşlerimizden</h2>
-        <p class="section-subtitle fade-in">Müşterilerimize sunduğumuz kaliteli hizmetin örnekleri</p>
+        <div class="section-label fade-in" data-i18n="gallery_label">Galeri</div>
+        <h2 class="section-title fade-in" data-i18n="gallery_title">Tamamlanan İşlerimizden</h2>
+        <p class="section-subtitle fade-in" data-i18n="gallery_sub">Müşterilerimize sunduğumuz kaliteli hizmetin örnekleri</p>
       </div>
       <div class="filter-tabs gallery-tabs" role="tablist" aria-label="Galeri filtresi">
-        <button class="filter-tab active" data-filter="tumü" role="tab" aria-selected="true">Tümü</button>
-        <button class="filter-tab" data-filter="otomobil" role="tab" aria-selected="false">Otomobil</button>
-        <button class="filter-tab" data-filter="yat" role="tab" aria-selected="false">Yat</button>
-        <button class="filter-tab" data-filter="karavan" role="tab" aria-selected="false">Karavan</button>
+        <button class="filter-tab active" data-filter="tumü" role="tab" aria-selected="true" data-i18n="filter_all">Tümü</button>
+        <button class="filter-tab" data-filter="otomobil" role="tab" aria-selected="false" data-i18n="filter_car">Otomobil</button>
+        <button class="filter-tab" data-filter="yat" role="tab" aria-selected="false" data-i18n="filter_yacht">Yat</button>
+        <button class="filter-tab" data-filter="karavan" role="tab" aria-selected="false" data-i18n="filter_caravan">Karavan</button>
       </div>
       <div class="gallery-grid" id="galleryGrid">
 
@@ -2533,8 +2533,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Motor Revizyon</span>
-            <span class="gallery-item-badge">Otomobil</span>
+            <span class="gallery-item-title" data-i18n="gal1_title">Motor Revizyon</span>
+            <span class="gallery-item-badge" data-i18n="gal1_badge">Otomobil</span>
           </div>
         </div>
 
@@ -2543,8 +2543,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Deniz Elektroniği</span>
-            <span class="gallery-item-badge">Yat</span>
+            <span class="gallery-item-title" data-i18n="gal2_title">Deniz Elektroniği</span>
+            <span class="gallery-item-badge" data-i18n="gal2_badge">Yat</span>
           </div>
         </div>
 
@@ -2553,8 +2553,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Solar Kurulum</span>
-            <span class="gallery-item-badge">Karavan</span>
+            <span class="gallery-item-title" data-i18n="gal3_title">Solar Kurulum</span>
+            <span class="gallery-item-badge" data-i18n="gal3_badge">Karavan</span>
           </div>
         </div>
 
@@ -2563,8 +2563,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-2.83 2.83M7.76 16.24l-2.83 2.83M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Şanzıman Onarımı</span>
-            <span class="gallery-item-badge">Otomobil</span>
+            <span class="gallery-item-title" data-i18n="gal4_title">Şanzıman Onarımı</span>
+            <span class="gallery-item-badge" data-i18n="gal4_badge">Otomobil</span>
           </div>
         </div>
 
@@ -2573,8 +2573,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Elektrik Sistemi</span>
-            <span class="gallery-item-badge">Karavan</span>
+            <span class="gallery-item-title" data-i18n="gal5_title">Elektrik Sistemi</span>
+            <span class="gallery-item-badge" data-i18n="gal5_badge">Karavan</span>
           </div>
         </div>
 
@@ -2583,8 +2583,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Motor Bakım</span>
-            <span class="gallery-item-badge">Yat</span>
+            <span class="gallery-item-title" data-i18n="gal6_title">Motor Bakım</span>
+            <span class="gallery-item-badge" data-i18n="gal6_badge">Yat</span>
           </div>
         </div>
 
@@ -2593,8 +2593,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Elektrik Arıza</span>
-            <span class="gallery-item-badge">Otomobil</span>
+            <span class="gallery-item-title" data-i18n="gal7_title">Elektrik Arıza</span>
+            <span class="gallery-item-badge" data-i18n="gal7_badge">Otomobil</span>
           </div>
         </div>
 
@@ -2603,8 +2603,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Şasi Onarım</span>
-            <span class="gallery-item-badge">Karavan</span>
+            <span class="gallery-item-title" data-i18n="gal8_title">Şasi Onarım</span>
+            <span class="gallery-item-badge" data-i18n="gal8_badge">Karavan</span>
           </div>
         </div>
 
@@ -2613,8 +2613,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Tesisat Onarım</span>
-            <span class="gallery-item-badge">Yat</span>
+            <span class="gallery-item-title" data-i18n="gal9_title">Tesisat Onarım</span>
+            <span class="gallery-item-badge" data-i18n="gal9_badge">Yat</span>
           </div>
         </div>
 
@@ -2623,8 +2623,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Fren Değişimi</span>
-            <span class="gallery-item-badge">Otomobil</span>
+            <span class="gallery-item-title" data-i18n="gal10_title">Fren Değişimi</span>
+            <span class="gallery-item-badge" data-i18n="gal10_badge">Otomobil</span>
           </div>
         </div>
 
@@ -2633,8 +2633,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Su Tesisatı</span>
-            <span class="gallery-item-badge">Karavan</span>
+            <span class="gallery-item-title" data-i18n="gal11_title">Su Tesisatı</span>
+            <span class="gallery-item-badge" data-i18n="gal11_badge">Karavan</span>
           </div>
         </div>
 
@@ -2643,8 +2643,8 @@ textarea:focus-visible {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
           </div>
           <div class="gallery-overlay">
-            <span class="gallery-item-title">Deniz Elektroniği 2</span>
-            <span class="gallery-item-badge">Yat</span>
+            <span class="gallery-item-title" data-i18n="gal12_title">Deniz Elektroniği 2</span>
+            <span class="gallery-item-badge" data-i18n="gal12_badge">Yat</span>
           </div>
         </div>
 
@@ -2666,9 +2666,9 @@ textarea:focus-visible {
   <section id="yorumlar">
     <div class="container">
       <div class="section-header">
-        <div class="section-label fade-in">Yorumlar</div>
-        <h2 class="section-title fade-in">Müşterilerimiz Ne Diyor?</h2>
-        <p class="section-subtitle fade-in">Gerçek müşteri deneyimleri</p>
+        <div class="section-label fade-in" data-i18n="reviews_label">Yorumlar</div>
+        <h2 class="section-title fade-in" data-i18n="reviews_title">Müşterilerimiz Ne Diyor?</h2>
+        <p class="section-subtitle fade-in" data-i18n="reviews_sub">Gerçek müşteri deneyimleri</p>
       </div>
 
       <!-- Yorum Bırak Butonu + Form -->
@@ -2676,12 +2676,12 @@ textarea:focus-visible {
         <div></div>
         <button class="btn-add-review" id="toggleReviewForm" aria-expanded="false">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          Yorum Bırak
+          <span data-i18n="review_add_btn">Yorum Bırak</span>
         </button>
       </div>
 
       <div class="review-form-wrap" id="reviewFormWrap">
-        <h3>Deneyiminizi Paylaşın</h3>
+        <h3 data-i18n="review_form_h">Deneyiminizi Paylaşın</h3>
         <div class="star-picker" id="starPicker" role="group" aria-label="Puan seçin">
           <span class="star" data-v="1" role="button" tabindex="0" aria-label="1 yıldız">★</span>
           <span class="star" data-v="2" role="button" tabindex="0" aria-label="2 yıldız">★</span>
@@ -2691,17 +2691,17 @@ textarea:focus-visible {
         </div>
         <span class="review-star-error" id="starError"></span>
         <form class="review-form" id="reviewForm" novalidate>
-          <input type="text" id="reviewName" placeholder="Adınız" required autocomplete="name">
+          <input type="text" id="reviewName" placeholder="Adınız" required autocomplete="name" data-i18n="review_name_ph">
           <select id="reviewVehicle">
-            <option value="">Araç tipi (opsiyonel)</option>
-            <option value="otomobil">Otomobil</option>
-            <option value="yat">Yat / Tekne</option>
-            <option value="karavan">Karavan</option>
+            <option value="" data-i18n="review_veh_ph">Araç tipi (opsiyonel)</option>
+            <option value="otomobil" data-i18n="opt_car">Otomobil</option>
+            <option value="yat" data-i18n="opt_yacht">Yat / Tekne</option>
+            <option value="karavan" data-i18n="opt_caravan">Karavan</option>
           </select>
-          <textarea id="reviewText" placeholder="Deneyiminizi yazın..." required></textarea>
+          <textarea id="reviewText" placeholder="Deneyiminizi yazın..." required data-i18n="review_text_ph"></textarea>
           <div class="review-form-actions">
-            <button type="submit" class="btn-review-submit">Gönder</button>
-            <button type="button" class="btn-review-cancel" id="cancelReview">İptal</button>
+            <button type="submit" class="btn-review-submit" data-i18n="review_submit">Gönder</button>
+            <button type="button" class="btn-review-cancel" id="cancelReview" data-i18n="review_cancel">İptal</button>
           </div>
         </form>
       </div>
@@ -2718,9 +2718,9 @@ textarea:focus-visible {
                 <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
-              <span>Google Yorumu</span>
+              <span data-i18n="google_review">Google Yorumu</span>
             </div>
-            <span class="review-date">2 ay önce</span>
+            <span class="review-date" data-i18n="rev_date1">2 ay önce</span>
           </div>
           <div class="review-stars">★★★★★</div>
           <p class="review-text">"Yat elektrik sistemimde ciddi bir arıza vardı, başka servislerde çözemediler. Burada hem hızlı hem de uygun fiyata hallettiler. Kesinlikle tavsiye ederim."</p>
@@ -2728,7 +2728,7 @@ textarea:focus-visible {
             <div class="reviewer-avatar" aria-hidden="true">MY</div>
             <div>
               <div class="reviewer-name">Mehmet Yılmaz</div>
-              <span class="reviewer-badge">Yat Sahibi</span>
+              <span class="reviewer-badge" data-i18n="badge_yacht">Yat Sahibi</span>
             </div>
           </div>
         </article>
@@ -2742,9 +2742,9 @@ textarea:focus-visible {
                 <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
-              <span>Google Yorumu</span>
+              <span data-i18n="google_review">Google Yorumu</span>
             </div>
-            <span class="review-date">1 ay önce</span>
+            <span class="review-date" data-i18n="rev_date2">1 ay önce</span>
           </div>
           <div class="review-stars">★★★★★</div>
           <p class="review-text">"Karavanımın solar sistemini buraya kurdurldum, çok memnunum. Uzman ekip, temiz işçilik, güler yüzlü servis. Teşekkürler!"</p>
@@ -2752,7 +2752,7 @@ textarea:focus-visible {
             <div class="reviewer-avatar" aria-hidden="true">AK</div>
             <div>
               <div class="reviewer-name">Ayşe Kaya</div>
-              <span class="reviewer-badge">Karavan Sahibi</span>
+              <span class="reviewer-badge" data-i18n="badge_caravan">Karavan Sahibi</span>
             </div>
           </div>
         </article>
@@ -2766,9 +2766,9 @@ textarea:focus-visible {
                 <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
-              <span>Google Yorumu</span>
+              <span data-i18n="google_review">Google Yorumu</span>
             </div>
-            <span class="review-date">3 hafta önce</span>
+            <span class="review-date" data-i18n="rev_date3">3 hafta önce</span>
           </div>
           <div class="review-stars">★★★★★</div>
           <p class="review-text">"Aracımın şanzımanında problem vardı, garantili işçilik yapıldı. 6 aydır hiç sorun yaşamadım."</p>
@@ -2776,7 +2776,7 @@ textarea:focus-visible {
             <div class="reviewer-avatar" aria-hidden="true">HD</div>
             <div>
               <div class="reviewer-name">Hasan Demir</div>
-              <span class="reviewer-badge">Otomobil Sahibi</span>
+              <span class="reviewer-badge" data-i18n="badge_car">Otomobil Sahibi</span>
             </div>
           </div>
         </article>
@@ -2785,7 +2785,7 @@ textarea:focus-visible {
 
       <!-- Kullanıcı Yorumları (Firestore) -->
       <div class="user-reviews-section" id="userReviewsSection" style="display:none">
-        <div class="user-reviews-label">Ziyaretçi Yorumları</div>
+        <div class="user-reviews-label" data-i18n="user_rev_label">Ziyaretçi Yorumları</div>
         <div id="userReviewsGrid"></div>
       </div>
 
@@ -2796,23 +2796,23 @@ textarea:focus-visible {
     <div class="container">
       <div class="about-grid">
         <div class="about-left">
-          <div class="section-label fade-in">Biz Kimiz?</div>
-          <h2 class="section-title fade-in">15 Yılı Aşkın Deneyim ve Güven</h2>
-          <p class="fade-in">Kuşadası'nda 2009'dan bu yana otomobil, yat ve karavan tamiri alanında hizmet veriyoruz. Türkiye'nin en gözde tatil destinasyonlarından birinde, hem yerel halkın hem de ziyaretçilerin güvenilir tamir adresi olmaktan gurur duyuyoruz.</p>
-          <p class="fade-in">Elektrik-elektronik, şanzıman, tesisat ve mekanik alanlarda uzmanlaşmış ekibimizle her türlü araca kapsamlı servis sunuyoruz.</p>
+          <div class="section-label fade-in" data-i18n="about_label">Biz Kimiz?</div>
+          <h2 class="section-title fade-in" data-i18n="about_title">15 Yılı Aşkın Deneyim ve Güven</h2>
+          <p class="fade-in" data-i18n="about_p1">Kuşadası'nda 2009'dan bu yana otomobil, yat ve karavan tamiri alanında hizmet veriyoruz. Türkiye'nin en gözde tatil destinasyonlarından birinde, hem yerel halkın hem de ziyaretçilerin güvenilir tamir adresi olmaktan gurur duyuyoruz.</p>
+          <p class="fade-in" data-i18n="about_p2">Elektrik-elektronik, şanzıman, tesisat ve mekanik alanlarda uzmanlaşmış ekibimizle her türlü araca kapsamlı servis sunuyoruz.</p>
           <div class="cert-badges fade-in">
-            <span class="cert-badge">🔧 Yetkili Servis</span>
-            <span class="cert-badge">✅ TSE Belgeli</span>
-            <span class="cert-badge">⭐ 15 Yıl Deneyim</span>
+            <span class="cert-badge" data-i18n="cert1">🔧 Yetkili Servis</span>
+            <span class="cert-badge" data-i18n="cert2">✅ TSE Belgeli</span>
+            <span class="cert-badge" data-i18n="cert3">⭐ 15 Yıl Deneyim</span>
           </div>
-          <a href="#iletisim" class="btn-primary fade-in" style="margin-top:var(--space-md);display:inline-flex;">İletişime Geç →</a>
+          <a href="#iletisim" class="btn-primary fade-in" style="margin-top:var(--space-md);display:inline-flex;" data-i18n="about_cta">İletişime Geç →</a>
         </div>
         <div class="about-right fade-in">
           <div class="about-image-wrap">
             <div class="about-image-placeholder" aria-hidden="true"></div>
             <div class="about-stat-card">
               <div class="about-stat-num">500+</div>
-              <div class="about-stat-label">İş Tamamlandı</div>
+              <div class="about-stat-label" data-i18n="about_jobs">İş Tamamlandı</div>
             </div>
           </div>
         </div>
@@ -2824,63 +2824,63 @@ textarea:focus-visible {
   <section id="iletisim">
     <div class="container">
       <div class="section-header">
-        <div class="section-label fade-in">İletişim</div>
-        <h2 class="section-title fade-in">İletişime Geçin</h2>
-        <p class="section-subtitle fade-in">Araç tipinizi ve sorununuzu belirtin, en kısa sürede size dönelim</p>
+        <div class="section-label fade-in" data-i18n="contact_label">İletişim</div>
+        <h2 class="section-title fade-in" data-i18n="contact_title">İletişime Geçin</h2>
+        <p class="section-subtitle fade-in" data-i18n="contact_sub">Araç tipinizi ve sorununuzu belirtin, en kısa sürede size dönelim</p>
       </div>
       <div class="contact-grid">
         <!-- Form -->
         <div class="contact-form-wrap fade-in">
           <form class="contact-form" id="contactForm" novalidate>
             <div class="form-group">
-              <label for="name">Ad Soyad</label>
-              <input type="text" id="name" name="name" placeholder="Adınız ve soyadınız" required autocomplete="name">
+              <label for="name" data-i18n="lbl_name">Ad Soyad</label>
+              <input type="text" id="name" name="name" placeholder="Adınız ve soyadınız" required autocomplete="name" data-i18n="ph_name">
               <span class="field-error" id="nameError"></span>
             </div>
             <div class="form-group">
-              <label for="phone">Telefon</label>
-              <input type="tel" id="phone" name="phone" placeholder="05XX XXX XX XX" required autocomplete="tel">
+              <label for="phone" data-i18n="lbl_phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="05XX XXX XX XX" required autocomplete="tel" data-i18n="ph_phone">
               <span class="field-error" id="phoneError"></span>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="vehicleType">Araç Tipi</label>
+                <label for="vehicleType" data-i18n="lbl_vehicle">Araç Tipi</label>
                 <select id="vehicleType" name="vehicleType" required>
-                  <option value="">Seçiniz...</option>
-                  <option value="otomobil">Otomobil</option>
-                  <option value="yat">Yat / Tekne</option>
-                  <option value="karavan">Karavan</option>
-                  <option value="diger">Diğer</option>
+                  <option value="" data-i18n="opt_select">Seçiniz...</option>
+                  <option value="otomobil" data-i18n="opt_car">Otomobil</option>
+                  <option value="yat" data-i18n="opt_yacht">Yat / Tekne</option>
+                  <option value="karavan" data-i18n="opt_caravan">Karavan</option>
+                  <option value="diger" data-i18n="opt_other">Diğer</option>
                 </select>
                 <span class="field-error" id="vehicleTypeError"></span>
               </div>
               <div class="form-group">
-                <label for="service">Hizmet</label>
+                <label for="service" data-i18n="lbl_service">Hizmet</label>
                 <select id="service" name="service" required>
-                  <option value="">Seçiniz...</option>
-                  <option value="elektrik">Elektrik &amp; Elektronik</option>
-                  <option value="sanziman">Şanzıman</option>
-                  <option value="tesisat">Tesisat</option>
-                  <option value="motor">Motor Bakımı</option>
-                  <option value="diger">Diğer</option>
+                  <option value="" data-i18n="opt_select">Seçiniz...</option>
+                  <option value="elektrik" data-i18n="opt_elec">Elektrik &amp; Elektronik</option>
+                  <option value="sanziman" data-i18n="opt_gear">Şanzıman</option>
+                  <option value="tesisat" data-i18n="opt_plumb">Tesisat</option>
+                  <option value="motor" data-i18n="opt_engine">Motor Bakımı</option>
+                  <option value="diger" data-i18n="opt_other">Diğer</option>
                 </select>
                 <span class="field-error" id="serviceError"></span>
               </div>
             </div>
             <div class="form-group">
-              <label for="message">Mesajınız</label>
-              <textarea id="message" name="message" rows="4" placeholder="Aracınızla ilgili sorunu kısaca anlatın..." required></textarea>
+              <label for="message" data-i18n="lbl_message">Mesajınız</label>
+              <textarea id="message" name="message" rows="4" placeholder="Aracınızla ilgili sorunu kısaca anlatın..." required data-i18n="ph_message"></textarea>
               <span class="field-error" id="messageError"></span>
             </div>
             <button type="submit" class="btn-submit" id="submitBtn">
-              <span class="btn-text">Mesaj Gönder →</span>
+              <span class="btn-text" data-i18n="form_submit_btn">Mesaj Gönder →</span>
               <span class="btn-spinner" aria-hidden="true"></span>
             </button>
           </form>
           <div class="form-success" id="formSuccess" style="display:none">
             <div class="success-icon">✅</div>
-            <h3>Mesajınız alındı!</h3>
-            <p>En kısa sürede sizi arayacağız.</p>
+            <h3 data-i18n="form_success_h">Mesajınız alındı!</h3>
+            <p data-i18n="form_success_p">En kısa sürede sizi arayacağız.</p>
           </div>
         </div>
 
@@ -2889,16 +2889,16 @@ textarea:focus-visible {
           <div class="info-card fade-in">
             <div class="info-icon">📍</div>
             <div class="info-content">
-              <h4>Adres</h4>
+              <h4 data-i18n="info_address">Adres</h4>
               <a href="https://maps.google.com/?q=Kuşadası Merkez+Kuşadası+Aydın" target="_blank" rel="noopener">Kuşadası Merkez, Kuşadası, Aydın 09400</a>
             </div>
           </div>
           <div class="info-card fade-in" style="transition-delay:0.1s">
             <div class="info-icon">📞</div>
             <div class="info-content">
-              <h4>Telefon</h4>
+              <h4 data-i18n="info_phone">Telefon</h4>
               <a href="tel:05523070067">05523070067</a>
-              <span>Pazartesi–Cumartesi 08:00–19:00</span>
+              <span data-i18n="phone_hours">Pazartesi–Cumartesi 08:00–19:00</span>
             </div>
           </div>
           <div class="info-card fade-in" style="transition-delay:0.2s">
@@ -2908,19 +2908,19 @@ textarea:focus-visible {
               </svg>
             </div>
             <div class="info-content">
-              <h4>WhatsApp</h4>
-              <span>Hızlı mesaj için</span>
-              <a href="https://wa.me/905523070067" target="_blank" rel="noopener" class="wa-btn">WhatsApp'tan Yaz</a>
+              <h4 data-i18n="info_whatsapp">WhatsApp</h4>
+              <span data-i18n="info_wa_sub">Hızlı mesaj için</span>
+              <a href="https://wa.me/905523070067" target="_blank" rel="noopener" class="wa-btn" data-i18n="info_wa_btn">WhatsApp'tan Yaz</a>
             </div>
           </div>
           <div class="info-card fade-in" style="transition-delay:0.3s">
             <div class="info-icon">🕐</div>
             <div class="info-content">
-              <h4>Çalışma Saatleri</h4>
+              <h4 data-i18n="info_hours">Çalışma Saatleri</h4>
               <div class="hours-table">
-                <div class="hours-row"><span>Pazartesi – Cuma</span><span>08:00 – 19:00</span></div>
-                <div class="hours-row"><span>Cumartesi</span><span>08:00 – 17:00</span></div>
-                <div class="hours-row closed"><span>Pazar</span><span style="color:#ef4444">Kapalı</span></div>
+                <div class="hours-row"><span data-i18n="hours_wdays">Pazartesi – Cuma</span><span>08:00 – 19:00</span></div>
+                <div class="hours-row"><span data-i18n="hours_sat">Cumartesi</span><span>08:00 – 17:00</span></div>
+                <div class="hours-row closed"><span data-i18n="hours_sun">Pazar</span><span style="color:#ef4444" data-i18n="hours_closed">Kapalı</span></div>
               </div>
             </div>
           </div>
@@ -2938,74 +2938,74 @@ textarea:focus-visible {
   <section id="sss">
     <div class="container">
       <div class="section-header">
-        <div class="section-label fade-in">SSS</div>
-        <h2 class="section-title fade-in">Sıkça Sorulan Sorular</h2>
-        <p class="section-subtitle fade-in">Merak ettiğiniz her şeyin cevabı burada</p>
+        <div class="section-label fade-in" data-i18n="faq_label">SSS</div>
+        <h2 class="section-title fade-in" data-i18n="faq_title">Sıkça Sorulan Sorular</h2>
+        <p class="section-subtitle fade-in" data-i18n="faq_sub">Merak ettiğiniz her şeyin cevabı burada</p>
       </div>
       <div class="faq-grid">
 
         <div class="faq-item fade-in">
           <button class="faq-question" aria-expanded="false">
-            Kuşadası'nda hangi araçlara tamir hizmeti veriyorsunuz?
+            <span data-i18n="faq1_q">Kuşadası'nda hangi araçlara tamir hizmeti veriyorsunuz?</span>
             <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">Otomobil, yat &amp; tekne ve karavan olmak üzere 3 farklı araç tipine tamir ve bakım hizmeti sunuyoruz. Her araç kategorisi için deneyimli teknisyenlerimiz mevcuttur.</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq1_a">Otomobil, yat &amp; tekne ve karavan olmak üzere 3 farklı araç tipine tamir ve bakım hizmeti sunuyoruz. Her araç kategorisi için deneyimli teknisyenlerimiz mevcuttur.</div></div>
         </div>
 
         <div class="faq-item fade-in" style="transition-delay:0.05s">
           <button class="faq-question" aria-expanded="false">
-            Randevu almadan gelebilir miyim?
+            <span data-i18n="faq2_q">Randevu almadan gelebilir miyim?</span>
             <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">Acil durumlarda randevusuz gelebilirsiniz. Ancak bekleme süresini kısaltmak için önceden 05523070067 numaralı hattı arayarak randevu almanızı öneririz.</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq2_a">Acil durumlarda randevusuz gelebilirsiniz. Ancak bekleme süresini kısaltmak için önceden 05523070067 numaralı hattı arayarak randevu almanızı öneririz.</div></div>
         </div>
 
         <div class="faq-item fade-in" style="transition-delay:0.1s">
           <button class="faq-question" aria-expanded="false">
-            Yat ve tekne tamirinde hangi hizmetleri sunuyorsunuz?
+            <span data-i18n="faq3_q">Yat ve tekne tamirinde hangi hizmetleri sunuyorsunuz?</span>
             <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">Deniz elektroniği, tekne motoru bakım &amp; revizyonu, tesisat tamiri, elektrik sistemi onarımı ve navigasyon sistemleri kurulumu hizmetlerini sunuyoruz. Kara ve marina tamiri yapıyoruz.</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq3_a">Deniz elektroniği, tekne motoru bakım &amp; revizyonu, tesisat tamiri, elektrik sistemi onarımı ve navigasyon sistemleri kurulumu hizmetlerini sunuyoruz. Kara ve marina tamiri yapıyoruz.</div></div>
         </div>
 
         <div class="faq-item fade-in" style="transition-delay:0.15s">
           <button class="faq-question" aria-expanded="false">
-            Karavan tamirinde hangi hizmetleri veriyorsunuz?
+            <span data-i18n="faq4_q">Karavan tamirinde hangi hizmetleri veriyorsunuz?</span>
             <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">Karavan elektrik sistemi, su tesisatı, solar panel kurulumu, şasi &amp; fren tamiri, akü bakımı ve iç elektrik tesisatı hizmetlerini sunuyoruz.</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq4_a">Karavan elektrik sistemi, su tesisatı, solar panel kurulumu, şasi &amp; fren tamiri, akü bakımı ve iç elektrik tesisatı hizmetlerini sunuyoruz.</div></div>
         </div>
 
         <div class="faq-item fade-in" style="transition-delay:0.2s">
           <button class="faq-question" aria-expanded="false">
-            Tamir sonrası garanti veriyor musunuz?
+            <span data-i18n="faq5_q">Tamir sonrası garanti veriyor musunuz?</span>
             <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">Evet, yaptığımız tüm işlemlerde işçilik garantisi veriyoruz. Garantili işçilikle müşteri memnuniyetini ön planda tutuyoruz.</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq5_a">Evet, yaptığımız tüm işlemlerde işçilik garantisi veriyoruz. Garantili işçilikle müşteri memnuniyetini ön planda tutuyoruz.</div></div>
         </div>
 
         <div class="faq-item fade-in" style="transition-delay:0.25s">
           <button class="faq-question" aria-expanded="false">
-            Bilgisayarlı arıza tespiti yapıyor musunuz?
+            <span data-i18n="faq6_q">Bilgisayarlı arıza tespiti yapıyor musunuz?</span>
             <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">Evet, tüm araç tipleri için bilgisayarlı arıza tespit cihazlarımız mevcuttur. ECU okuma, arıza kodu silme ve detaylı sistem analizi yapıyoruz.</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq6_a">Evet, tüm araç tipleri için bilgisayarlı arıza tespit cihazlarımız mevcuttur. ECU okuma, arıza kodu silme ve detaylı sistem analizi yapıyoruz.</div></div>
         </div>
 
         <div class="faq-item fade-in" style="transition-delay:0.3s">
           <button class="faq-question" aria-expanded="false">
-            Fiyatlar hakkında bilgi alabilir miyim?
+            <span data-i18n="faq7_q">Fiyatlar hakkında bilgi alabilir miyim?</span>
             <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">Arıza tespit yapılmadan kesin fiyat vermek mümkün değildir. Ücretsiz ön inceleme için aracınızı getirin ya da 05523070067'yi arayarak teklif isteyin.</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq7_a">Arıza tespit yapılmadan kesin fiyat vermek mümkün değildir. Ücretsiz ön inceleme için aracınızı getirin ya da 05523070067'yi arayarak teklif isteyin.</div></div>
         </div>
 
         <div class="faq-item fade-in" style="transition-delay:0.35s">
           <button class="faq-question" aria-expanded="false">
-            Hizmet bölgeniz neresi?
+            <span data-i18n="faq8_q">Hizmet bölgeniz neresi?</span>
             <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">Ağırlıklı olarak Kuşadası ve çevresine hizmet veriyoruz: Davutlar, Söke, Didim ve Aydın bölgelerinde de hizmetlerimizden yararlanabilirsiniz.</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq8_a">Ağırlıklı olarak Kuşadası ve çevresine hizmet veriyoruz: Davutlar, Söke, Didim ve Aydın bölgelerinde de hizmetlerimizden yararlanabilirsiniz.</div></div>
         </div>
 
       </div>
@@ -3097,7 +3097,7 @@ textarea:focus-visible {
           </svg>
           <span>Er Repair</span>
         </a>
-        <p>Kuşadası'nın güvenilir tamir adresi</p>
+        <p data-i18n="footer_tagline">Kuşadası'nın güvenilir tamir adresi</p>
         <div class="social-row">
           <a href="#" aria-label="Facebook" class="social-icon">
             <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -3109,19 +3109,19 @@ textarea:focus-visible {
       </div>
 
       <div class="footer-links">
-        <h4>Hızlı Erişim</h4>
+        <h4 data-i18n="footer_quick">Hızlı Erişim</h4>
         <ul>
-          <li><a href="#hero">Anasayfa</a></li>
-          <li><a href="#hizmetler">Hizmetler</a></li>
-          <li><a href="#arac-tipleri">Araç Tipleri</a></li>
-          <li><a href="#galeri">Galeri</a></li>
-          <li><a href="#hakkimizda">Hakkımızda</a></li>
-          <li><a href="#iletisim">İletişim</a></li>
+          <li><a href="#hero" data-i18n="footer_home">Anasayfa</a></li>
+          <li><a href="#hizmetler" data-i18n="footer_services">Hizmetler</a></li>
+          <li><a href="#arac-tipleri" data-i18n="footer_vehicles">Araç Tipleri</a></li>
+          <li><a href="#galeri" data-i18n="footer_gallery">Galeri</a></li>
+          <li><a href="#hakkimizda" data-i18n="footer_about">Hakkımızda</a></li>
+          <li><a href="#iletisim" data-i18n="footer_contact">İletişim</a></li>
         </ul>
       </div>
 
       <div class="footer-contact">
-        <h4>İletişim</h4>
+        <h4 data-i18n="footer_contact_h">İletişim</h4>
         <div class="footer-contact-item">
           <span>📞</span>
           <a href="tel:05523070067">05523070067</a>
@@ -3132,13 +3132,13 @@ textarea:focus-visible {
         </div>
         <div class="footer-contact-item">
           <span>🕐</span>
-          <span>Pzt–Cum 08:00–19:00<br>Cmt 08:00–17:00</span>
+          <span><span data-i18n="footer_hrs1">Pzt–Cum 08:00–19:00</span><br><span data-i18n="footer_hrs2">Cmt 08:00–17:00</span></span>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© 2025 Er Repair. Tüm hakları saklıdır.</span>
+      <span data-i18n="footer_copy">© 2025 Er Repair. Tüm hakları saklıdır.</span>
       <span>Kuşadası, Aydın, Türkiye</span>
     </div>
   </div>
@@ -3150,38 +3150,38 @@ textarea:focus-visible {
     <button class="auth-close" id="authClose" aria-label="Kapat">&#10005;</button>
     <div class="auth-logo">
       <h2>Er Repair</h2>
-      <p>Hesabınıza giriş yapın veya kayıt olun</p>
+      <p data-i18n="auth_tagline">Hesabınıza giriş yapın veya kayıt olun</p>
     </div>
     <div class="auth-tabs" role="tablist">
-      <button class="auth-tab active" data-auth-tab="login"    role="tab" aria-selected="true">Giriş Yap</button>
-      <button class="auth-tab"        data-auth-tab="register" role="tab" aria-selected="false">Kayıt Ol</button>
+      <button class="auth-tab active" data-auth-tab="login"    role="tab" aria-selected="true" data-i18n="auth_login_tab">Giriş Yap</button>
+      <button class="auth-tab"        data-auth-tab="register" role="tab" aria-selected="false" data-i18n="auth_reg_tab">Kayıt Ol</button>
     </div>
 
     <!-- Login Form -->
     <form class="auth-form" id="loginForm" novalidate>
-      <input type="email"    id="loginEmail"    placeholder="E-posta adresi"          required autocomplete="email">
-      <input type="password" id="loginPassword" placeholder="Şifre"                   required autocomplete="current-password">
+      <input type="email"    id="loginEmail"    placeholder="E-posta adresi"          required autocomplete="email" data-i18n="ph_email">
+      <input type="password" id="loginPassword" placeholder="Şifre"                   required autocomplete="current-password" data-i18n="ph_password">
       <p class="auth-error" id="loginError" role="alert"></p>
-      <button type="submit" class="auth-submit">Giriş Yap</button>
-      <p class="auth-divider">— veya —</p>
+      <button type="submit" class="auth-submit" data-i18n="auth_login_btn">Giriş Yap</button>
+      <p class="auth-divider" data-i18n="auth_or">— veya —</p>
       <button type="button" class="btn-google" id="googleSignInBtn">
         <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-        Google ile Giriş Yap
+        <span data-i18n="auth_google_login">Google ile Giriş Yap</span>
       </button>
-      <p class="auth-guest-note">Üye olmadan da teklif gönderebilirsiniz.&nbsp;<button type="button" id="authGuestBtn">Teklif formu →</button></p>
+      <p class="auth-guest-note"><span data-i18n="auth_guest">Üye olmadan da teklif gönderebilirsiniz.</span>&nbsp;<button type="button" id="authGuestBtn" data-i18n="auth_guest_btn">Teklif formu →</button></p>
     </form>
 
     <!-- Register Form -->
     <form class="auth-form" id="registerForm" novalidate style="display:none">
-      <input type="text"     id="regName"     placeholder="Ad Soyad"                  required autocomplete="name">
-      <input type="email"    id="regEmail"    placeholder="E-posta adresi"             required autocomplete="email">
-      <input type="password" id="regPassword" placeholder="Şifre (en az 6 karakter)"  required autocomplete="new-password">
+      <input type="text"     id="regName"     placeholder="Ad Soyad"                  required autocomplete="name" data-i18n="ph_name">
+      <input type="email"    id="regEmail"    placeholder="E-posta adresi"             required autocomplete="email" data-i18n="ph_email">
+      <input type="password" id="regPassword" placeholder="Şifre (en az 6 karakter)"  required autocomplete="new-password" data-i18n="ph_password_new">
       <p class="auth-error" id="registerError" role="alert"></p>
-      <button type="submit" class="auth-submit">Kayıt Ol</button>
-      <p class="auth-divider">— veya —</p>
+      <button type="submit" class="auth-submit" data-i18n="auth_reg_btn">Kayıt Ol</button>
+      <p class="auth-divider" data-i18n="auth_or">— veya —</p>
       <button type="button" class="btn-google" id="googleRegisterBtn">
         <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-        Google ile Kayıt Ol
+        <span data-i18n="auth_google_reg">Google ile Kayıt Ol</span>
       </button>
     </form>
   </div>
@@ -3190,14 +3190,14 @@ textarea:focus-visible {
 <!-- ── Admin Panel ──────────────────────────────────── -->
 <div class="admin-overlay" id="adminOverlay" role="dialog" aria-modal="true" aria-label="Admin Paneli">
   <div class="admin-header">
-    <h2>Gelen Teklifler</h2>
+    <h2 data-i18n="admin_title">Gelen Teklifler</h2>
     <div class="admin-header-actions">
       <span class="admin-count" id="adminCount">0</span>
       <button class="admin-close" id="adminClose" aria-label="Kapat">&#10005;</button>
     </div>
   </div>
   <div class="admin-body">
-    <div class="admin-empty" id="adminEmpty">Henüz teklif gelmedi.</div>
+    <div class="admin-empty" id="adminEmpty" data-i18n="admin_empty">Henüz teklif gelmedi.</div>
     <div id="adminQuotesList"></div>
   </div>
 </div>
@@ -3205,7 +3205,7 @@ textarea:focus-visible {
 <!-- WhatsApp Float Button -->
 <a href="https://wa.me/905523070067" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
   <svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  <span class="wa-tooltip">WhatsApp ile Yaz</span>
+  <span class="wa-tooltip" data-i18n="wa_tooltip">WhatsApp ile Yaz</span>
 </a>
 
 <!-- Scroll to Top -->
@@ -3246,9 +3246,16 @@ const firebaseConfig = {
 
 const ADMIN_EMAIL = 'berkayer032@gmail.com';
 
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db   = firebase.firestore();
+let auth, db;
+try {
+  firebase.initializeApp(firebaseConfig);
+  auth = firebase.auth();
+  db   = firebase.firestore();
+} catch(e) {
+  console.warn("Firebase init failed:", e);
+  auth = { onAuthStateChanged: () => {}, signInWithPopup: () => Promise.reject(e), signInWithEmailAndPassword: () => Promise.reject(e), createUserWithEmailAndPassword: () => Promise.reject(e), signOut: () => Promise.resolve() };
+  db = { collection: () => ({ get: () => Promise.resolve({docs:[]}), add: () => Promise.resolve(), orderBy: () => ({ limit: () => ({ get: () => Promise.resolve({docs:[]}) }) }) }) };
+}
 
 let currentUser = null;
 
@@ -3930,42 +3937,192 @@ const translations = {
     nav_login:       'Giriş Yap',
     nav_logout:      'Çıkış',
     // Hero
-    hero_badge:      'Kuşadası\'nın Güvenilir Tamir Merkezi',
-    hero_title:      'Her Araca Uzman Ellerin Dokunuşu',
-    hero_subtitle:   'Otomobil, yat ve karavan tamirinde Kuşadası\'nın köklü servisi. Bilgisayarlı arıza tespiti, garantili işçilik.',
-    hero_cta1:       'Teklif Al',
-    hero_cta2:       'Hizmetleri İncele',
-    hero_stat1:      'Yıllık Deneyim',
+    hero_title:      'Kuşadası\'nın Güvenilir <span class="accent">Oto, Yat & Karavan Tamir</span> Servisi',
+    hero_subtitle:   'Otomobiliniz, yatınız veya karavanınız için elektrik, elektronik, şanzıman ve tesisat tamirinde profesyonel hizmet. Hızlı, garantili, uygun fiyatlı.',
+    hero_cta1:       'Hizmetlerimizi Keşfet →',
+    hero_cta2:       'Hemen Ara',
+    hero_stat1:      'Yıl Deneyim',
     hero_stat2:      'Mutlu Müşteri',
-    hero_stat3:      'Tamamlanan İş',
-    hero_type1:      'Otomobil Servisi',
-    hero_type2:      'Yat & Tekne',
-    hero_type3:      'Karavan',
-    // Sections
-    services_label:  'HİZMETLER',
-    services_title:  'Uzmanlık Alanlarımız',
-    services_sub:    'Araç tipine göre filtreleyin',
-    vehicles_label:  'ARAÇ TİPLERİ',
-    vehicles_title:  'Her Araca Uzman Çözüm',
-    vehicles_sub:    'Otomobilden yata, karavana kadar tüm araç tipleri',
-    gallery_label:   'GALERİ',
+    hero_stat3:      'Araç Tipi',
+    hero_card1:      'Tesisat Kontrolü',
+    hero_card2:      'Şanzıman Revizyonu',
+    hero_card3:      'Elektrik Arıza Tespiti',
+    hero_done:       '✓ Tamamlandı',
+    hero_scroll:     'Aşağı Kaydır',
+    // Vehicle types
+    vehicles_label:  'Araç Tipleri',
+    vehicles_title:  'Hangi Araç İçin Hizmet Alıyorsunuz?',
+    vehicles_sub:    'Tüm araç tiplerine özel uzman servis hizmeti sunuyoruz',
+    veh1_title:      'Otomobil',
+    veh1_desc:       'Her marka ve model otomobil için kapsamlı tamir ve bakım hizmeti. Sorununuzu en kısa sürede çözüyoruz.',
+    veh1_s1:         '✓ Elektrik & Elektronik',
+    veh1_s2:         '✓ Şanzıman Tamiri',
+    veh1_s3:         '✓ Motor Bakımı',
+    veh2_title:      'Yat & Tekne',
+    veh2_desc:       'Deniz araçlarınız için özel elektronik ve mekanik servis hizmeti. Marina ve kara tamiri yapıyoruz.',
+    veh2_s1:         '✓ Deniz Elektroniği',
+    veh2_s2:         '✓ Tekne Tesisatı',
+    veh2_s3:         '✓ Motor Revizyonu',
+    veh3_title:      'Karavan',
+    veh3_desc:       'Karavanınızın tüm mekanik ve elektrik ihtiyaçları için profesyonel çözüm. Solar sistemden frene kadar.',
+    veh3_s1:         '✓ Elektrik Sistemi',
+    veh3_s2:         '✓ Şasi & Fren',
+    veh3_s3:         '✓ Tesisat Tamiri',
+    veh_btn:         'Hizmetleri Gör →',
+    // Services
+    services_label:  'Hizmetler',
+    services_title:  'Hizmetlerimiz',
+    services_sub:    'Geniş hizmet yelpazemizle araçlarınız her zaman güvende',
+    filter_all:      'Tümü',
+    filter_car:      'Otomobil',
+    filter_yacht:    'Yat & Tekne',
+    filter_caravan:  'Karavan',
+    svc1_title:      'Elektrik & Elektronik',
+    svc1_desc:       'Araç elektrik sistemleri, ECU okuma/sıfırlama, kablo arıza tespiti ve onarımı.',
+    svc1_tag:        'Tüm Araçlar',
+    svc2_title:      'Şanzıman Tamiri',
+    svc2_desc:       'Manuel ve otomatik şanzıman revizyonu, yağ değişimi, vites problemi çözümü.',
+    svc2_tag:        'Uzman İşçilik',
+    svc3_title:      'Motor Bakım & Revizyon',
+    svc3_desc:       'Yağ değişimi, triger seti, soğutma sistemi, motor revizyon hizmetleri.',
+    svc3_tag:        'Otomobil',
+    svc4_title:      'Fren & Süspansiyon',
+    svc4_desc:       'Balata, disk, amortisör, rot-rotil kontrolü ve değişimi.',
+    svc4_tag:        'Otomobil',
+    svc5_title:      'Klima Servisi',
+    svc5_desc:       'Klima gazı dolumu, kompresör kontrolü, kalorifer tamiri.',
+    svc5_tag:        'Otomobil',
+    svc6_title:      'Akü & Marş',
+    svc6_desc:       'Akü ölçümü, değişimi, marş ve alternatör tamiri.',
+    svc6_tag:        'Otomobil',
+    svc7_title:      'Deniz Elektroniği',
+    svc7_desc:       'GPS, VHF telsiz, echo sounder, otomat kurulum ve onarımı.',
+    svc7_tag:        'Yat & Tekne',
+    svc8_title:      'Tekne Tesisat',
+    svc8_desc:       'Su, yakıt, atık su sistemleri, pompa değişimi.',
+    svc8_tag:        'Yat & Tekne',
+    svc9_title:      'Deniz Motoru',
+    svc9_desc:       'İçten ve dıştan takma motor bakım, revizyon ve onarımı.',
+    svc9_tag:        'Yat & Tekne',
+    svc10_title:     'Karavan Elektrik',
+    svc10_desc:      'Solar panel, inverter, akü grubu, 12V/230V sistem kurulumu.',
+    svc10_tag:       'Karavan',
+    svc11_title:     'Karavan Tesisat',
+    svc11_desc:      'Su deposu, pompa, ısıtma sistemi, gaz tesisatı kontrolü.',
+    svc11_tag:       'Karavan',
+    svc12_title:     'Şasi & Fren',
+    svc12_desc:      'Karavan fren sistemi, çeki sistemi, tekerlek yatağı kontrolü.',
+    svc12_tag:       'Karavan',
+    svc_btn:         'Teklif Al →',
+    // Stats / Why Us
+    stats_label:     'Neden Biz?',
+    stats_title:     'Neden Bizi Tercih Etmelisiniz?',
+    stats_sub:       'Kalite, hız ve güven bir arada',
+    stat1_label:     'Yıl Deneyim',
+    stat2_label:     'Tamamlanan İş',
+    stat3_label:     'Araç Tipi Uzmanlığı',
+    stat4_label:     'Müşteri Memnuniyeti',
+    feat1_title:     'Hızlı Servis',
+    feat1_desc:      'Aynı gün servis, acil müdahale imkanı',
+    feat2_title:     'Uygun Fiyat',
+    feat2_desc:      'Piyasa fiyatlarının altında kaliteli hizmet',
+    feat3_title:     'Garantili İşçilik',
+    feat3_desc:      'Tüm işlemlerde işçilik garantisi veriyoruz',
+    feat4_title:     'Uzman Ekip',
+    feat4_desc:      'Sertifikalı, deneyimli teknisyen kadrosu',
+    // Gallery
+    gallery_label:   'Galeri',
     gallery_title:   'Tamamlanan İşlerimizden',
-    gallery_sub:     'Gerçek araçlar, gerçek sonuçlar',
-    stats_label:     'NEDEN BİZ',
-    stats_title:     'Rakamlarla Er Repair',
-    stats_sub:       'Yılların deneyimi, binlerce memnun müşteri',
-    reviews_label:   'MÜŞTERİ YORUMLARI',
+    gallery_sub:     'Müşterilerimize sunduğumuz kaliteli hizmetin örnekleri',
+    gal1_title: 'Motor Revizyon',    gal1_badge: 'Otomobil',
+    gal2_title: 'Deniz Elektroniği', gal2_badge: 'Yat',
+    gal3_title: 'Solar Kurulum',     gal3_badge: 'Karavan',
+    gal4_title: 'Şanzıman Onarımı', gal4_badge: 'Otomobil',
+    gal5_title: 'Elektrik Sistemi',  gal5_badge: 'Karavan',
+    gal6_title: 'Motor Bakım',       gal6_badge: 'Yat',
+    gal7_title: 'Elektrik Arıza',    gal7_badge: 'Otomobil',
+    gal8_title: 'Şasi Onarım',      gal8_badge: 'Karavan',
+    gal9_title: 'Tesisat Onarım',   gal9_badge: 'Yat',
+    gal10_title: 'Fren Değişimi',   gal10_badge: 'Otomobil',
+    gal11_title: 'Su Tesisatı',     gal11_badge: 'Karavan',
+    gal12_title: 'Deniz Elektroniği 2', gal12_badge: 'Yat',
+    // Reviews
+    reviews_label:   'Yorumlar',
     reviews_title:   'Müşterilerimiz Ne Diyor?',
-    reviews_sub:     'Gerçek deneyimler, gerçek yorumlar',
-    about_label:     'HAKKIMIZDA',
-    about_title:     'Er Repair Ailesi',
-    about_sub:       'Kuşadası\'nda yıllardır güvenilir tamir hizmeti',
-    contact_label:   'İLETİŞİM',
-    contact_title:   'Bizimle İletişime Geçin',
-    contact_sub:     'Teklif alın ya da sorularınızı sorun',
+    reviews_sub:     'Gerçek müşteri deneyimleri',
+    review_add_btn:  'Yorum Bırak',
+    review_form_h:   'Deneyiminizi Paylaşın',
+    review_name_ph:  'Adınız',
+    review_veh_ph:   'Araç tipi (opsiyonel)',
+    review_text_ph:  'Deneyiminizi yazın...',
+    review_submit:   'Gönder',
+    review_cancel:   'İptal',
+    google_review:   'Google Yorumu',
+    user_rev_label:  'Ziyaretçi Yorumları',
+    // About
+    about_label:     'Biz Kimiz?',
+    about_title:     '15 Yılı Aşkın Deneyim ve Güven',
+    about_p1:        'Kuşadası\'nda 2009\'dan bu yana otomobil, yat ve karavan tamiri alanında hizmet veriyoruz. Türkiye\'nin en gözde tatil destinasyonlarından birinde, hem yerel halkın hem de ziyaretçilerin güvenilir tamir adresi olmaktan gurur duyuyoruz.',
+    about_p2:        'Elektrik-elektronik, şanzıman, tesisat ve mekanik alanlarda uzmanlaşmış ekibimizle her türlü araca kapsamlı servis sunuyoruz.',
+    cert1:           '🔧 Yetkili Servis',
+    cert2:           '✅ TSE Belgeli',
+    cert3:           '⭐ 15 Yıl Deneyim',
+    about_cta:       'İletişime Geç →',
+    about_jobs:      'İş Tamamlandı',
+    // Contact
+    contact_label:   'İletişim',
+    contact_title:   'İletişime Geçin',
+    contact_sub:     'Araç tipinizi ve sorununuzu belirtin, en kısa sürede size dönelim',
+    lbl_name:        'Ad Soyad',
+    lbl_phone:       'Telefon',
+    lbl_vehicle:     'Araç Tipi',
+    lbl_service:     'Hizmet',
+    lbl_message:     'Mesajınız',
+    ph_name:         'Adınız ve soyadınız',
+    ph_phone:        '05XX XXX XX XX',
+    ph_message:      'Aracınızla ilgili sorunu kısaca anlatın...',
+    opt_select:      'Seçiniz...',
+    opt_car:         'Otomobil',
+    opt_yacht:       'Yat / Tekne',
+    opt_caravan:     'Karavan',
+    opt_other:       'Diğer',
+    opt_elec:        'Elektrik & Elektronik',
+    opt_gear:        'Şanzıman',
+    opt_plumb:       'Tesisat',
+    opt_engine:      'Motor Bakımı',
+    form_submit_btn: 'Mesaj Gönder →',
+    form_success_h:  'Mesajınız alındı!',
+    form_success_p:  'En kısa sürede sizi arayacağız.',
+    info_address:    'Adres',
+    info_phone:      'Telefon',
+    info_whatsapp:   'WhatsApp',
+    info_wa_sub:     'Hızlı mesaj için',
+    info_wa_btn:     'WhatsApp\'tan Yaz',
+    info_hours:      'Çalışma Saatleri',
+    hours_wdays:     'Pazartesi – Cuma',
+    hours_sat:       'Cumartesi',
+    hours_sun:       'Pazar',
+    hours_closed:    'Kapalı',
+    // FAQ / SSS
     faq_label:       'SSS',
     faq_title:       'Sıkça Sorulan Sorular',
     faq_sub:         'Merak ettiğiniz her şeyin cevabı burada',
+    faq1_q:          'Kuşadası\'nda hangi araçlara tamir hizmeti veriyorsunuz?',
+    faq1_a:          'Otomobil, yat & tekne ve karavan olmak üzere 3 farklı araç tipine tamir ve bakım hizmeti sunuyoruz. Her araç kategorisi için deneyimli teknisyenlerimiz mevcuttur.',
+    faq2_q:          'Randevu almadan gelebilir miyim?',
+    faq2_a:          'Acil durumlarda randevusuz gelebilirsiniz. Ancak bekleme süresini kısaltmak için önceden 05523070067 numaralı hattı arayarak randevu almanızı öneririz.',
+    faq3_q:          'Yat ve tekne tamirinde hangi hizmetleri sunuyorsunuz?',
+    faq3_a:          'Deniz elektroniği, tekne motoru bakım & revizyonu, tesisat tamiri, elektrik sistemi onarımı ve navigasyon sistemleri kurulumu hizmetlerini sunuyoruz. Kara ve marina tamiri yapıyoruz.',
+    faq4_q:          'Karavan tamirinde hangi hizmetleri veriyorsunuz?',
+    faq4_a:          'Karavan elektrik sistemi, su tesisatı, solar panel kurulumu, şasi & fren tamiri, akü bakımı ve iç elektrik tesisatı hizmetlerini sunuyoruz.',
+    faq5_q:          'Tamir sonrası garanti veriyor musunuz?',
+    faq5_a:          'Evet, yaptığımız tüm işlemlerde işçilik garantisi veriyoruz. Garantili işçilikle müşteri memnuniyetini ön planda tutuyoruz.',
+    faq6_q:          'Bilgisayarlı arıza tespiti yapıyor musunuz?',
+    faq6_a:          'Evet, tüm araç tipleri için bilgisayarlı arıza tespit cihazlarımız mevcuttur. ECU okuma, arıza kodu silme ve detaylı sistem analizi yapıyoruz.',
+    faq7_q:          'Fiyatlar hakkında bilgi alabilir miyim?',
+    faq7_a:          'Arıza tespit yapılmadan kesin fiyat vermek mümkün değildir. Ücretsiz ön inceleme için aracınızı getirin ya da 05523070067\'yi arayarak teklif isteyin.',
+    faq8_q:          'Hizmet bölgeniz neresi?',
+    faq8_a:          'Ağırlıklı olarak Kuşadası ve çevresine hizmet veriyoruz: Davutlar, Söke, Didim ve Aydın bölgelerinde de hizmetlerimizden yararlanabilirsiniz.',
     // Blog
     blog_label:      'Blog',
     blog_title:      'Faydalı Bilgiler',
@@ -3989,15 +4146,48 @@ const translations = {
     kvkk_link:       'KVKK Aydınlatma Metnimizi',
     kvkk_accept:     'Kabul Et',
     kvkk_decline:    'Reddet',
-    // Form
-    form_name:       'Ad Soyad *',
-    form_phone:      'Telefon *',
-    form_vehicle:    'Araç Tipi *',
-    form_service:    'Hizmet Tipi *',
-    form_message:    'Mesajınız',
-    form_submit:     'Teklif Gönder',
-    form_success:    'Mesajınız alındı! En kısa sürede dönüş yapacağız.',
+
+    // Reviewer badges
+    badge_yacht:     'Yat Sahibi',
+    badge_caravan:   'Karavan Sahibi',
+    badge_car:       'Otomobil Sahibi',
+    // Review dates
+    rev_date1:       '2 ay önce',
+    rev_date2:       '1 ay önce',
+    rev_date3:       '3 hafta önce',
+    // Phone hours
+    phone_hours:     'Pazartesi–Cumartesi 08:00–19:00',
+    // Auth modal
+    auth_tagline:    'Hesabınıza giriş yapın veya kayıt olun',
+    auth_login_tab:  'Giriş Yap',
+    auth_reg_tab:    'Kayıt Ol',
+    ph_email:        'E-posta adresi',
+    ph_password:     'Şifre',
+    ph_password_new: 'Şifre (en az 6 karakter)',
+    auth_login_btn:  'Giriş Yap',
+    auth_or:         '— veya —',
+    auth_google_login: 'Google ile Giriş Yap',
+    auth_guest:      'Üye olmadan da teklif gönderebilirsiniz.',
+    auth_guest_btn:  'Teklif formu →',
+    auth_reg_btn:    'Kayıt Ol',
+    auth_google_reg: 'Google ile Kayıt Ol',
+    // Admin
+    admin_title:     'Gelen Teklifler',
+    admin_empty:     'Henüz teklif gelmedi.',
+    // WhatsApp tooltip
+    wa_tooltip:      'WhatsApp ile Yaz',
     // Footer
+    footer_quick:    'Hızlı Erişim',
+    footer_home:     'Anasayfa',
+    footer_services: 'Hizmetler',
+    footer_vehicles: 'Araç Tipleri',
+    footer_gallery:  'Galeri',
+    footer_about:    'Hakkımızda',
+    footer_contact:  'İletişim',
+    footer_contact_h:'İletişim',
+    footer_hrs1:     'Pzt–Cum 08:00–19:00',
+    footer_hrs2:     'Cmt 08:00–17:00',
+    footer_copy:     '© 2025 Er Repair. Tüm hakları saklıdır.',
     footer_tagline:  'Kuşadası\'nın güvenilir tamir adresi',
   },
   en: {
@@ -4012,42 +4202,192 @@ const translations = {
     nav_login:       'Sign In',
     nav_logout:      'Sign Out',
     // Hero
-    hero_badge:      'Kuşadası\'s Trusted Repair Centre',
-    hero_title:      'Expert Hands on Every Vehicle',
-    hero_subtitle:   'Kuşadası\'s established service for car, yacht & caravan repair. Computerized diagnostics, guaranteed workmanship.',
-    hero_cta1:       'Get a Quote',
-    hero_cta2:       'View Services',
+    hero_title:      'Kuşadası\'s Trusted <span class="accent">Car, Yacht & Caravan Repair</span> Service',
+    hero_subtitle:   'Professional electrical, electronic, gearbox and plumbing repair for your car, yacht or caravan. Fast, guaranteed, affordable.',
+    hero_cta1:       'Explore Our Services →',
+    hero_cta2:       'Call Now',
     hero_stat1:      'Years Experience',
     hero_stat2:      'Happy Customers',
-    hero_stat3:      'Jobs Completed',
-    hero_type1:      'Car Service',
-    hero_type2:      'Yacht & Boat',
-    hero_type3:      'Caravan',
-    // Sections
-    services_label:  'SERVICES',
-    services_title:  'Our Expertise',
-    services_sub:    'Filter by vehicle type',
-    vehicles_label:  'VEHICLE TYPES',
-    vehicles_title:  'Expert Solution for Every Vehicle',
-    vehicles_sub:    'From cars to yachts and caravans — all vehicle types',
-    gallery_label:   'GALLERY',
+    hero_stat3:      'Vehicle Types',
+    hero_card1:      'Plumbing Inspection',
+    hero_card2:      'Gearbox Overhaul',
+    hero_card3:      'Electrical Fault Detection',
+    hero_done:       '✓ Completed',
+    hero_scroll:     'Scroll Down',
+    // Vehicle types
+    vehicles_label:  'Vehicle Types',
+    vehicles_title:  'Which Vehicle Do You Need Service For?',
+    vehicles_sub:    'Expert service tailored to every vehicle type',
+    veh1_title:      'Car',
+    veh1_desc:       'Comprehensive repair and service for all makes and models. We resolve your issue as quickly as possible.',
+    veh1_s1:         '✓ Electrical & Electronics',
+    veh1_s2:         '✓ Gearbox Repair',
+    veh1_s3:         '✓ Engine Service',
+    veh2_title:      'Yacht & Boat',
+    veh2_desc:       'Specialist electronic and mechanical service for your marine vessels. Marina and on-land repair.',
+    veh2_s1:         '✓ Marine Electronics',
+    veh2_s2:         '✓ Boat Plumbing',
+    veh2_s3:         '✓ Engine Overhaul',
+    veh3_title:      'Caravan',
+    veh3_desc:       'Professional solutions for all mechanical and electrical needs of your caravan. From solar systems to brakes.',
+    veh3_s1:         '✓ Electrical System',
+    veh3_s2:         '✓ Chassis & Brakes',
+    veh3_s3:         '✓ Plumbing Repair',
+    veh_btn:         'View Services →',
+    // Services
+    services_label:  'Services',
+    services_title:  'Our Services',
+    services_sub:    'Your vehicles are always safe with our wide range of services',
+    filter_all:      'All',
+    filter_car:      'Car',
+    filter_yacht:    'Yacht & Boat',
+    filter_caravan:  'Caravan',
+    svc1_title:      'Electrical & Electronics',
+    svc1_desc:       'Vehicle electrical systems, ECU reading/reset, cable fault detection and repair.',
+    svc1_tag:        'All Vehicles',
+    svc2_title:      'Gearbox Repair',
+    svc2_desc:       'Manual and automatic gearbox overhaul, oil change, gear problem resolution.',
+    svc2_tag:        'Expert Workmanship',
+    svc3_title:      'Engine Service & Overhaul',
+    svc3_desc:       'Oil change, timing kit, cooling system, engine overhaul services.',
+    svc3_tag:        'Car',
+    svc4_title:      'Brakes & Suspension',
+    svc4_desc:       'Brake pads, discs, shock absorbers, tie rod and ball joint check and replacement.',
+    svc4_tag:        'Car',
+    svc5_title:      'Air Conditioning Service',
+    svc5_desc:       'AC gas refill, compressor check, heater repair.',
+    svc5_tag:        'Car',
+    svc6_title:      'Battery & Starter',
+    svc6_desc:       'Battery testing, replacement, starter motor and alternator repair.',
+    svc6_tag:        'Car',
+    svc7_title:      'Marine Electronics',
+    svc7_desc:       'GPS, VHF radio, echo sounder, autopilot installation and repair.',
+    svc7_tag:        'Yacht & Boat',
+    svc8_title:      'Boat Plumbing',
+    svc8_desc:       'Fresh water, fuel and waste water systems, pump replacement.',
+    svc8_tag:        'Yacht & Boat',
+    svc9_title:      'Marine Engine',
+    svc9_desc:       'Inboard and outboard engine service, overhaul and repair.',
+    svc9_tag:        'Yacht & Boat',
+    svc10_title:     'Caravan Electrics',
+    svc10_desc:      'Solar panel, inverter, battery bank, 12V/230V system installation.',
+    svc10_tag:       'Caravan',
+    svc11_title:     'Caravan Plumbing',
+    svc11_desc:      'Water tank, pump, heating system, gas installation check.',
+    svc11_tag:       'Caravan',
+    svc12_title:     'Chassis & Brakes',
+    svc12_desc:      'Caravan brake system, tow system, wheel bearing check.',
+    svc12_tag:       'Caravan',
+    svc_btn:         'Get a Quote →',
+    // Stats / Why Us
+    stats_label:     'Why Us?',
+    stats_title:     'Why Choose Us?',
+    stats_sub:       'Quality, speed and trust in one place',
+    stat1_label:     'Years Experience',
+    stat2_label:     'Jobs Completed',
+    stat3_label:     'Vehicle Type Expertise',
+    stat4_label:     'Customer Satisfaction',
+    feat1_title:     'Fast Service',
+    feat1_desc:      'Same-day service, emergency response available',
+    feat2_title:     'Affordable',
+    feat2_desc:      'Quality service below market prices',
+    feat3_title:     'Guaranteed Workmanship',
+    feat3_desc:      'We guarantee workmanship on all jobs',
+    feat4_title:     'Expert Team',
+    feat4_desc:      'Certified, experienced technician team',
+    // Gallery
+    gallery_label:   'Gallery',
     gallery_title:   'Completed Jobs',
-    gallery_sub:     'Real vehicles, real results',
-    stats_label:     'WHY US',
-    stats_title:     'Er Repair by Numbers',
-    stats_sub:       'Years of experience, thousands of happy customers',
-    reviews_label:   'CUSTOMER REVIEWS',
-    reviews_title:   'What Our Customers Say',
-    reviews_sub:     'Real experiences, real reviews',
-    about_label:     'ABOUT',
-    about_title:     'The Er Repair Family',
-    about_sub:       'Trusted repair service in Kuşadası for years',
-    contact_label:   'CONTACT',
+    gallery_sub:     'Examples of quality service we provide to our customers',
+    gal1_title: 'Engine Overhaul',    gal1_badge: 'Car',
+    gal2_title: 'Marine Electronics', gal2_badge: 'Yacht',
+    gal3_title: 'Solar Installation', gal3_badge: 'Caravan',
+    gal4_title: 'Gearbox Repair',     gal4_badge: 'Car',
+    gal5_title: 'Electrical System',  gal5_badge: 'Caravan',
+    gal6_title: 'Engine Service',     gal6_badge: 'Yacht',
+    gal7_title: 'Electrical Fault',   gal7_badge: 'Car',
+    gal8_title: 'Chassis Repair',     gal8_badge: 'Caravan',
+    gal9_title: 'Plumbing Repair',    gal9_badge: 'Yacht',
+    gal10_title: 'Brake Replacement', gal10_badge: 'Car',
+    gal11_title: 'Water Plumbing',    gal11_badge: 'Caravan',
+    gal12_title: 'Marine Electronics 2', gal12_badge: 'Yacht',
+    // Reviews
+    reviews_label:   'Reviews',
+    reviews_title:   'What Do Our Customers Say?',
+    reviews_sub:     'Real customer experiences',
+    review_add_btn:  'Leave a Review',
+    review_form_h:   'Share Your Experience',
+    review_name_ph:  'Your Name',
+    review_veh_ph:   'Vehicle type (optional)',
+    review_text_ph:  'Write about your experience...',
+    review_submit:   'Submit',
+    review_cancel:   'Cancel',
+    google_review:   'Google Review',
+    user_rev_label:  'Visitor Reviews',
+    // About
+    about_label:     'Who Are We?',
+    about_title:     '15+ Years of Experience and Trust',
+    about_p1:        'We have been providing car, yacht and caravan repair services in Kuşadası since 2009. We are proud to be the trusted repair address for both locals and visitors in one of Turkey\'s most popular holiday destinations.',
+    about_p2:        'Our team specialised in electrical-electronics, gearbox, plumbing and mechanics provides comprehensive service for all types of vehicles.',
+    cert1:           '🔧 Authorised Service',
+    cert2:           '✅ TSE Certified',
+    cert3:           '⭐ 15 Years Experience',
+    about_cta:       'Get in Touch →',
+    about_jobs:      'Jobs Completed',
+    // Contact
+    contact_label:   'Contact',
     contact_title:   'Get in Touch',
-    contact_sub:     'Request a quote or ask a question',
+    contact_sub:     'Tell us your vehicle type and issue — we\'ll get back to you as soon as possible',
+    lbl_name:        'Full Name',
+    lbl_phone:       'Phone',
+    lbl_vehicle:     'Vehicle Type',
+    lbl_service:     'Service',
+    lbl_message:     'Your Message',
+    ph_name:         'Your full name',
+    ph_phone:        '+90 5XX XXX XX XX',
+    ph_message:      'Briefly describe the issue with your vehicle...',
+    opt_select:      'Select...',
+    opt_car:         'Car',
+    opt_yacht:       'Yacht / Boat',
+    opt_caravan:     'Caravan',
+    opt_other:       'Other',
+    opt_elec:        'Electrical & Electronics',
+    opt_gear:        'Gearbox',
+    opt_plumb:       'Plumbing',
+    opt_engine:      'Engine Service',
+    form_submit_btn: 'Send Message →',
+    form_success_h:  'Message received!',
+    form_success_p:  'We will call you as soon as possible.',
+    info_address:    'Address',
+    info_phone:      'Phone',
+    info_whatsapp:   'WhatsApp',
+    info_wa_sub:     'For a quick message',
+    info_wa_btn:     'Message on WhatsApp',
+    info_hours:      'Working Hours',
+    hours_wdays:     'Monday – Friday',
+    hours_sat:       'Saturday',
+    hours_sun:       'Sunday',
+    hours_closed:    'Closed',
+    // FAQ
     faq_label:       'FAQ',
     faq_title:       'Frequently Asked Questions',
     faq_sub:         'Answers to everything you wonder about',
+    faq1_q:          'What vehicles do you repair in Kuşadası?',
+    faq1_a:          'We provide repair and maintenance for 3 vehicle types: cars, yachts & boats, and caravans. We have experienced technicians for each category.',
+    faq2_q:          'Can I come without an appointment?',
+    faq2_a:          'You can come without an appointment in emergencies. However, we recommend calling 05523070067 in advance to shorten your waiting time.',
+    faq3_q:          'What yacht and boat repair services do you offer?',
+    faq3_a:          'We offer marine electronics, boat engine service & overhaul, plumbing repair, electrical system repair and navigation system installation. Marina and on-land repair available.',
+    faq4_q:          'What caravan repair services do you provide?',
+    faq4_a:          'We offer caravan electrical system, water plumbing, solar panel installation, chassis & brake repair, battery maintenance and interior wiring services.',
+    faq5_q:          'Do you offer a guarantee after repair?',
+    faq5_a:          'Yes, we guarantee workmanship on all jobs. Customer satisfaction is our top priority.',
+    faq6_q:          'Do you do computerised fault detection?',
+    faq6_a:          'Yes, we have computerised fault detection equipment for all vehicle types. ECU reading, fault code clearing and detailed system analysis.',
+    faq7_q:          'Can I get price information?',
+    faq7_a:          'It is not possible to give a definitive price without fault detection. Bring your vehicle for a free initial inspection or call 05523070067 to request a quote.',
+    faq8_q:          'What is your service area?',
+    faq8_a:          'We mainly serve Kuşadası and the surrounding area: Davutlar, Söke, Didim and Aydın regions.',
     // Blog
     blog_label:      'Blog',
     blog_title:      'Useful Insights',
@@ -4071,15 +4411,78 @@ const translations = {
     kvkk_link:       'our Privacy Policy',
     kvkk_accept:     'Accept',
     kvkk_decline:    'Decline',
-    // Form
-    form_name:       'Full Name *',
-    form_phone:      'Phone *',
-    form_vehicle:    'Vehicle Type *',
-    form_service:    'Service Type *',
-    form_message:    'Your Message',
-    form_submit:     'Send Quote',
-    form_success:    'Message received! We\'ll get back to you shortly.',
+
+    // Reviewer badges
+    badge_yacht:     'Yat Sahibi',
+    badge_caravan:   'Karavan Sahibi',
+    badge_car:       'Otomobil Sahibi',
+    // Review dates
+    rev_date1:       '2 ay önce',
+    rev_date2:       '1 ay önce',
+    rev_date3:       '3 hafta önce',
+    // Phone hours
+    phone_hours:     'Pazartesi–Cumartesi 08:00–19:00',
+    // Auth modal
+    auth_tagline:    'Hesabınıza giriş yapın veya kayıt olun',
+    auth_login_tab:  'Giriş Yap',
+    auth_reg_tab:    'Kayıt Ol',
+    ph_email:        'E-posta adresi',
+    ph_password:     'Şifre',
+    ph_password_new: 'Şifre (en az 6 karakter)',
+    auth_login_btn:  'Giriş Yap',
+    auth_or:         '— veya —',
+    auth_google_login: 'Google ile Giriş Yap',
+    auth_guest:      'Üye olmadan da teklif gönderebilirsiniz.',
+    auth_guest_btn:  'Teklif formu →',
+    auth_reg_btn:    'Kayıt Ol',
+    auth_google_reg: 'Google ile Kayıt Ol',
+    // Admin
+    admin_title:     'Gelen Teklifler',
+    admin_empty:     'Henüz teklif gelmedi.',
+    // WhatsApp tooltip
+    wa_tooltip:      'WhatsApp ile Yaz',
+
+    // Reviewer badges
+    badge_yacht:     'Yacht Owner',
+    badge_caravan:   'Caravan Owner',
+    badge_car:       'Car Owner',
+    // Review dates
+    rev_date1:       '2 months ago',
+    rev_date2:       '1 month ago',
+    rev_date3:       '3 weeks ago',
+    // Phone hours
+    phone_hours:     'Mon–Sat 08:00–19:00',
+    // Auth modal
+    auth_tagline:    'Sign in or create an account',
+    auth_login_tab:  'Sign In',
+    auth_reg_tab:    'Register',
+    ph_email:        'Email address',
+    ph_password:     'Password',
+    ph_password_new: 'Password (at least 6 characters)',
+    auth_login_btn:  'Sign In',
+    auth_or:         '— or —',
+    auth_google_login: 'Sign in with Google',
+    auth_guest:      'You can also send a quote without registering.',
+    auth_guest_btn:  'Quote form →',
+    auth_reg_btn:    'Register',
+    auth_google_reg: 'Sign up with Google',
+    // Admin
+    admin_title:     'Incoming Quotes',
+    admin_empty:     'No quotes yet.',
+    // WhatsApp tooltip
+    wa_tooltip:      'Message on WhatsApp',
     // Footer
+    footer_quick:    'Quick Links',
+    footer_home:     'Home',
+    footer_services: 'Services',
+    footer_vehicles: 'Vehicle Types',
+    footer_gallery:  'Gallery',
+    footer_about:    'About',
+    footer_contact:  'Contact',
+    footer_contact_h:'Contact',
+    footer_hrs1:     'Mon–Fri 08:00–19:00',
+    footer_hrs2:     'Sat 08:00–17:00',
+    footer_copy:     '© 2025 Er Repair. All rights reserved.',
     footer_tagline:  'Kuşadası\'s trusted repair address',
   }
 };
@@ -4103,6 +4506,10 @@ function applyLang(lang) {
         el.textContent = t[key];
       }
     }
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (t[key] !== undefined) el.innerHTML = t[key];
   });
 }
 
