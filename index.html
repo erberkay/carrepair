@@ -2692,16 +2692,17 @@ document.getElementById('navLogoutBtn').addEventListener('click', () => auth.sig
 /* ─── Google Sign-In ─────────────────────────────────────── */
 async function signInWithGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
-  const errEl = document.getElementById('loginError');
+  // Show error in whichever tab is currently visible
+  const activeTab = document.querySelector('.auth-tab.active')?.dataset.authTab;
+  const errEl = document.getElementById(activeTab === 'register' ? 'registerError' : 'loginError');
   if (errEl) errEl.textContent = '';
   try {
     await auth.signInWithPopup(provider);
     closeAuthModal();
   } catch (err) {
-    if (err.code !== 'auth/popup-closed-by-user') {
-      const el = document.getElementById('loginError') || document.getElementById('registerError');
-      if (el) el.textContent = firebaseErrMsg(err.code);
-    }
+    if (err.code === 'auth/popup-closed-by-user' || err.code === 'auth/cancelled-popup-request') return;
+    console.error('Google sign-in error:', err.code, err.message);
+    if (errEl) errEl.textContent = firebaseErrMsg(err.code);
   }
 }
 document.getElementById('googleSignInBtn').addEventListener('click', signInWithGoogle);
@@ -2784,15 +2785,23 @@ function esc(str) {
 }
 function firebaseErrMsg(code) {
   const m = {
-    'auth/invalid-email':        'Geçersiz e-posta adresi.',
-    'auth/user-not-found':       'Bu e-posta ile kayıtlı hesap bulunamadı.',
-    'auth/wrong-password':       'Şifre hatalı.',
-    'auth/invalid-credential':   'E-posta veya şifre hatalı.',
-    'auth/email-already-in-use': 'Bu e-posta zaten kullanımda.',
-    'auth/weak-password':        'Şifre en az 6 karakter olmalı.',
-    'auth/too-many-requests':    'Çok fazla deneme. Lütfen bekleyin.',
+    'auth/invalid-email':              'Geçersiz e-posta adresi.',
+    'auth/user-not-found':             'Bu e-posta ile kayıtlı hesap bulunamadı.',
+    'auth/wrong-password':             'Şifre hatalı.',
+    'auth/invalid-credential':         'E-posta veya şifre hatalı.',
+    'auth/email-already-in-use':       'Bu e-posta zaten kullanımda.',
+    'auth/weak-password':              'Şifre en az 6 karakter olmalı.',
+    'auth/too-many-requests':          'Çok fazla deneme. Lütfen bekleyin.',
+    'auth/operation-not-allowed':      'Bu giriş yöntemi henüz etkinleştirilmemiş.',
+    'auth/unauthorized-domain':        'Bu domain yetkili değil. Firebase Console\'da ekleyin.',
+    'auth/popup-blocked':              'Açılır pencere engellendi. Tarayıcı ayarlarından izin verin.',
+    'auth/network-request-failed':     'Ağ hatası. İnternet bağlantınızı kontrol edin.',
+    'auth/internal-error':             'Firebase iç hatası. Lütfen tekrar deneyin.',
+    'auth/configuration-not-found':    'Firebase yapılandırması bulunamadı.',
+    'auth/app-not-authorized':         'Uygulama bu domain için yetkili değil.',
+    'auth/missing-or-invalid-nonce':   'Geçersiz oturum. Lütfen tekrar deneyin.',
   };
-  return m[code] || 'Bir hata oluştu. Lütfen tekrar deneyin.';
+  return m[code] || `Hata (${code}). Lütfen tekrar deneyin.`;
 }
 
 /* ─── Site JS ─────────────────────────────────────────────── */
