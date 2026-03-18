@@ -2,10 +2,14 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /quotes/{id} {
-      // Anyone (logged in or guest) can create a quote
       allow create: if true;
-      // Only admin can read, update, delete
       allow read, update, delete: if request.auth != null
+        && request.auth.token.email == 'berkayer032@gmail.com';
+    }
+    match /reviews/{id} {
+      allow create: if true;
+      allow read:   if true;
+      allow update, delete: if request.auth != null
         && request.auth.token.email == 'berkayer032@gmail.com';
     }
   }

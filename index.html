@@ -991,6 +991,131 @@ section { padding: var(--space-2xl) 0; }
 }
 @media (max-width: 768px) { .reviews-grid { grid-template-columns: 1fr; } }
 
+/* ── Review Form ─────────────────────────────────── */
+.reviews-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.btn-add-review {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-add-review:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
+
+.review-form-wrap {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 2rem;
+  border: 1.5px solid var(--color-border);
+  display: none;
+}
+.review-form-wrap.open { display: block; }
+.review-form-wrap h3 { font-size: 1.05rem; margin-bottom: 1.25rem; color: var(--color-primary); }
+
+.star-picker {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+.star-picker .star {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #d1d5db;
+  transition: color 0.15s ease, transform 0.15s ease;
+  line-height: 1;
+  user-select: none;
+}
+.star-picker .star.active { color: #f59e0b; }
+.star-picker .star:hover  { transform: scale(1.15); }
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.review-form input,
+.review-form select,
+.review-form textarea {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color 0.2s;
+}
+.review-form input:focus,
+.review-form select:focus,
+.review-form textarea:focus { outline: none; border-color: var(--color-primary); }
+.review-form textarea { resize: vertical; min-height: 90px; }
+
+.review-form-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.btn-review-submit {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.72rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-review-submit:hover { background: var(--color-primary-dark); }
+.btn-review-cancel {
+  background: none;
+  border: 1.5px solid var(--color-border);
+  padding: 0.72rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: var(--transition);
+}
+.btn-review-cancel:hover { border-color: var(--color-text-muted); color: var(--color-text); }
+.review-star-error { font-size: 0.82rem; color: #dc2626; }
+
+/* ── User Reviews (dynamic) ──────────────────────── */
+.user-reviews-section { margin-top: 2.5rem; }
+.user-reviews-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+#userReviewsGrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+@media (max-width: 1024px) { #userReviewsGrid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 640px)  { #userReviewsGrid { grid-template-columns: 1fr; } }
+
+.review-card.user-review .google-badge span { display: none; }
+
 /* =========================================
    ABOUT
    ========================================= */
@@ -2219,8 +2344,45 @@ textarea:focus-visible {
       <div class="section-header">
         <div class="section-label fade-in">Yorumlar</div>
         <h2 class="section-title fade-in">Müşterilerimiz Ne Diyor?</h2>
-        <p class="section-subtitle fade-in">Google'daki gerçek müşteri yorumlarından seçmeler</p>
+        <p class="section-subtitle fade-in">Gerçek müşteri deneyimleri</p>
       </div>
+
+      <!-- Yorum Bırak Butonu + Form -->
+      <div class="reviews-header-row">
+        <div></div>
+        <button class="btn-add-review" id="toggleReviewForm" aria-expanded="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          Yorum Bırak
+        </button>
+      </div>
+
+      <div class="review-form-wrap" id="reviewFormWrap">
+        <h3>Deneyiminizi Paylaşın</h3>
+        <div class="star-picker" id="starPicker" role="group" aria-label="Puan seçin">
+          <span class="star" data-v="1" role="button" tabindex="0" aria-label="1 yıldız">★</span>
+          <span class="star" data-v="2" role="button" tabindex="0" aria-label="2 yıldız">★</span>
+          <span class="star" data-v="3" role="button" tabindex="0" aria-label="3 yıldız">★</span>
+          <span class="star" data-v="4" role="button" tabindex="0" aria-label="4 yıldız">★</span>
+          <span class="star" data-v="5" role="button" tabindex="0" aria-label="5 yıldız">★</span>
+        </div>
+        <span class="review-star-error" id="starError"></span>
+        <form class="review-form" id="reviewForm" novalidate>
+          <input type="text" id="reviewName" placeholder="Adınız" required autocomplete="name">
+          <select id="reviewVehicle">
+            <option value="">Araç tipi (opsiyonel)</option>
+            <option value="otomobil">Otomobil</option>
+            <option value="yat">Yat / Tekne</option>
+            <option value="karavan">Karavan</option>
+          </select>
+          <textarea id="reviewText" placeholder="Deneyiminizi yazın..." required></textarea>
+          <div class="review-form-actions">
+            <button type="submit" class="btn-review-submit">Gönder</button>
+            <button type="button" class="btn-review-cancel" id="cancelReview">İptal</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Statik Google Yorumları -->
       <div class="reviews-grid">
 
         <article class="review-card fade-in">
@@ -2295,7 +2457,14 @@ textarea:focus-visible {
           </div>
         </article>
 
+      </div><!-- /reviews-grid -->
+
+      <!-- Kullanıcı Yorumları (Firestore) -->
+      <div class="user-reviews-section" id="userReviewsSection" style="display:none">
+        <div class="user-reviews-label">Ziyaretçi Yorumları</div>
+        <div id="userReviewsGrid"></div>
       </div>
+
     </div>
   </section>
   <!-- ABOUT -->
@@ -2939,6 +3108,156 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 const statsSection = document.getElementById('neden-biz');
 if (statsSection) counterObserver.observe(statsSection);
+
+// ── Reviews ──────────────────────────────────────────────
+const AVATAR_COLORS = ['#1a4f8a','#e84c1e','#0f5132','#6610f2','#0d6efd','#c43a10','#198754'];
+
+function timeAgo(date) {
+  const sec  = Math.floor((Date.now() - date.getTime()) / 1000);
+  if (sec < 60)                   return 'az önce';
+  const min  = Math.floor(sec / 60);
+  if (min < 60)                   return `${min} dakika önce`;
+  const hrs  = Math.floor(min / 60);
+  if (hrs < 24)                   return `${hrs} saat önce`;
+  const days = Math.floor(hrs / 24);
+  if (days === 1)                  return 'dün';
+  if (days < 7)                   return `${days} gün önce`;
+  const wks  = Math.floor(days / 7);
+  if (wks < 5)                    return `${wks} hafta önce`;
+  const mos  = Math.floor(days / 30);
+  if (mos < 12)                   return `${mos} ay önce`;
+  const yrs  = Math.floor(days / 365);
+  return `${yrs} yıl önce`;
+}
+
+function avatarColor(name) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length];
+}
+
+function initials(name) {
+  const parts = name.trim().split(' ');
+  return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
+}
+
+function buildReviewCard(d, ts) {
+  const vLbl  = { otomobil:'Otomobil', yat:'Yat / Tekne', karavan:'Karavan' };
+  const stars  = '★'.repeat(d.stars) + '☆'.repeat(5 - d.stars);
+  const badge  = d.vehicleType && vLbl[d.vehicleType] ? `<span class="reviewer-badge">${vLbl[d.vehicleType]}</span>` : '';
+  const date   = ts ? timeAgo(ts.toDate ? ts.toDate() : new Date(ts)) : '';
+  const color  = avatarColor(d.name);
+  const init   = initials(d.name);
+  return `
+  <article class="review-card user-review fade-in">
+    <div class="review-header">
+      <div class="google-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>Ziyaretçi Yorumu</span>
+      </div>
+      <span class="review-date">${date}</span>
+    </div>
+    <div class="review-stars" aria-label="${d.stars} yıldız" style="color:#f59e0b">${stars}</div>
+    <p class="review-text">"${esc(d.text)}"</p>
+    <div class="review-footer">
+      <div class="reviewer-avatar" style="background:${color}" aria-hidden="true">${init}</div>
+      <div>
+        <div class="reviewer-name">${esc(d.name)}</div>
+        ${badge}
+      </div>
+    </div>
+  </article>`;
+}
+
+async function loadUserReviews() {
+  const section = document.getElementById('userReviewsSection');
+  const grid    = document.getElementById('userReviewsGrid');
+  try {
+    const snap = await db.collection('reviews').orderBy('createdAt', 'desc').get();
+    if (snap.empty) return;
+    grid.innerHTML = snap.docs.map(doc => {
+      const d = doc.data();
+      return buildReviewCard(d, d.createdAt);
+    }).join('');
+    section.style.display = '';
+    grid.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+  } catch (e) { /* Firestore henüz yok veya kural reddi — sessizce geç */ }
+}
+loadUserReviews();
+
+// Star picker
+let selectedStars = 0;
+const starEls = document.querySelectorAll('#starPicker .star');
+function setStars(val) {
+  selectedStars = val;
+  starEls.forEach(s => s.classList.toggle('active', +s.dataset.v <= val));
+  document.getElementById('starError').textContent = '';
+}
+starEls.forEach(s => {
+  s.addEventListener('click',   () => setStars(+s.dataset.v));
+  s.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') setStars(+s.dataset.v); });
+  s.addEventListener('mouseover', () => starEls.forEach(x => x.classList.toggle('active', +x.dataset.v <= +s.dataset.v)));
+  s.addEventListener('mouseout',  () => setStars(selectedStars));
+});
+
+// Toggle review form
+const toggleReviewBtn = document.getElementById('toggleReviewForm');
+const reviewFormWrap  = document.getElementById('reviewFormWrap');
+toggleReviewBtn.addEventListener('click', () => {
+  const open = reviewFormWrap.classList.toggle('open');
+  toggleReviewBtn.setAttribute('aria-expanded', open);
+  if (open) {
+    reviewFormWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const nameInput = document.getElementById('reviewName');
+    if (currentUser?.displayName && !nameInput.value) nameInput.value = currentUser.displayName;
+  }
+});
+document.getElementById('cancelReview').addEventListener('click', () => {
+  reviewFormWrap.classList.remove('open');
+  toggleReviewBtn.setAttribute('aria-expanded', 'false');
+});
+
+// Submit review
+document.getElementById('reviewForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const name    = document.getElementById('reviewName').value.trim();
+  const vehicle = document.getElementById('reviewVehicle').value;
+  const text    = document.getElementById('reviewText').value.trim();
+  if (!selectedStars) { document.getElementById('starError').textContent = 'Lütfen puan verin.'; return; }
+  if (!name || !text) return;
+
+  const btn = e.target.querySelector('.btn-review-submit');
+  btn.disabled = true; btn.textContent = 'Gönderiliyor…';
+
+  try {
+    const docRef = await db.collection('reviews').add({
+      name,
+      stars:       selectedStars,
+      vehicleType: vehicle || null,
+      text,
+      userId:    currentUser ? currentUser.uid   : null,
+      userEmail: currentUser ? currentUser.email : null,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    // Anında karta dönüştür ve grida ekle
+    const section = document.getElementById('userReviewsSection');
+    const grid    = document.getElementById('userReviewsGrid');
+    const card    = buildReviewCard({ name, stars: selectedStars, vehicleType: vehicle, text }, { toDate: () => new Date() });
+    grid.insertAdjacentHTML('afterbegin', card);
+    section.style.display = '';
+
+    // Formu sıfırla
+    e.target.reset();
+    setStars(0);
+    reviewFormWrap.classList.remove('open');
+    toggleReviewBtn.setAttribute('aria-expanded', 'false');
+  } catch (err) {
+    alert('Yorum gönderilemedi: ' + err.message);
+  } finally {
+    btn.disabled = false; btn.textContent = 'Gönder';
+  }
+});
 
 // Form validation
 const contactForm = document.getElementById('contactForm');
