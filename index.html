@@ -1364,6 +1364,317 @@ textarea:focus-visible {
   .scroll-top-btn { bottom: 5.5rem; right: 1.5rem; }
 }
 
+/* ── Auth Nav Button ──────────────────────────────── */
+.nav-auth-btn {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.65);
+  color: #fff;
+  padding: 0.38rem 1rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+#navbar.scrolled .nav-auth-btn {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.nav-auth-btn:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+.nav-user-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-user-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#navbar.scrolled .nav-user-name { color: var(--color-text); }
+.nav-admin-btn {
+  background: var(--color-accent);
+  border: none;
+  color: #fff;
+  padding: 0.38rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.nav-admin-btn:hover { background: var(--color-accent-dark); }
+
+/* ── Auth Modal ──────────────────────────────────── */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.auth-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.auth-box {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  width: min(420px, 92vw);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+.auth-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: color 0.2s;
+}
+.auth-close:hover { color: var(--color-text); }
+.auth-logo { text-align: center; margin-bottom: 1.5rem; }
+.auth-logo h2 { font-size: 1.35rem; color: var(--color-primary); margin: 0; }
+.auth-logo p  { font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.25rem; }
+.auth-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: 1.5rem;
+}
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 0.6rem;
+  font-family: var(--font-main);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+.auth-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+.auth-tab.active { color: var(--color-primary); }
+.auth-tab.active::after { transform: scaleX(1); }
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.auth-form input {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+.auth-submit {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.auth-submit:hover { background: var(--color-primary-dark); }
+.auth-error {
+  color: #dc2626;
+  font-size: 0.82rem;
+  min-height: 1.1rem;
+  text-align: center;
+  margin: 0;
+}
+.auth-divider {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.auth-guest-note {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.auth-guest-note button {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: inherit;
+  padding: 0;
+}
+
+/* ── Admin Panel ──────────────────────────────────── */
+.admin-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  z-index: 11000;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.admin-overlay.open { transform: translateX(0); }
+.admin-header {
+  background: var(--color-primary-dark);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.admin-header h2 { font-size: 1.1rem; font-weight: 700; margin: 0; }
+.admin-header-actions { display: flex; align-items: center; gap: 0.75rem; }
+.admin-count {
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+.admin-close {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.admin-close:hover { background: rgba(255,255,255,0.3); }
+.admin-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.admin-empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 4rem 2rem;
+}
+.admin-quote-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--color-primary);
+}
+.admin-quote-card.status-new     { border-left-color: var(--color-accent); }
+.admin-quote-card.status-seen    { border-left-color: var(--color-primary); }
+.admin-quote-card.status-replied { border-left-color: var(--color-success); }
+.aq-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.aq-name { font-weight: 700; font-size: 1rem; }
+.aq-meta { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.2rem; }
+.aq-meta a { color: var(--color-primary); text-decoration: none; }
+.aq-meta a:hover { text-decoration: underline; }
+.aq-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: flex-start; }
+.aq-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+.aq-badge.new     { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+.aq-badge.seen    { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
+.aq-badge.replied { background: #dcfce7; color: #166534; border-color: #86efac; }
+.aq-message {
+  font-size: 0.88rem;
+  color: var(--color-text);
+  line-height: 1.55;
+  background: var(--color-bg);
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+}
+.aq-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.aq-action {
+  background: none;
+  border: 1.5px solid var(--color-border);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--color-text);
+  font-family: var(--font-main);
+}
+.aq-action:hover        { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.aq-action.danger:hover { background: #dc2626; border-color: #dc2626; color: #fff; }
+.aq-time { font-size: 0.73rem; color: var(--color-text-muted); margin-top: 0.5rem; }
+@media (max-width: 640px) {
+  .admin-body { padding: 1rem; }
+  .aq-header { flex-direction: column; gap: 0.4rem; }
+}
+
 /* ── Service card stagger delays ──────────────────── */
 .services-grid .service-card:nth-child(1) { transition-delay: 0s;     }
 .services-grid .service-card:nth-child(2) { transition-delay: 0.05s;  }
@@ -1403,6 +1714,17 @@ textarea:focus-visible {
       </svg>
       Ara
     </a>
+
+    <div id="navAuthWrap">
+      <button class="nav-auth-btn" id="navLoginBtn" aria-label="Giriş yap">Giriş Yap</button>
+    </div>
+    <div id="navUserWrap" style="display:none">
+      <div class="nav-user-group">
+        <span class="nav-user-name" id="navUserName"></span>
+        <button class="nav-admin-btn" id="navAdminBtn" style="display:none" aria-label="Admin paneli">⚙ Admin</button>
+        <button class="nav-auth-btn" id="navLogoutBtn" aria-label="Çıkış yap">Çıkış</button>
+      </div>
+    </div>
 
     <button class="hamburger" aria-label="Menüyü aç/kapat" aria-expanded="false">
       <span></span>
@@ -2159,6 +2481,55 @@ textarea:focus-visible {
   </div>
 </footer>
 
+<!-- ── Auth Modal ──────────────────────────────────── -->
+<div class="auth-overlay" id="authOverlay" role="dialog" aria-modal="true" aria-label="Giriş veya Kayıt">
+  <div class="auth-box">
+    <button class="auth-close" id="authClose" aria-label="Kapat">&#10005;</button>
+    <div class="auth-logo">
+      <h2>Er Repair</h2>
+      <p>Hesabınıza giriş yapın veya kayıt olun</p>
+    </div>
+    <div class="auth-tabs" role="tablist">
+      <button class="auth-tab active" data-auth-tab="login"    role="tab" aria-selected="true">Giriş Yap</button>
+      <button class="auth-tab"        data-auth-tab="register" role="tab" aria-selected="false">Kayıt Ol</button>
+    </div>
+
+    <!-- Login Form -->
+    <form class="auth-form" id="loginForm" novalidate>
+      <input type="email"    id="loginEmail"    placeholder="E-posta adresi"          required autocomplete="email">
+      <input type="password" id="loginPassword" placeholder="Şifre"                   required autocomplete="current-password">
+      <p class="auth-error" id="loginError" role="alert"></p>
+      <button type="submit" class="auth-submit">Giriş Yap</button>
+      <p class="auth-divider">— veya —</p>
+      <p class="auth-guest-note">Üye olmadan da teklif gönderebilirsiniz.&nbsp;<button type="button" id="authGuestBtn">Teklif formu →</button></p>
+    </form>
+
+    <!-- Register Form -->
+    <form class="auth-form" id="registerForm" novalidate style="display:none">
+      <input type="text"     id="regName"     placeholder="Ad Soyad"                  required autocomplete="name">
+      <input type="email"    id="regEmail"    placeholder="E-posta adresi"             required autocomplete="email">
+      <input type="password" id="regPassword" placeholder="Şifre (en az 6 karakter)"  required autocomplete="new-password">
+      <p class="auth-error" id="registerError" role="alert"></p>
+      <button type="submit" class="auth-submit">Kayıt Ol</button>
+    </form>
+  </div>
+</div>
+
+<!-- ── Admin Panel ──────────────────────────────────── -->
+<div class="admin-overlay" id="adminOverlay" role="dialog" aria-modal="true" aria-label="Admin Paneli">
+  <div class="admin-header">
+    <h2>Gelen Teklifler</h2>
+    <div class="admin-header-actions">
+      <span class="admin-count" id="adminCount">0</span>
+      <button class="admin-close" id="adminClose" aria-label="Kapat">&#10005;</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <div class="admin-empty" id="adminEmpty">Henüz teklif gelmedi.</div>
+    <div id="adminQuotesList"></div>
+  </div>
+</div>
+
 <!-- WhatsApp Float Button -->
 <a href="https://wa.me/905523070067" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
   <svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -2170,7 +2541,212 @@ textarea:focus-visible {
   <svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
+<!-- Firebase SDKs (compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
 <script>
+/* ─── Firebase Config ─────────────────────────────────────────
+   Firebase Console → Project Settings → Your apps → Config
+   ─────────────────────────────────────────────────────────── */
+const firebaseConfig = {
+  apiKey:            "FIREBASE_API_KEY",
+  authDomain:        "FIREBASE_PROJECT_ID.firebaseapp.com",
+  projectId:         "FIREBASE_PROJECT_ID",
+  storageBucket:     "FIREBASE_PROJECT_ID.appspot.com",
+  messagingSenderId: "FIREBASE_MESSAGING_SENDER_ID",
+  appId:             "FIREBASE_APP_ID"
+};
+
+const ADMIN_EMAIL = 'berkayer032@gmail.com';
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db   = firebase.firestore();
+
+let currentUser = null;
+
+/* ─── Auth State ─────────────────────────────────────────── */
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  const authWrap  = document.getElementById('navAuthWrap');
+  const userWrap  = document.getElementById('navUserWrap');
+  const userName  = document.getElementById('navUserName');
+  const adminBtn  = document.getElementById('navAdminBtn');
+  if (user) {
+    authWrap.style.display = 'none';
+    userWrap.style.display = '';
+    userName.textContent   = user.displayName || user.email.split('@')[0];
+    adminBtn.style.display = user.email === ADMIN_EMAIL ? '' : 'none';
+    const nameInput = document.getElementById('name');
+    if (nameInput && !nameInput.value && user.displayName) nameInput.value = user.displayName;
+  } else {
+    authWrap.style.display = '';
+    userWrap.style.display = 'none';
+    if (document.getElementById('adminOverlay').classList.contains('open')) closeAdminPanel();
+  }
+});
+
+/* ─── Auth Modal ─────────────────────────────────────────── */
+function openAuthModal(tab) {
+  document.getElementById('authOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  switchAuthTab(tab || 'login');
+}
+function closeAuthModal() {
+  document.getElementById('authOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('loginError').textContent    = '';
+  document.getElementById('registerError').textContent = '';
+}
+function switchAuthTab(tab) {
+  document.querySelectorAll('.auth-tab').forEach(t => {
+    const active = t.dataset.authTab === tab;
+    t.classList.toggle('active', active);
+    t.setAttribute('aria-selected', active);
+  });
+  document.getElementById('loginForm').style.display    = tab === 'login'    ? 'flex' : 'none';
+  document.getElementById('registerForm').style.display = tab === 'register' ? 'flex' : 'none';
+}
+
+document.getElementById('navLoginBtn').addEventListener('click', () => openAuthModal('login'));
+document.getElementById('authClose').addEventListener('click', closeAuthModal);
+document.getElementById('authOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('authOverlay')) closeAuthModal();
+});
+document.getElementById('authGuestBtn').addEventListener('click', () => {
+  closeAuthModal();
+  document.getElementById('iletisim').scrollIntoView({ behavior: 'smooth' });
+});
+document.querySelectorAll('.auth-tab').forEach(t => {
+  t.addEventListener('click', () => switchAuthTab(t.dataset.authTab));
+});
+
+/* ─── Login ──────────────────────────────────────────────── */
+document.getElementById('loginForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const email    = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
+  const errEl    = document.getElementById('loginError');
+  errEl.textContent = '';
+  try {
+    await auth.signInWithEmailAndPassword(email, password);
+    closeAuthModal();
+  } catch (err) {
+    errEl.textContent = firebaseErrMsg(err.code);
+  }
+});
+
+/* ─── Register ───────────────────────────────────────────── */
+document.getElementById('registerForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const name     = document.getElementById('regName').value.trim();
+  const email    = document.getElementById('regEmail').value.trim();
+  const password = document.getElementById('regPassword').value;
+  const errEl    = document.getElementById('registerError');
+  errEl.textContent = '';
+  try {
+    const cred = await auth.createUserWithEmailAndPassword(email, password);
+    await cred.user.updateProfile({ displayName: name });
+    closeAuthModal();
+  } catch (err) {
+    errEl.textContent = firebaseErrMsg(err.code);
+  }
+});
+
+/* ─── Logout ─────────────────────────────────────────────── */
+document.getElementById('navLogoutBtn').addEventListener('click', () => auth.signOut());
+
+/* ─── Admin Panel ────────────────────────────────────────── */
+document.getElementById('navAdminBtn').addEventListener('click', openAdminPanel);
+document.getElementById('adminClose').addEventListener('click', closeAdminPanel);
+
+function openAdminPanel() {
+  document.getElementById('adminOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  loadAdminQuotes();
+}
+function closeAdminPanel() {
+  document.getElementById('adminOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+async function loadAdminQuotes() {
+  const list  = document.getElementById('adminQuotesList');
+  const empty = document.getElementById('adminEmpty');
+  const count = document.getElementById('adminCount');
+  list.innerHTML = '<p style="color:var(--color-text-muted);padding:2rem;text-align:center">Yükleniyor…</p>';
+  try {
+    const snap = await db.collection('quotes').orderBy('createdAt', 'desc').get();
+    count.textContent = snap.size;
+    if (snap.empty) { empty.style.display = ''; list.innerHTML = ''; return; }
+    empty.style.display = 'none';
+    const vLbl = { otomobil:'Otomobil', yat:'Yat / Tekne', karavan:'Karavan', diger:'Diğer' };
+    const sLbl = { elektrik:'Elektrik', sanziman:'Şanzıman', tesisat:'Tesisat', motor:'Motor', diger:'Diğer' };
+    list.innerHTML = snap.docs.map(doc => {
+      const d  = doc.data();
+      const ts = d.createdAt?.toDate ? d.createdAt.toDate().toLocaleString('tr-TR') : '—';
+      const st = d.status || 'new';
+      const stLabel = { new:'Yeni', seen:'Görüldü', replied:'Yanıtlandı' }[st] || st;
+      return `
+      <div class="admin-quote-card status-${st}">
+        <div class="aq-header">
+          <div>
+            <div class="aq-name">${esc(d.name)}</div>
+            <div class="aq-meta">
+              <a href="tel:${esc(d.phone)}">${esc(d.phone)}</a>
+              ${d.userEmail ? ` &bull; ${esc(d.userEmail)}` : ' &bull; Misafir'}
+            </div>
+          </div>
+          <div class="aq-badges">
+            <span class="aq-badge">${vLbl[d.vehicleType] || esc(d.vehicleType)}</span>
+            <span class="aq-badge">${sLbl[d.service] || esc(d.service)}</span>
+            <span class="aq-badge ${st}">${stLabel}</span>
+          </div>
+        </div>
+        <div class="aq-message">${esc(d.message)}</div>
+        <div class="aq-actions">
+          <button class="aq-action" onclick="setStatus('${doc.id}','seen')">👁 Görüldü</button>
+          <button class="aq-action" onclick="setStatus('${doc.id}','replied')">✅ Yanıtlandı</button>
+          <button class="aq-action" onclick="window.open('tel:${esc(d.phone)}')">📞 Ara</button>
+          <button class="aq-action danger" onclick="delQuote('${doc.id}')">🗑 Sil</button>
+        </div>
+        <div class="aq-time">${ts}</div>
+      </div>`;
+    }).join('');
+  } catch (err) {
+    list.innerHTML = `<p style="color:#dc2626;padding:1rem">Hata: ${err.message}</p>`;
+  }
+}
+
+async function setStatus(id, status) {
+  await db.collection('quotes').doc(id).update({ status });
+  loadAdminQuotes();
+}
+async function delQuote(id) {
+  if (!confirm('Bu teklifi silmek istiyor musunuz?')) return;
+  await db.collection('quotes').doc(id).delete();
+  loadAdminQuotes();
+}
+
+function esc(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function firebaseErrMsg(code) {
+  const m = {
+    'auth/invalid-email':        'Geçersiz e-posta adresi.',
+    'auth/user-not-found':       'Bu e-posta ile kayıtlı hesap bulunamadı.',
+    'auth/wrong-password':       'Şifre hatalı.',
+    'auth/invalid-credential':   'E-posta veya şifre hatalı.',
+    'auth/email-already-in-use': 'Bu e-posta zaten kullanımda.',
+    'auth/weak-password':        'Şifre en az 6 karakter olmalı.',
+    'auth/too-many-requests':    'Çok fazla deneme. Lütfen bekleyin.',
+  };
+  return m[code] || 'Bir hata oluştu. Lütfen tekrar deneyin.';
+}
+
+/* ─── Site JS ─────────────────────────────────────────────── */
 const navbar          = document.getElementById('navbar');
 const hamburger       = document.querySelector('.hamburger');
 const mobileMenu      = document.querySelector('.mobile-menu');
@@ -2329,7 +2905,7 @@ function clearError(inputId, errorId) {
   if (el) el.addEventListener('input', () => clearError(id, id + 'Error'));
 });
 
-contactForm?.addEventListener('submit', (e) => {
+contactForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   let valid = true;
   const name        = document.getElementById('name').value.trim();
@@ -2338,21 +2914,36 @@ contactForm?.addEventListener('submit', (e) => {
   const service     = document.getElementById('service').value;
   const message     = document.getElementById('message').value.trim();
 
-  if (!name)                                             { showError('name',        'nameError',        'Ad soyad gereklidir.');               valid = false; }
-  if (!phone || !/^[0-9\s\+\-]{10,15}$/.test(phone))   { showError('phone',       'phoneError',       'Geçerli bir telefon numarası girin.'); valid = false; }
-  if (!vehicleType)                                      { showError('vehicleType', 'vehicleTypeError', 'Araç tipi seçiniz.');                  valid = false; }
-  if (!service)                                          { showError('service',     'serviceError',     'Hizmet seçiniz.');                    valid = false; }
-  if (!message)                                          { showError('message',     'messageError',     'Mesajınızı yazınız.');                valid = false; }
+  if (!name)                                            { showError('name',        'nameError',        'Ad soyad gereklidir.');               valid = false; }
+  if (!phone || !/^[0-9\s\+\-]{10,15}$/.test(phone))  { showError('phone',       'phoneError',       'Geçerli bir telefon numarası girin.'); valid = false; }
+  if (!vehicleType)                                     { showError('vehicleType', 'vehicleTypeError', 'Araç tipi seçiniz.');                  valid = false; }
+  if (!service)                                         { showError('service',     'serviceError',     'Hizmet seçiniz.');                    valid = false; }
+  if (!message)                                         { showError('message',     'messageError',     'Mesajınızı yazınız.');                valid = false; }
 
   if (!valid) return;
 
   submitBtn.classList.add('loading');
   submitBtn.disabled = true;
 
-  setTimeout(() => {
+  try {
+    await db.collection('quotes').add({
+      name,
+      phone,
+      vehicleType,
+      service,
+      message,
+      userId:    currentUser ? currentUser.uid   : null,
+      userEmail: currentUser ? currentUser.email : null,
+      status:    'new',
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
     contactForm.style.display = 'none';
     formSuccess.style.display = 'block';
-  }, 800);
+  } catch (err) {
+    submitBtn.classList.remove('loading');
+    submitBtn.disabled = false;
+    alert('Mesaj gönderilemedi: ' + err.message);
+  }
 });
 
 // Services filter
