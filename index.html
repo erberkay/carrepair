@@ -12,6 +12,7 @@
 <meta name="geo.placename" content="Kuşadası, Aydın, Türkiye">
 <meta name="geo.position" content="37.8560;27.2595">
 <meta name="ICBM" content="37.8560, 27.2595">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="canonical" href="https://[DOMAIN].com/">
 <meta property="og:type" content="business.business">
 <meta property="og:title" content="Er Repair | Kuşadası Oto, Yat ve Karavan Tamir">
@@ -1995,6 +1996,152 @@ textarea:focus-visible {
   .faq-grid { grid-template-columns: 1fr; }
 }
 
+/* ── KVKK Cookie Banner ───────────────────────────── */
+.kvkk-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 12000;
+  background: #1c2b3a;
+  color: #e2e8f0;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+}
+.kvkk-banner.show { transform: translateY(0); }
+.kvkk-text { flex: 1; min-width: 220px; }
+.kvkk-text a { color: #93c5fd; text-decoration: underline; }
+.kvkk-actions { display: flex; gap: 0.6rem; flex-shrink: 0; }
+.kvkk-accept {
+  background: var(--color-primary);
+  color: #fff; border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.85rem; font-weight: 700;
+  cursor: pointer; transition: background 0.2s;
+}
+.kvkk-accept:hover { background: var(--color-primary-dark); }
+.kvkk-decline {
+  background: transparent;
+  color: #94a3b8; border: 1px solid #475569;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; transition: color 0.2s, border-color 0.2s;
+}
+.kvkk-decline:hover { color: #e2e8f0; border-color: #94a3b8; }
+
+/* ── Blog ─────────────────────────────────────────── */
+#blog { background: var(--color-surface); }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.5rem;
+  margin-top: var(--space-md);
+}
+.blog-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--color-primary); }
+.blog-card-thumb {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+.blog-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+.blog-card-meta { display: flex; align-items: center; gap: 0.6rem; }
+.blog-cat {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: rgba(26,79,138,0.1); color: var(--color-primary);
+}
+.blog-read-time { font-size: 0.75rem; color: var(--color-text-muted); }
+.blog-card-title { font-size: 1rem; font-weight: 700; line-height: 1.4; color: var(--color-text); }
+.blog-card-excerpt { font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; flex: 1; }
+.blog-read-btn {
+  margin-top: 0.75rem; font-size: 0.85rem; font-weight: 700;
+  color: var(--color-primary); background: none; border: none;
+  cursor: pointer; text-align: left; padding: 0;
+  transition: color 0.2s;
+}
+.blog-read-btn:hover { color: var(--color-accent); }
+@media (max-width: 1024px) { .blog-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 640px)  { .blog-grid { grid-template-columns: 1fr; } }
+
+/* Blog Modal */
+.blog-modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 10500;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 2rem 1rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease;
+  overflow-y: auto;
+}
+.blog-modal-overlay.open { opacity: 1; pointer-events: all; }
+.blog-modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  max-width: 720px; width: 100%;
+  padding: 2rem;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.blog-modal-overlay.open .blog-modal { transform: translateY(0); }
+.blog-modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: var(--color-bg); border: none;
+  width: 36px; height: 36px; border-radius: 50%;
+  font-size: 1.1rem; cursor: pointer; color: var(--color-text-muted);
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+.blog-modal-close:hover { background: var(--color-border); color: var(--color-text); }
+.blog-modal-cat { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-primary); margin-bottom: 0.5rem; }
+.blog-modal-title { font-size: 1.5rem; font-weight: 800; line-height: 1.3; margin-bottom: 0.5rem; }
+.blog-modal-meta { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border); }
+.blog-modal-content { font-size: 0.95rem; line-height: 1.8; color: var(--color-text); }
+.blog-modal-content h3 { font-size: 1.05rem; font-weight: 700; margin: 1.25rem 0 0.4rem; color: var(--color-primary); }
+.blog-modal-content p  { margin-bottom: 0.9rem; }
+.blog-modal-content ul { padding-left: 1.25rem; margin-bottom: 0.9rem; }
+.blog-modal-content li { margin-bottom: 0.3rem; }
+
+/* ── Lang Toggle ──────────────────────────────────── */
+.lang-toggle {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.45);
+  color: #fff;
+  padding: 0.32rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-main);
+  font-size: 0.82rem; font-weight: 700;
+  cursor: pointer; transition: var(--transition);
+  letter-spacing: 0.04em;
+}
+#navbar.scrolled .lang-toggle { border-color: var(--color-border); color: var(--color-text); }
+.lang-toggle:hover { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+
 /* ── Service card stagger delays ──────────────────── */
 .services-grid .service-card:nth-child(1) { transition-delay: 0s;     }
 .services-grid .service-card:nth-child(2) { transition-delay: 0.05s;  }
@@ -2021,12 +2168,12 @@ textarea:focus-visible {
     </a>
 
     <ul class="nav-links" role="list">
-      <li><a href="#hizmetler">Hizmetler</a></li>
-      <li><a href="#arac-tipleri">Araçlar</a></li>
-      <li><a href="#galeri">Galeri</a></li>
-      <li><a href="#hakkimizda">Hakkımızda</a></li>
-      <li><a href="#sss">SSS</a></li>
-      <li><a href="#iletisim">İletişim</a></li>
+      <li><a href="#hizmetler" data-i18n="nav_services">Hizmetler</a></li>
+      <li><a href="#arac-tipleri" data-i18n="nav_vehicles">Araçlar</a></li>
+      <li><a href="#galeri" data-i18n="nav_gallery">Galeri</a></li>
+      <li><a href="#hakkimizda" data-i18n="nav_about">Hakkımızda</a></li>
+      <li><a href="#sss" data-i18n="nav_faq">SSS</a></li>
+      <li><a href="#iletisim" data-i18n="nav_contact">İletişim</a></li>
     </ul>
 
     <a href="tel:05523070067" class="nav-cta" aria-label="Bizi arayın">
@@ -2046,6 +2193,8 @@ textarea:focus-visible {
         <button class="nav-auth-btn" id="navLogoutBtn" aria-label="Çıkış yap">Çıkış</button>
       </div>
     </div>
+
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language / Dil değiştir">EN</button>
 
     <button class="hamburger" aria-label="Menüyü aç/kapat" aria-expanded="false">
       <span></span>
@@ -2780,11 +2929,7 @@ textarea:focus-visible {
 
       <!-- Map -->
       <div class="map-wrap fade-in">
-        <div class="map-placeholder">
-          📍 Harita Yükleniyor
-          <small>[GOOGLE MAPS IFRAME URL] yerine gerçek iframe ekleyin</small>
-        </div>
-        <!-- <iframe src="[GOOGLE MAPS IFRAME URL]" width="100%" height="350" style="border:0" allowfullscreen loading="lazy" title="İşyeri Konumu"></iframe> -->
+        <iframe src="https://maps.google.com/maps?q=Kuşadası+Merkezi,+Aydın,+Türkiye&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="350" style="border:0;border-radius:var(--radius-md)" allowfullscreen loading="lazy" title="Er Repair — Kuşadası Konum"></iframe>
       </div>
     </div>
   </section>
@@ -2866,6 +3011,79 @@ textarea:focus-visible {
       </div>
     </div>
   </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label fade-in" data-i18n="blog_label">Blog</div>
+        <h2 class="section-title fade-in" data-i18n="blog_title">Faydalı Bilgiler</h2>
+        <p class="section-subtitle fade-in" data-i18n="blog_subtitle">Araç bakımı ve tamir hakkında uzman görüşleri</p>
+      </div>
+      <div class="blog-grid">
+
+        <!-- Article 1 -->
+        <article class="blog-card fade-in" data-article="1">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1a4f8a 0%,#0e2d5a 100%)" aria-hidden="true">
+            <svg width="48" height="48" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-cat" data-i18n="art1_cat">Teknoloji</span>
+              <span class="blog-read-time" data-i18n="art1_time">4 dk okuma</span>
+            </div>
+            <h3 class="blog-card-title" data-i18n="art1_title">Bilgisayarlı Arıza Tespiti Nedir?</h3>
+            <p class="blog-card-excerpt" data-i18n="art1_excerpt">OBD-II sistemi ve modern arıza tespit cihazlarının aracınızın sağlığını nasıl koruduğunu açıklıyoruz.</p>
+            <button class="blog-read-btn" data-article="1" aria-label="Devamını oku" data-i18n="read_more">Devamını Oku →</button>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="blog-card fade-in" data-article="2" style="transition-delay:0.1s">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#0c7a5e 0%,#064e3b 100%)" aria-hidden="true">
+            <svg width="48" height="48" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 17l3-8 3 4 3-6 3 5 3-3"/><path d="M3 20h18"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-cat" data-i18n="art2_cat">Denizcilik</span>
+              <span class="blog-read-time" data-i18n="art2_time">5 dk okuma</span>
+            </div>
+            <h3 class="blog-card-title" data-i18n="art2_title">Yat ve Tekne Bakımında 7 Altın Kural</h3>
+            <p class="blog-card-excerpt" data-i18n="art2_excerpt">Deniz ortamının sert koşullarında teknenizi uzun ömürlü tutmak için bilmeniz gereken bakım ipuçları.</p>
+            <button class="blog-read-btn" data-article="2" aria-label="Devamını oku" data-i18n="read_more">Devamını Oku →</button>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="blog-card fade-in" data-article="3" style="transition-delay:0.2s">
+          <div class="blog-card-thumb" style="background:linear-gradient(135deg,#92400e 0%,#451a03 100%)" aria-hidden="true">
+            <svg width="48" height="48" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M4 10h4M4 14h4M16 10h4M16 14h4"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-cat" data-i18n="art3_cat">Karavan</span>
+              <span class="blog-read-time" data-i18n="art3_time">6 dk okuma</span>
+            </div>
+            <h3 class="blog-card-title" data-i18n="art3_title">Karavan Sahiplerine Periyodik Bakım Rehberi</h3>
+            <p class="blog-card-excerpt" data-i18n="art3_excerpt">Sezonu açmadan ve kapatmadan önce yapmanız gereken kontrol listesi ve yaygın sorunlara çözümler.</p>
+            <button class="blog-read-btn" data-article="3" aria-label="Devamını oku" data-i18n="read_more">Devamını Oku →</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Modal -->
+  <div class="blog-modal-overlay" id="blogModalOverlay" role="dialog" aria-modal="true" aria-labelledby="blogModalTitle">
+    <div class="blog-modal">
+      <button class="blog-modal-close" id="blogModalClose" aria-label="Kapat">&#10005;</button>
+      <div class="blog-modal-cat" id="blogModalCat"></div>
+      <h2 class="blog-modal-title" id="blogModalTitle"></h2>
+      <div class="blog-modal-meta" id="blogModalMeta"></div>
+      <div class="blog-modal-content" id="blogModalContent"></div>
+    </div>
+  </div>
 
 </main>
 
@@ -2995,10 +3213,23 @@ textarea:focus-visible {
   <svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
+<!-- KVKK Cookie Banner -->
+<div class="kvkk-banner" id="kvkkBanner" role="region" aria-label="Çerez bildirimi">
+  <div class="kvkk-text">
+    <strong data-i18n="kvkk_title">Çerez Politikası</strong>
+    <p data-i18n="kvkk_text">Bu site, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır. Devam ederek <a href="#" onclick="return false" data-i18n="kvkk_link">KVKK Aydınlatma Metnimizi</a> kabul etmiş sayılırsınız.</p>
+  </div>
+  <div class="kvkk-actions">
+    <button class="kvkk-accept" id="kvkkAccept" data-i18n="kvkk_accept">Kabul Et</button>
+    <button class="kvkk-decline" id="kvkkDecline" data-i18n="kvkk_decline">Reddet</button>
+  </div>
+</div>
+
 <!-- Firebase SDKs (compat) -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
 /* ─── Firebase Config ─────────────────────────────────────────
@@ -3570,6 +3801,9 @@ contactForm?.addEventListener('submit', async (e) => {
     });
     contactForm.style.display = 'none';
     formSuccess.style.display = 'block';
+    // Fire-and-forget email notification
+    sendEmailNotification({ name, phone, vehicleType, service, message,
+      userEmail: currentUser ? currentUser.email : null });
   } catch (err) {
     submitBtn.classList.remove('loading');
     submitBtn.disabled = false;
@@ -3627,6 +3861,450 @@ filterTabs.forEach(tab => {
     });
   });
 });
+
+/* ─── EmailJS ──────────────────────────────────────────────
+   EmailJS Public Key ve Service/Template ID'lerini
+   EmailJS dashboard'undan alıp buraya yapıştırın.
+   ─────────────────────────────────────────────────────── */
+const EMAILJS_PUBLIC_KEY   = 'YOUR_EMAILJS_PUBLIC_KEY';   // TODO: replace
+const EMAILJS_SERVICE_ID   = 'YOUR_SERVICE_ID';           // TODO: replace
+const EMAILJS_TEMPLATE_ID  = 'YOUR_TEMPLATE_ID';          // TODO: replace
+
+(function() {
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+})();
+
+async function sendEmailNotification(data) {
+  if (typeof emailjs === 'undefined') return;
+  if (EMAILJS_PUBLIC_KEY === 'YOUR_EMAILJS_PUBLIC_KEY') return; // not configured yet
+  try {
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      from_name:    data.name,
+      from_phone:   data.phone,
+      vehicle_type: data.vehicleType,
+      service_type: data.service,
+      message:      data.message || '—',
+      user_email:   data.userEmail || 'Giriş yapılmadı',
+      to_email:     'berkayer032@gmail.com'
+    });
+  } catch(e) {
+    console.warn('EmailJS send failed:', e);
+  }
+}
+
+/* ─── KVKK Cookie Consent ──────────────────────────────── */
+(function() {
+  const banner  = document.getElementById('kvkkBanner');
+  const accept  = document.getElementById('kvkkAccept');
+  const decline = document.getElementById('kvkkDecline');
+
+  if (!localStorage.getItem('kvkk_consent')) {
+    setTimeout(() => banner.classList.add('show'), 800);
+  }
+
+  function dismiss() { banner.classList.remove('show'); }
+
+  accept.addEventListener('click', () => {
+    localStorage.setItem('kvkk_consent', 'accepted');
+    dismiss();
+  });
+  decline.addEventListener('click', () => {
+    localStorage.setItem('kvkk_consent', 'declined');
+    dismiss();
+  });
+})();
+
+/* ─── Language Toggle ──────────────────────────────────── */
+const translations = {
+  tr: {
+    // Navbar
+    nav_services:    'Hizmetler',
+    nav_vehicles:    'Araçlar',
+    nav_gallery:     'Galeri',
+    nav_about:       'Hakkımızda',
+    nav_faq:         'SSS',
+    nav_contact:     'İletişim',
+    nav_call:        'Ara',
+    nav_login:       'Giriş Yap',
+    nav_logout:      'Çıkış',
+    // Hero
+    hero_badge:      'Kuşadası\'nın Güvenilir Tamir Merkezi',
+    hero_title:      'Her Araca Uzman Ellerin Dokunuşu',
+    hero_subtitle:   'Otomobil, yat ve karavan tamirinde Kuşadası\'nın köklü servisi. Bilgisayarlı arıza tespiti, garantili işçilik.',
+    hero_cta1:       'Teklif Al',
+    hero_cta2:       'Hizmetleri İncele',
+    hero_stat1:      'Yıllık Deneyim',
+    hero_stat2:      'Mutlu Müşteri',
+    hero_stat3:      'Tamamlanan İş',
+    hero_type1:      'Otomobil Servisi',
+    hero_type2:      'Yat & Tekne',
+    hero_type3:      'Karavan',
+    // Sections
+    services_label:  'HİZMETLER',
+    services_title:  'Uzmanlık Alanlarımız',
+    services_sub:    'Araç tipine göre filtreleyin',
+    vehicles_label:  'ARAÇ TİPLERİ',
+    vehicles_title:  'Her Araca Uzman Çözüm',
+    vehicles_sub:    'Otomobilden yata, karavana kadar tüm araç tipleri',
+    gallery_label:   'GALERİ',
+    gallery_title:   'Tamamlanan İşlerimizden',
+    gallery_sub:     'Gerçek araçlar, gerçek sonuçlar',
+    stats_label:     'NEDEN BİZ',
+    stats_title:     'Rakamlarla Er Repair',
+    stats_sub:       'Yılların deneyimi, binlerce memnun müşteri',
+    reviews_label:   'MÜŞTERİ YORUMLARI',
+    reviews_title:   'Müşterilerimiz Ne Diyor?',
+    reviews_sub:     'Gerçek deneyimler, gerçek yorumlar',
+    about_label:     'HAKKIMIZDA',
+    about_title:     'Er Repair Ailesi',
+    about_sub:       'Kuşadası\'nda yıllardır güvenilir tamir hizmeti',
+    contact_label:   'İLETİŞİM',
+    contact_title:   'Bizimle İletişime Geçin',
+    contact_sub:     'Teklif alın ya da sorularınızı sorun',
+    faq_label:       'SSS',
+    faq_title:       'Sıkça Sorulan Sorular',
+    faq_sub:         'Merak ettiğiniz her şeyin cevabı burada',
+    // Blog
+    blog_label:      'Blog',
+    blog_title:      'Faydalı Bilgiler',
+    blog_subtitle:   'Araç bakımı ve tamir hakkında uzman görüşleri',
+    art1_cat:        'Teknoloji',
+    art1_time:       '4 dk okuma',
+    art1_title:      'Bilgisayarlı Arıza Tespiti Nedir?',
+    art1_excerpt:    'OBD-II sistemi ve modern arıza tespit cihazlarının aracınızın sağlığını nasıl koruduğunu açıklıyoruz.',
+    art2_cat:        'Denizcilik',
+    art2_time:       '5 dk okuma',
+    art2_title:      'Yat ve Tekne Bakımında 7 Altın Kural',
+    art2_excerpt:    'Deniz ortamının sert koşullarında teknenizi uzun ömürlü tutmak için bilmeniz gereken bakım ipuçları.',
+    art3_cat:        'Karavan',
+    art3_time:       '6 dk okuma',
+    art3_title:      'Karavan Sahiplerine Periyodik Bakım Rehberi',
+    art3_excerpt:    'Sezonu açmadan ve kapatmadan önce yapmanız gereken kontrol listesi ve yaygın sorunlara çözümler.',
+    read_more:       'Devamını Oku →',
+    // KVKK
+    kvkk_title:      'Çerez Politikası',
+    kvkk_text:       'Bu site, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır. Devam ederek KVKK Aydınlatma Metnimizi kabul etmiş sayılırsınız.',
+    kvkk_link:       'KVKK Aydınlatma Metnimizi',
+    kvkk_accept:     'Kabul Et',
+    kvkk_decline:    'Reddet',
+    // Form
+    form_name:       'Ad Soyad *',
+    form_phone:      'Telefon *',
+    form_vehicle:    'Araç Tipi *',
+    form_service:    'Hizmet Tipi *',
+    form_message:    'Mesajınız',
+    form_submit:     'Teklif Gönder',
+    form_success:    'Mesajınız alındı! En kısa sürede dönüş yapacağız.',
+    // Footer
+    footer_tagline:  'Kuşadası\'nın güvenilir tamir adresi',
+  },
+  en: {
+    // Navbar
+    nav_services:    'Services',
+    nav_vehicles:    'Vehicles',
+    nav_gallery:     'Gallery',
+    nav_about:       'About',
+    nav_faq:         'FAQ',
+    nav_contact:     'Contact',
+    nav_call:        'Call',
+    nav_login:       'Sign In',
+    nav_logout:      'Sign Out',
+    // Hero
+    hero_badge:      'Kuşadası\'s Trusted Repair Centre',
+    hero_title:      'Expert Hands on Every Vehicle',
+    hero_subtitle:   'Kuşadası\'s established service for car, yacht & caravan repair. Computerized diagnostics, guaranteed workmanship.',
+    hero_cta1:       'Get a Quote',
+    hero_cta2:       'View Services',
+    hero_stat1:      'Years Experience',
+    hero_stat2:      'Happy Customers',
+    hero_stat3:      'Jobs Completed',
+    hero_type1:      'Car Service',
+    hero_type2:      'Yacht & Boat',
+    hero_type3:      'Caravan',
+    // Sections
+    services_label:  'SERVICES',
+    services_title:  'Our Expertise',
+    services_sub:    'Filter by vehicle type',
+    vehicles_label:  'VEHICLE TYPES',
+    vehicles_title:  'Expert Solution for Every Vehicle',
+    vehicles_sub:    'From cars to yachts and caravans — all vehicle types',
+    gallery_label:   'GALLERY',
+    gallery_title:   'Completed Jobs',
+    gallery_sub:     'Real vehicles, real results',
+    stats_label:     'WHY US',
+    stats_title:     'Er Repair by Numbers',
+    stats_sub:       'Years of experience, thousands of happy customers',
+    reviews_label:   'CUSTOMER REVIEWS',
+    reviews_title:   'What Our Customers Say',
+    reviews_sub:     'Real experiences, real reviews',
+    about_label:     'ABOUT',
+    about_title:     'The Er Repair Family',
+    about_sub:       'Trusted repair service in Kuşadası for years',
+    contact_label:   'CONTACT',
+    contact_title:   'Get in Touch',
+    contact_sub:     'Request a quote or ask a question',
+    faq_label:       'FAQ',
+    faq_title:       'Frequently Asked Questions',
+    faq_sub:         'Answers to everything you wonder about',
+    // Blog
+    blog_label:      'Blog',
+    blog_title:      'Useful Insights',
+    blog_subtitle:   'Expert tips on vehicle maintenance and repair',
+    art1_cat:        'Technology',
+    art1_time:       '4 min read',
+    art1_title:      'What is Computerized Fault Detection?',
+    art1_excerpt:    'We explain how the OBD-II system and modern diagnostic tools keep your vehicle healthy.',
+    art2_cat:        'Maritime',
+    art2_time:       '5 min read',
+    art2_title:      '7 Golden Rules for Yacht & Boat Maintenance',
+    art2_excerpt:    'Essential maintenance tips to keep your boat running long in the harsh marine environment.',
+    art3_cat:        'Caravan',
+    art3_time:       '6 min read',
+    art3_title:      'Periodic Maintenance Guide for Caravan Owners',
+    art3_excerpt:    'Checklist of checks to do before opening and closing the season, plus solutions to common problems.',
+    read_more:       'Read More →',
+    // KVKK
+    kvkk_title:      'Cookie Policy',
+    kvkk_text:       'This site uses cookies to improve user experience. By continuing you accept our Privacy Policy.',
+    kvkk_link:       'our Privacy Policy',
+    kvkk_accept:     'Accept',
+    kvkk_decline:    'Decline',
+    // Form
+    form_name:       'Full Name *',
+    form_phone:      'Phone *',
+    form_vehicle:    'Vehicle Type *',
+    form_service:    'Service Type *',
+    form_message:    'Your Message',
+    form_submit:     'Send Quote',
+    form_success:    'Message received! We\'ll get back to you shortly.',
+    // Footer
+    footer_tagline:  'Kuşadası\'s trusted repair address',
+  }
+};
+
+let currentLang = localStorage.getItem('er_lang') || 'tr';
+
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('er_lang', lang);
+  document.documentElement.lang = lang === 'en' ? 'en' : 'tr';
+  const btn = document.getElementById('langToggle');
+  if (btn) btn.textContent = lang === 'tr' ? 'EN' : 'TR';
+
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+}
+
+document.getElementById('langToggle').addEventListener('click', () => {
+  applyLang(currentLang === 'tr' ? 'en' : 'tr');
+});
+
+// Apply saved language on load
+if (currentLang === 'en') applyLang('en');
+
+/* ─── Blog Data ────────────────────────────────────────── */
+const blogArticles = {
+  1: {
+    tr: {
+      cat:     'Teknoloji',
+      title:   'Bilgisayarlı Arıza Tespiti Nedir?',
+      meta:    '18 Mart 2026 · 4 dk okuma',
+      content: `
+        <p>Modern araçlar, yüzlerce sensör ve elektronik kontrol ünitesi (ECU) ile donatılmış karmaşık sistemlerdir. Bilgisayarlı arıza tespiti (OBD-II), bu sistemlerin sürekli kendini izlemesini ve herhangi bir anormalliği kaydetmesini sağlar.</p>
+        <h3>OBD-II Nedir?</h3>
+        <p>On-Board Diagnostics II (OBD-II), 1996 sonrası üretilen tüm araçlarda zorunlu olan standart bir tanılama sistemidir. Motor, şanzıman, emisyon sistemi ve ABS gibi kritik bileşenleri izler.</p>
+        <h3>Arıza Kodu Nasıl Okunur?</h3>
+        <p>Gösterge panelindeki "Check Engine" (Motor Arıza) ışığı yandığında, serviste bir OBD-II tarayıcı cihazı araca bağlanır. Cihaz, ECU'daki arıza kodlarını (DTC) okur. Her kod, sorunun tam olarak nerede olduğunu gösterir.</p>
+        <ul>
+          <li><strong>P kodları:</strong> Powertrain (motor/şanzıman)</li>
+          <li><strong>B kodları:</strong> Body (kaporta/airbag)</li>
+          <li><strong>C kodları:</strong> Chassis (şasi/ABS/fren)</li>
+          <li><strong>U kodları:</strong> Network (ağ iletişim)</li>
+        </ul>
+        <h3>Neden Önemlidir?</h3>
+        <p>Erken tespit, küçük bir sorunun büyük ve pahalı bir tamire dönüşmesini önler. Er Repair olarak her araç tipine uygun OBD-II ekipmanlarımızla hızlı ve doğru tanı koyuyor, gereksiz parça değişiminin önüne geçiyoruz.</p>
+      `
+    },
+    en: {
+      cat:     'Technology',
+      title:   'What is Computerized Fault Detection?',
+      meta:    '18 March 2026 · 4 min read',
+      content: `
+        <p>Modern vehicles are complex systems equipped with hundreds of sensors and electronic control units (ECUs). Computerized fault detection (OBD-II) allows these systems to continuously monitor themselves and log any anomaly.</p>
+        <h3>What is OBD-II?</h3>
+        <p>On-Board Diagnostics II (OBD-II) is a standard diagnostic system mandatory in all vehicles manufactured after 1996. It monitors critical components such as the engine, gearbox, emission system, and ABS.</p>
+        <h3>How Are Fault Codes Read?</h3>
+        <p>When the "Check Engine" warning light comes on, a workshop connects an OBD-II scanner to the vehicle. The device reads Diagnostic Trouble Codes (DTCs) stored in the ECU, pinpointing the exact location of the problem.</p>
+        <ul>
+          <li><strong>P codes:</strong> Powertrain (engine/transmission)</li>
+          <li><strong>B codes:</strong> Body (bodywork/airbag)</li>
+          <li><strong>C codes:</strong> Chassis (chassis/ABS/brakes)</li>
+          <li><strong>U codes:</strong> Network (communication bus)</li>
+        </ul>
+        <h3>Why Does It Matter?</h3>
+        <p>Early detection prevents a small issue from becoming a costly repair. At Er Repair, we use OBD-II equipment suited to every vehicle type to diagnose quickly and accurately — saving you from unnecessary part replacements.</p>
+      `
+    }
+  },
+  2: {
+    tr: {
+      cat:     'Denizcilik',
+      title:   'Yat ve Tekne Bakımında 7 Altın Kural',
+      meta:    '18 Mart 2026 · 5 dk okuma',
+      content: `
+        <p>Deniz ortamı; tuz, nem ve UV radyasyonuyla tekneleri sürekli yıpratır. Düzenli bakım hem güvenliğinizi hem de aracınızın ömrünü doğrudan etkiler.</p>
+        <h3>1. Motor Yağı ve Soğutma Sistemi</h3>
+        <p>Deniz motoru yağı, karadaki araçlardan daha sık değiştirilmelidir. Her sezonda soğutma suyu ve thermostat kontrolü yapılmalıdır.</p>
+        <h3>2. Anot Kontrolü</h3>
+        <p>Galvanik korozyon, tekne metallerini sessizce eritir. Çinko veya alüminyum anotlar yıllık olarak kontrol edilip gerekirse değiştirilmelidir.</p>
+        <h3>3. Elektrik Sistemi</h3>
+        <p>Tuzlu hava, kablolarda oksidasyon yaratır. Bağlantılar her sezonda kontrol edilmeli; koruyucu sprey kullanılmalıdır.</p>
+        <h3>4. Yakıt Sistemi</h3>
+        <p>Yakıt filtresi ve su ayırıcılar düzenli temizlenmeli; biyolojik kirlenmeye karşı yakıt katkısı kullanılmalıdır.</p>
+        <h3>5. Pervane ve Şaft</h3>
+        <p>Çarpma veya kavitasyon hasarı için pervane periyodik olarak incelenmeli; şaft yatakları kontrol edilmelidir.</p>
+        <h3>6. Dıştan Takma Motor Bakımı</h3>
+        <p>Sezon sonunda tatlı su ile yıkama yapın, yakıtı boşaltın ve koruyucu yağ sıkın. Depolama sırasında dik tutun.</p>
+        <h3>7. Tekne Altı Boyası</h3>
+        <p>Kirlilik ve barnakl birikimini önlemek için yılda bir antifouling boya uygulanmalıdır. Bu hem hızı hem de yakıt verimliliğini artırır.</p>
+      `
+    },
+    en: {
+      cat:     'Maritime',
+      title:   '7 Golden Rules for Yacht & Boat Maintenance',
+      meta:    '18 March 2026 · 5 min read',
+      content: `
+        <p>The marine environment — salt, humidity, and UV radiation — continuously degrades boats. Regular maintenance directly affects both your safety and the lifespan of your vessel.</p>
+        <h3>1. Engine Oil & Cooling System</h3>
+        <p>Marine engine oil should be changed more frequently than in land vehicles. Coolant and thermostat should be inspected every season.</p>
+        <h3>2. Anode Inspection</h3>
+        <p>Galvanic corrosion silently eats away boat metals. Zinc or aluminium anodes should be checked annually and replaced if needed.</p>
+        <h3>3. Electrical System</h3>
+        <p>Salt air causes oxidation in wiring. Connections should be checked each season and protective spray applied.</p>
+        <h3>4. Fuel System</h3>
+        <p>Fuel filters and water separators should be cleaned regularly; a fuel additive should be used against biological contamination.</p>
+        <h3>5. Propeller & Shaft</h3>
+        <p>Inspect the propeller periodically for impact or cavitation damage; check shaft bearings regularly.</p>
+        <h3>6. Outboard Motor Maintenance</h3>
+        <p>At the end of the season, flush with fresh water, drain fuel, and spray protective oil. Store upright.</p>
+        <h3>7. Antifouling Paint</h3>
+        <p>Apply antifouling paint annually to prevent fouling and barnacle build-up. This improves both speed and fuel efficiency.</p>
+      `
+    }
+  },
+  3: {
+    tr: {
+      cat:     'Karavan',
+      title:   'Karavan Sahiplerine Periyodik Bakım Rehberi',
+      meta:    '18 Mart 2026 · 6 dk okuma',
+      content: `
+        <p>Karavan, hem araç hem de yaşam alanı olduğu için bakım gereksinimleri diğer araçlara göre çok daha kapsamlıdır. Doğru periyodik bakım ile hem yolda güvende kalırsınız hem de karavanınızın değerini korursunuz.</p>
+        <h3>Sezonu Açmadan Önce (İlkbahar)</h3>
+        <ul>
+          <li>Akü voltaj testi ve gerekirse değişim</li>
+          <li>Gaz sistemi kaçak testi (sabun köpüğü yöntemi)</li>
+          <li>Su deposu dezenfeksiyonu ve su sistemi testi</li>
+          <li>Lastik basıncı ve diş derinliği kontrolü</li>
+          <li>Fren sistemi ve çeki demiri kontrolü</li>
+          <li>Tüm aydınlatma ve sinyal lambası testi</li>
+          <li>Çatı ve pencere conta kontrolü (su sızıntısı)</li>
+        </ul>
+        <h3>Sezon İçi Bakım</h3>
+        <ul>
+          <li>Her 3.000 km'de genel kontrol</li>
+          <li>Solar panel ve şarj kontrol cihazı verimlilik testi</li>
+          <li>Yağmur sonrası çatı kontrolü</li>
+          <li>Pissu tankı boşaltma ve temizlik</li>
+        </ul>
+        <h3>Sezonu Kapatırken (Sonbahar)</h3>
+        <ul>
+          <li>Su sistemini tamamen boşaltın (dondan koruma)</li>
+          <li>Gaz tüplerini kapatın ve güvenli depolayın</li>
+          <li>Aküleri şarj ederek depolayın ya da söküp eve alın</li>
+          <li>Tüm yiyecekleri çıkarın, nem gidericiler yerleştirin</li>
+          <li>Lastikleri UV ve yük stresi azaltmak için hafifçe indirin</li>
+        </ul>
+        <h3>Yaygın Sorunlar ve Çözümleri</h3>
+        <p>Elektrik arızaları genellikle zayıf akü veya kötü topraklamadan kaynaklanır. Su sızıntıları ise contalarda başlar — erken müdahale, pahalı iç hasar tamirini önler. Er Repair olarak karavan sahiplerine özel bakım paketleri sunuyoruz.</p>
+      `
+    },
+    en: {
+      cat:     'Caravan',
+      title:   'Periodic Maintenance Guide for Caravan Owners',
+      meta:    '18 March 2026 · 6 min read',
+      content: `
+        <p>Because a caravan is both a vehicle and a living space, its maintenance requirements are far more comprehensive than other vehicles. Proper periodic maintenance keeps you safe on the road and preserves your caravan's value.</p>
+        <h3>Before Opening the Season (Spring)</h3>
+        <ul>
+          <li>Battery voltage test and replacement if needed</li>
+          <li>Gas system leak test (soapy water method)</li>
+          <li>Water tank disinfection and water system test</li>
+          <li>Tyre pressure and tread depth check</li>
+          <li>Brake system and tow hitch inspection</li>
+          <li>All lights and indicators test</li>
+          <li>Roof and window seal check (water ingress)</li>
+        </ul>
+        <h3>In-Season Maintenance</h3>
+        <ul>
+          <li>General check every 3,000 km</li>
+          <li>Solar panel and charge controller efficiency test</li>
+          <li>Roof inspection after rain</li>
+          <li>Grey water tank emptying and cleaning</li>
+        </ul>
+        <h3>Closing the Season (Autumn)</h3>
+        <ul>
+          <li>Completely drain the water system (frost protection)</li>
+          <li>Close gas cylinders and store safely</li>
+          <li>Charge batteries before storage or remove and bring indoors</li>
+          <li>Remove all food, place moisture absorbers inside</li>
+          <li>Slightly deflate tyres to reduce UV and load stress</li>
+        </ul>
+        <h3>Common Problems and Solutions</h3>
+        <p>Electrical faults usually stem from a weak battery or poor earthing. Water leaks begin at seals — early intervention prevents costly interior damage. At Er Repair we offer dedicated maintenance packages for caravan owners.</p>
+      `
+    }
+  }
+};
+
+/* ─── Blog Modal ───────────────────────────────────────── */
+const blogOverlay = document.getElementById('blogModalOverlay');
+const blogClose   = document.getElementById('blogModalClose');
+
+function openBlogModal(articleId) {
+  const lang = currentLang;
+  const a    = blogArticles[articleId][lang];
+  document.getElementById('blogModalCat').textContent     = a.cat;
+  document.getElementById('blogModalTitle').textContent   = a.title;
+  document.getElementById('blogModalMeta').textContent    = a.meta;
+  document.getElementById('blogModalContent').innerHTML   = a.content;
+  blogOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  blogOverlay.querySelector('.blog-modal').scrollTop = 0;
+}
+
+function closeBlogModal() {
+  blogOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.blog-read-btn').forEach(btn => {
+  btn.addEventListener('click', () => openBlogModal(btn.dataset.article));
+});
+
+blogClose.addEventListener('click', closeBlogModal);
+blogOverlay.addEventListener('click', e => { if (e.target === blogOverlay) closeBlogModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && blogOverlay.classList.contains('open')) closeBlogModal(); });
 </script>
 </body>
 </html>
