@@ -13,6 +13,12 @@
 <meta name="geo.position" content="37.8560;27.2595">
 <meta name="ICBM" content="37.8560, 27.2595">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a1628">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Er Repair">
 <link rel="canonical" href="https://[DOMAIN].com/">
 <meta property="og:type" content="business.business">
 <meta property="og:title" content="Er Repair | Kuşadası Oto, Yat ve Karavan Tamir">
@@ -477,6 +483,8 @@ section { padding: var(--space-2xl) 0; }
 .mobile-menu.open a:nth-child(3) { transition-delay: 0.15s; }
 .mobile-menu.open a:nth-child(4) { transition-delay: 0.20s; }
 .mobile-menu.open a:nth-child(5) { transition-delay: 0.25s; }
+.mobile-menu.open a:nth-child(6) { transition-delay: 0.30s; }
+.mobile-menu.open a:nth-child(7) { transition-delay: 0.35s; }
 .mobile-menu a:hover { color: var(--color-accent); }
 
 @media (max-width: 1024px) {
@@ -948,6 +956,16 @@ section { padding: var(--space-2xl) 0; }
   align-items: center;
   justify-content: center;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.gallery-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .otomobil-bg { background: linear-gradient(135deg,#1a4f8a,#2a6db5); }
 .yat-bg      { background: linear-gradient(135deg,#0f5132,#198754); }
@@ -2173,6 +2191,7 @@ textarea:focus-visible {
       <li><a href="#galeri" data-i18n="nav_gallery">Galeri</a></li>
       <li><a href="#hakkimizda" data-i18n="nav_about">Hakkımızda</a></li>
       <li><a href="#sss" data-i18n="nav_faq">SSS</a></li>
+      <li><a href="#blog" data-i18n="nav_blog">Blog</a></li>
       <li><a href="#iletisim" data-i18n="nav_contact">İletişim</a></li>
     </ul>
 
@@ -2211,6 +2230,7 @@ textarea:focus-visible {
   <a href="#galeri" data-i18n="nav_gallery">Galeri</a>
   <a href="#hakkimizda" data-i18n="nav_about">Hakkımızda</a>
   <a href="#sss" data-i18n="nav_faq">SSS</a>
+  <a href="#blog" data-i18n="nav_blog">Blog</a>
   <a href="#iletisim" data-i18n="nav_contact">İletişim</a>
 </div>
 
@@ -2530,7 +2550,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="otomobil" data-label="Motor Revizyon" tabindex="0" role="button" aria-label="Motor Revizyon görselini büyüt">
           <div class="gallery-bg otomobil-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <img src="https://images.unsplash.com/photo-1635270780528-7aae8acf04e0?auto=format&fit=crop&w=800&q=80" alt="Motor Revizyon - Otomobil Tamir" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal1_title">Motor Revizyon</span>
@@ -2540,7 +2560,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="yat" data-label="Deniz Elektroniği" tabindex="0" role="button" aria-label="Deniz Elektroniği görselini büyüt">
           <div class="gallery-bg yat-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=800&q=80" alt="Deniz Elektroniği - Yat Servisi" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal2_title">Deniz Elektroniği</span>
@@ -2550,7 +2570,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="karavan" data-label="Solar Kurulum" tabindex="0" role="button" aria-label="Solar Kurulum görselini büyüt">
           <div class="gallery-bg karavan-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Solar Panel Kurulum - Karavan" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal3_title">Solar Kurulum</span>
@@ -2560,7 +2580,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="otomobil" data-label="Şanzıman Onarımı" tabindex="0" role="button" aria-label="Şanzıman Onarımı görselini büyüt">
           <div class="gallery-bg otomobil-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-2.83 2.83M7.76 16.24l-2.83 2.83M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" alt="Şanzıman Onarımı - Oto Tamir" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal4_title">Şanzıman Onarımı</span>
@@ -2570,7 +2590,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="karavan" data-label="Elektrik Sistemi" tabindex="0" role="button" aria-label="Elektrik Sistemi görselini büyüt">
           <div class="gallery-bg karavan-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80" alt="Elektrik Sistemi - Karavan" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal5_title">Elektrik Sistemi</span>
@@ -2580,7 +2600,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="yat" data-label="Motor Bakım" tabindex="0" role="button" aria-label="Motor Bakım görselini büyüt">
           <div class="gallery-bg yat-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80" alt="Motor Bakım - Tekne Servisi" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal6_title">Motor Bakım</span>
@@ -2590,7 +2610,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="otomobil" data-label="Elektrik Arıza" tabindex="0" role="button" aria-label="Elektrik Arıza görselini büyüt">
           <div class="gallery-bg otomobil-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80" alt="Elektrik Arıza - Oto Tamir" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal7_title">Elektrik Arıza</span>
@@ -2600,7 +2620,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="karavan" data-label="Şasi Onarım" tabindex="0" role="button" aria-label="Şasi Onarım görselini büyüt">
           <div class="gallery-bg karavan-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+            <img src="https://images.unsplash.com/photo-1532099440891-d4a56d02bf6f?auto=format&fit=crop&w=800&q=80" alt="Şasi Onarım - Karavan" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal8_title">Şasi Onarım</span>
@@ -2610,7 +2630,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="yat" data-label="Tesisat Onarım" tabindex="0" role="button" aria-label="Tesisat Onarım görselini büyüt">
           <div class="gallery-bg yat-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Tesisat Onarım - Yat Servisi" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal9_title">Tesisat Onarım</span>
@@ -2620,7 +2640,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="otomobil" data-label="Fren Değişimi" tabindex="0" role="button" aria-label="Fren Değişimi görselini büyüt">
           <div class="gallery-bg otomobil-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+            <img src="https://images.unsplash.com/photo-1614762538418-a6f70e3bcb8b?auto=format&fit=crop&w=800&q=80" alt="Fren Değişimi - Oto Tamir" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal10_title">Fren Değişimi</span>
@@ -2630,7 +2650,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="karavan" data-label="Su Tesisatı" tabindex="0" role="button" aria-label="Su Tesisatı görselini büyüt">
           <div class="gallery-bg karavan-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            <img src="https://images.unsplash.com/photo-1535732820275-9ffd998cac22?auto=format&fit=crop&w=800&q=80" alt="Su Tesisatı - Karavan" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal11_title">Su Tesisatı</span>
@@ -2640,7 +2660,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="yat" data-label="Deniz Elektroniği 2" tabindex="0" role="button" aria-label="Deniz Elektroniği 2 görselini büyüt">
           <div class="gallery-bg yat-bg">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            <img src="https://images.unsplash.com/photo-1566024349885-2a285c914b60?auto=format&fit=crop&w=800&q=80" alt="Deniz Elektroniği - Yat Servisi" loading="lazy">
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal12_title">Deniz Elektroniği 2</span>
@@ -3932,6 +3952,7 @@ const translations = {
     nav_gallery:     'Galeri',
     nav_about:       'Hakkımızda',
     nav_faq:         'SSS',
+    nav_blog:        'Blog',
     nav_contact:     'İletişim',
     nav_call:        'Ara',
     nav_login:       'Giriş Yap',
@@ -4197,6 +4218,7 @@ const translations = {
     nav_gallery:     'Gallery',
     nav_about:       'About',
     nav_faq:         'FAQ',
+    nav_blog:        'Blog',
     nav_contact:     'Contact',
     nav_call:        'Call',
     nav_login:       'Sign In',
@@ -4712,6 +4734,13 @@ document.querySelectorAll('.blog-read-btn').forEach(btn => {
 blogClose.addEventListener('click', closeBlogModal);
 blogOverlay.addEventListener('click', e => { if (e.target === blogOverlay) closeBlogModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && blogOverlay.classList.contains('open')) closeBlogModal(); });
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
 </script>
 </body>
 </html>

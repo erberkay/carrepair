@@ -1,0 +1,31 @@
+{
+  "name": "Er Repair — Kuşadası Tamir Servisi",
+  "short_name": "Er Repair",
+  "description": "Kuşadası'nda otomobil, yat ve karavan tamir servisi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["automotive", "business"],
+  "shortcuts": [
+    {
+      "name": "Hizmetler",
+      "url": "/#hizmetler",
+      "description": "Tüm tamir hizmetlerimiz"
+    },
+    {
+      "name": "İletişim",
+      "url": "/#iletisim",
+      "description": "Bize ulaşın"
+    }
+  ]
+}
