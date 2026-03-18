@@ -120,26 +120,42 @@
         {
           "@type": "Question",
           "name": "Kuşadası'nda hangi araçlara tamir hizmeti veriyorsunuz?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Otomobil, yat & tekne ve karavan olmak üzere 3 farklı araç tipine tamir ve bakım hizmeti sunuyoruz."
-          }
+          "acceptedAnswer": {"@type": "Answer", "text": "Otomobil, yat & tekne ve karavan olmak üzere 3 farklı araç tipine tamir ve bakım hizmeti sunuyoruz."}
         },
         {
           "@type": "Question",
-          "name": "Yat ve tekne tamiri için randevu gerekli mi?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Mümkün olduğunda randevu almanızı öneririz ancak acil durumlarda doğrudan 05523070067 numarasını arayabilirsiniz."
-          }
+          "name": "Randevu almadan gelebilir miyim?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Acil durumlarda randevusuz gelebilirsiniz. Ancak bekleme süresini kısaltmak için önceden 05523070067 numaralı hattı arayarak randevu almanızı öneririz."}
         },
         {
           "@type": "Question",
-          "name": "Karavan tamirinde hangi hizmetleri sunuyorsunuz?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Karavan elektrik sistemi, su tesisatı, solar panel kurulumu, şasi ve fren tamiri hizmetleri sunuyoruz."
-          }
+          "name": "Yat ve tekne tamirinde hangi hizmetleri sunuyorsunuz?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Deniz elektroniği, tekne motoru bakım & revizyonu, tesisat tamiri, elektrik sistemi onarımı ve navigasyon sistemleri kurulumu hizmetlerini sunuyoruz."}
+        },
+        {
+          "@type": "Question",
+          "name": "Karavan tamirinde hangi hizmetleri veriyorsunuz?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Karavan elektrik sistemi, su tesisatı, solar panel kurulumu, şasi & fren tamiri ve akü bakımı hizmetlerini sunuyoruz."}
+        },
+        {
+          "@type": "Question",
+          "name": "Tamir sonrası garanti veriyor musunuz?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Evet, yaptığımız tüm işlemlerde işçilik garantisi veriyoruz."}
+        },
+        {
+          "@type": "Question",
+          "name": "Bilgisayarlı arıza tespiti yapıyor musunuz?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Evet, tüm araç tipleri için bilgisayarlı arıza tespit cihazlarımız mevcuttur. ECU okuma, arıza kodu silme ve detaylı sistem analizi yapıyoruz."}
+        },
+        {
+          "@type": "Question",
+          "name": "Fiyatlar hakkında bilgi alabilir miyim?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Arıza tespit yapılmadan kesin fiyat vermek mümkün değildir. Ücretsiz ön inceleme için aracınızı getirin ya da 05523070067'yi arayarak teklif isteyin."}
+        },
+        {
+          "@type": "Question",
+          "name": "Hizmet bölgeniz neresi?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Kuşadası merkez başta olmak üzere Davutlar, Söke, Didim ve Aydın bölgelerine hizmet veriyoruz."}
         }
       ]
     }
@@ -1906,6 +1922,79 @@ textarea:focus-visible {
   .aq-header { flex-direction: column; gap: 0.4rem; }
 }
 
+/* ── SSS / FAQ ────────────────────────────────────── */
+#sss { background: var(--color-bg); }
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: var(--space-md);
+}
+.faq-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.faq-item.open {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: color 0.2s;
+}
+.faq-item.open .faq-question { color: var(--color-primary); }
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.25s ease, transform 0.3s ease;
+}
+.faq-item.open .faq-icon {
+  background: var(--color-primary);
+  transform: rotate(45deg);
+}
+.faq-icon svg { transition: stroke 0.25s; }
+.faq-item.open .faq-icon svg { stroke: #fff; }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1),
+              padding 0.35s ease;
+  padding: 0 1.25rem;
+}
+.faq-answer-inner {
+  padding-bottom: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.9rem;
+}
+@media (max-width: 768px) {
+  .faq-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Service card stagger delays ──────────────────── */
 .services-grid .service-card:nth-child(1) { transition-delay: 0s;     }
 .services-grid .service-card:nth-child(2) { transition-delay: 0.05s;  }
@@ -1936,6 +2025,7 @@ textarea:focus-visible {
       <li><a href="#arac-tipleri">Araçlar</a></li>
       <li><a href="#galeri">Galeri</a></li>
       <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="#sss">SSS</a></li>
       <li><a href="#iletisim">İletişim</a></li>
     </ul>
 
@@ -1971,6 +2061,7 @@ textarea:focus-visible {
   <a href="#arac-tipleri">Araçlar</a>
   <a href="#galeri">Galeri</a>
   <a href="#hakkimizda">Hakkımızda</a>
+  <a href="#sss">SSS</a>
   <a href="#iletisim">İletişim</a>
 </div>
 
@@ -2697,6 +2788,85 @@ textarea:focus-visible {
       </div>
     </div>
   </section>
+
+  <!-- SSS -->
+  <section id="sss">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label fade-in">SSS</div>
+        <h2 class="section-title fade-in">Sıkça Sorulan Sorular</h2>
+        <p class="section-subtitle fade-in">Merak ettiğiniz her şeyin cevabı burada</p>
+      </div>
+      <div class="faq-grid">
+
+        <div class="faq-item fade-in">
+          <button class="faq-question" aria-expanded="false">
+            Kuşadası'nda hangi araçlara tamir hizmeti veriyorsunuz?
+            <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Otomobil, yat &amp; tekne ve karavan olmak üzere 3 farklı araç tipine tamir ve bakım hizmeti sunuyoruz. Her araç kategorisi için deneyimli teknisyenlerimiz mevcuttur.</div></div>
+        </div>
+
+        <div class="faq-item fade-in" style="transition-delay:0.05s">
+          <button class="faq-question" aria-expanded="false">
+            Randevu almadan gelebilir miyim?
+            <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Acil durumlarda randevusuz gelebilirsiniz. Ancak bekleme süresini kısaltmak için önceden 05523070067 numaralı hattı arayarak randevu almanızı öneririz.</div></div>
+        </div>
+
+        <div class="faq-item fade-in" style="transition-delay:0.1s">
+          <button class="faq-question" aria-expanded="false">
+            Yat ve tekne tamirinde hangi hizmetleri sunuyorsunuz?
+            <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Deniz elektroniği, tekne motoru bakım &amp; revizyonu, tesisat tamiri, elektrik sistemi onarımı ve navigasyon sistemleri kurulumu hizmetlerini sunuyoruz. Kara ve marina tamiri yapıyoruz.</div></div>
+        </div>
+
+        <div class="faq-item fade-in" style="transition-delay:0.15s">
+          <button class="faq-question" aria-expanded="false">
+            Karavan tamirinde hangi hizmetleri veriyorsunuz?
+            <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Karavan elektrik sistemi, su tesisatı, solar panel kurulumu, şasi &amp; fren tamiri, akü bakımı ve iç elektrik tesisatı hizmetlerini sunuyoruz.</div></div>
+        </div>
+
+        <div class="faq-item fade-in" style="transition-delay:0.2s">
+          <button class="faq-question" aria-expanded="false">
+            Tamir sonrası garanti veriyor musunuz?
+            <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Evet, yaptığımız tüm işlemlerde işçilik garantisi veriyoruz. Garantili işçilikle müşteri memnuniyetini ön planda tutuyoruz.</div></div>
+        </div>
+
+        <div class="faq-item fade-in" style="transition-delay:0.25s">
+          <button class="faq-question" aria-expanded="false">
+            Bilgisayarlı arıza tespiti yapıyor musunuz?
+            <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Evet, tüm araç tipleri için bilgisayarlı arıza tespit cihazlarımız mevcuttur. ECU okuma, arıza kodu silme ve detaylı sistem analizi yapıyoruz.</div></div>
+        </div>
+
+        <div class="faq-item fade-in" style="transition-delay:0.3s">
+          <button class="faq-question" aria-expanded="false">
+            Fiyatlar hakkında bilgi alabilir miyim?
+            <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Arıza tespit yapılmadan kesin fiyat vermek mümkün değildir. Ücretsiz ön inceleme için aracınızı getirin ya da 05523070067'yi arayarak teklif isteyin.</div></div>
+        </div>
+
+        <div class="faq-item fade-in" style="transition-delay:0.35s">
+          <button class="faq-question" aria-expanded="false">
+            Hizmet bölgeniz neresi?
+            <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Ağırlıklı olarak Kuşadası ve çevresine hizmet veriyoruz: Davutlar, Söke, Didim ve Aydın bölgelerinde de hizmetlerimizden yararlanabilirsiniz.</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer id="footer">
@@ -3405,6 +3575,29 @@ contactForm?.addEventListener('submit', async (e) => {
     submitBtn.disabled = false;
     alert('Mesaj gönderilemedi: ' + err.message);
   }
+});
+
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item   = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-answer').style.maxHeight = '0';
+      el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+
+    // Open clicked (if was closed)
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
 });
 
 // Services filter
