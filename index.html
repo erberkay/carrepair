@@ -1894,6 +1894,25 @@ textarea:focus-visible {
   transition: background 0.2s;
 }
 .admin-close:hover { background: rgba(255,255,255,0.3); }
+.admin-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding: 0 1.5rem;
+  gap: 0.25rem;
+}
+.admin-tab {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.admin-tab.active { color: #fff; border-bottom-color: var(--color-accent); }
+.admin-tab:hover { color: #fff; }
 .admin-body {
   flex: 1;
   overflow-y: auto;
@@ -1970,7 +1989,26 @@ textarea:focus-visible {
 .aq-action.danger:hover { background: #dc2626; border-color: #dc2626; color: #fff; }
 .aq-time { font-size: 0.73rem; color: var(--color-text-muted); margin-top: 0.5rem; }
 @media (max-width: 640px) {
-  .admin-body { padding: 1rem; }
+  .admin-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding: 0 1.5rem;
+  gap: 0.25rem;
+}
+.admin-tab {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.admin-tab.active { color: #fff; border-bottom-color: var(--color-accent); }
+.admin-tab:hover { color: #fff; }
+.admin-body { padding: 1rem; }
   .aq-header { flex-direction: column; gap: 0.4rem; }
 }
 
@@ -3355,15 +3393,20 @@ textarea:focus-visible {
 <!-- ── Admin Panel ──────────────────────────────────── -->
 <div class="admin-overlay" id="adminOverlay" role="dialog" aria-modal="true" aria-label="Admin Paneli">
   <div class="admin-header">
-    <h2 data-i18n="admin_title">Gelen Teklifler</h2>
+    <h2>Admin Paneli</h2>
     <div class="admin-header-actions">
       <span class="admin-count" id="adminCount">0</span>
       <button class="admin-close" id="adminClose" aria-label="Kapat">&#10005;</button>
     </div>
   </div>
+  <div class="admin-tabs">
+    <button class="admin-tab active" id="tabQuotes" onclick="switchAdminTab('quotes')">📩 Teklifler</button>
+    <button class="admin-tab" id="tabAppts" onclick="switchAdminTab('appointments')">📅 Randevular</button>
+  </div>
   <div class="admin-body">
-    <div class="admin-empty" id="adminEmpty" data-i18n="admin_empty">Henüz teklif gelmedi.</div>
+    <div class="admin-empty" id="adminEmpty">Henüz kayıt yok.</div>
     <div id="adminQuotesList"></div>
+    <div id="adminApptsList" style="display:none"></div>
   </div>
 </div>
 
@@ -3394,7 +3437,6 @@ textarea:focus-visible {
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
 /* ─── Firebase Config ─────────────────────────────────────────
@@ -3541,11 +3583,72 @@ document.getElementById('adminClose').addEventListener('click', closeAdminPanel)
 function openAdminPanel() {
   document.getElementById('adminOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
-  loadAdminQuotes();
+  switchAdminTab('quotes');
 }
 function closeAdminPanel() {
   document.getElementById('adminOverlay').classList.remove('open');
   document.body.style.overflow = '';
+}
+
+function switchAdminTab(tab) {
+  document.getElementById('tabQuotes').classList.toggle('active', tab === 'quotes');
+  document.getElementById('tabAppts').classList.toggle('active', tab === 'appointments');
+  document.getElementById('adminQuotesList').style.display = tab === 'quotes' ? '' : 'none';
+  document.getElementById('adminApptsList').style.display  = tab === 'appointments' ? '' : 'none';
+  if (tab === 'quotes')       loadAdminQuotes();
+  if (tab === 'appointments') loadAdminAppointments();
+}
+
+async function loadAdminAppointments() {
+  const list  = document.getElementById('adminApptsList');
+  const empty = document.getElementById('adminEmpty');
+  const count = document.getElementById('adminCount');
+  list.innerHTML = '<p style="color:var(--color-text-muted);padding:2rem;text-align:center">Yükleniyor…</p>';
+  try {
+    const snap = await db.collection('appointments').orderBy('createdAt', 'desc').get();
+    count.textContent = snap.size;
+    if (snap.empty) { empty.style.display = ''; list.innerHTML = ''; return; }
+    empty.style.display = 'none';
+    const vLbl = { otomobil:'Otomobil', yat:'Yat / Tekne', karavan:'Karavan', diger:'Diğer' };
+    const sLbl = { elektrik:'Elektrik', sanziman:'Şanzıman', tesisat:'Tesisat', motor:'Motor', diger:'Diğer' };
+    const stColors = { pending:'new', confirmed:'seen', done:'replied' };
+    list.innerHTML = snap.docs.map(doc => {
+      const d  = doc.data();
+      const ts = d.createdAt?.toDate ? d.createdAt.toDate().toLocaleString('tr-TR') : '—';
+      const st = d.status || 'pending';
+      const stLabel = { pending:'Bekliyor', confirmed:'Onaylandı', done:'Tamamlandı' }[st] || st;
+      const stCls = { pending:'new', confirmed:'seen', done:'replied' }[st] || 'new';
+      const noteHtml = d.note ? '<div class="aq-message">' + esc(d.note) + '</div>' : '';
+      return '<div class="admin-quote-card status-' + stCls + '">' +
+        '<div class="aq-header"><div>' +
+        '<div class="aq-name">' + esc(d.name) + '</div>' +
+        '<div class="aq-meta"><a href="tel:' + esc(d.phone) + '">' + esc(d.phone) + '</a>' +
+        ' &bull; <strong>' + (d.date||'—') + '</strong> &bull; ' + (d.time||'—') + '</div>' +
+        '</div><div class="aq-badges">' +
+        '<span class="aq-badge">' + (vLbl[d.vehicle]||esc(d.vehicle)) + '</span>' +
+        '<span class="aq-badge">' + (sLbl[d.service]||esc(d.service)) + '</span>' +
+        '<span class="aq-badge ' + stCls + '">' + stLabel + '</span>' +
+        '</div></div>' + noteHtml +
+        '<div class="aq-actions">' +
+        '<button class="aq-action" onclick="setApptStatus(\'' + doc.id + '\',\'confirmed\')">✅ Onayla</button>' +
+        '<button class="aq-action" onclick="setApptStatus(\'' + doc.id + '\',\'done\')">🏁 Tamamlandı</button>' +
+        '<button class="aq-action" onclick="window.open(\'tel:' + esc(d.phone) + '\')">📞 Ara</button>' +
+        '<button class="aq-action danger" onclick="delAppt(\'' + doc.id + '\')">🗑 Sil</button>' +
+        '</div><div class="aq-time">' + ts + '</div></div>';
+    }).join('');
+  } catch (err) {
+    list.innerHTML = '<p style="color:#dc2626;padding:1rem">Hata: ' + err.message + '</p>';
+  }
+}
+
+async function setApptStatus(id, status) {
+  await db.collection('appointments').doc(id).update({ status });
+  loadAdminAppointments();
+}
+async function delAppt(id) {
+  if (!confirm('Bu randevuyu silmek istiyor musunuz?')) return;
+  await db.collection('appointments').doc(id).delete();
+  loadAdminAppointments();
 }
 
 async function loadAdminQuotes() {
@@ -3973,9 +4076,6 @@ contactForm?.addEventListener('submit', async (e) => {
     });
     contactForm.style.display = 'none';
     formSuccess.style.display = 'block';
-    // Fire-and-forget email notification
-    sendEmailNotification({ name, phone, vehicleType, service, message,
-      userEmail: currentUser ? currentUser.email : null });
   } catch (err) {
     submitBtn.classList.remove('loading');
     submitBtn.disabled = false;
@@ -4034,37 +4134,6 @@ filterTabs.forEach(tab => {
   });
 });
 
-/* ─── EmailJS ──────────────────────────────────────────────
-   EmailJS Public Key ve Service/Template ID'lerini
-   EmailJS dashboard'undan alıp buraya yapıştırın.
-   ─────────────────────────────────────────────────────── */
-const EMAILJS_PUBLIC_KEY   = 'YOUR_EMAILJS_PUBLIC_KEY';   // TODO: replace
-const EMAILJS_SERVICE_ID   = 'YOUR_SERVICE_ID';           // TODO: replace
-const EMAILJS_TEMPLATE_ID  = 'YOUR_TEMPLATE_ID';          // TODO: replace
-
-(function() {
-  if (typeof emailjs !== 'undefined') {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-  }
-})();
-
-async function sendEmailNotification(data) {
-  if (typeof emailjs === 'undefined') return;
-  if (EMAILJS_PUBLIC_KEY === 'YOUR_EMAILJS_PUBLIC_KEY') return; // not configured yet
-  try {
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      from_name:    data.name,
-      from_phone:   data.phone,
-      vehicle_type: data.vehicleType,
-      service_type: data.service,
-      message:      data.message || '—',
-      user_email:   data.userEmail || 'Giriş yapılmadı',
-      to_email:     'berkayer032@gmail.com'
-    });
-  } catch(e) {
-    console.warn('EmailJS send failed:', e);
-  }
-}
 
 /* ─── KVKK Cookie Consent ──────────────────────────────── */
 (function() {
