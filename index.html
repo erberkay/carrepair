@@ -1848,6 +1848,110 @@ textarea:focus-visible {
   color: #4285f4;
 }
 
+/* ── Quote Modal ──────────────────────────────────── */
+.qm-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.25s;
+}
+.qm-overlay.open { opacity: 1; pointer-events: auto; }
+.qm-box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  width: min(560px, 96vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+.qm-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky; top: 0; background: var(--color-surface); z-index: 1;
+}
+.qm-header h3 { margin: 0; font-size: 1.1rem; }
+.qm-close {
+  background: none; border: none; color: var(--color-text-muted);
+  cursor: pointer; font-size: 1.1rem; padding: 0.3rem;
+  border-radius: var(--radius-sm); transition: background 0.2s;
+}
+.qm-close:hover { background: var(--color-border); }
+.qm-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.qm-customer {
+  background: var(--color-bg); border: 1px solid var(--color-border);
+  border-radius: var(--radius-md); padding: 1rem 1.2rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+}
+.qm-customer-row { display: flex; flex-direction: column; gap: 2px; }
+.qm-customer-row span { font-size: 0.72rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.qm-customer-row strong { font-size: 0.9rem; color: var(--color-heading); }
+.qm-section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
+.qm-section-head label { font-weight: 600; font-size: 0.9rem; color: var(--color-heading); }
+.qm-add-btn {
+  background: var(--color-accent); color: #fff; border: none;
+  padding: 0.3rem 0.75rem; border-radius: var(--radius-sm);
+  font-size: 0.8rem; font-weight: 600; cursor: pointer;
+}
+.qm-add-btn:hover { background: var(--color-accent-dark); }
+.qm-rows-head {
+  display: grid; grid-template-columns: 1fr 120px 32px;
+  gap: 0.5rem; padding: 0.4rem 0;
+  font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;
+}
+.qm-mat-row {
+  display: grid; grid-template-columns: 1fr 120px 32px;
+  gap: 0.5rem; margin-bottom: 0.5rem; align-items: center;
+}
+.qm-mat-row input {
+  width: 100%; padding: 0.5rem 0.75rem; border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border); background: var(--color-bg);
+  color: var(--color-text); font-size: 0.9rem;
+}
+.qm-mat-row input:focus { outline: none; border-color: var(--color-accent); }
+.qm-mat-del {
+  background: none; border: 1px solid var(--color-border);
+  color: var(--color-text-muted); border-radius: var(--radius-sm);
+  cursor: pointer; font-size: 0.8rem; padding: 0.4rem; transition: all 0.2s;
+}
+.qm-mat-del:hover { background: #dc2626; color: #fff; border-color: #dc2626; }
+.qm-labor-row { display: flex; align-items: center; gap: 1rem; }
+.qm-labor-row label { font-weight: 600; font-size: 0.9rem; color: var(--color-heading); white-space: nowrap; }
+.qm-labor-row input {
+  flex: 1; padding: 0.5rem 0.75rem; border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border); background: var(--color-bg);
+  color: var(--color-text); font-size: 0.9rem;
+}
+.qm-labor-row input:focus { outline: none; border-color: var(--color-accent); }
+.qm-note-section label { font-weight: 600; font-size: 0.9rem; color: var(--color-heading); display: block; margin-bottom: 0.4rem; }
+.qm-note-section textarea {
+  width: 100%; box-sizing: border-box; padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm); border: 1px solid var(--color-border);
+  background: var(--color-bg); color: var(--color-text); font-size: 0.9rem;
+  resize: vertical; font-family: inherit;
+}
+.qm-note-section textarea:focus { outline: none; border-color: var(--color-accent); }
+.qm-total-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(135deg, var(--color-primary), #1a4f8a);
+  padding: 1rem 1.25rem; border-radius: var(--radius-md);
+  color: #fff;
+}
+.qm-total-bar span { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; opacity: 0.85; }
+.qm-total-bar strong { font-size: 1.4rem; font-weight: 800; }
+.qm-send-btn {
+  width: 100%; padding: 0.9rem; background: var(--color-accent);
+  color: #fff; border: none; border-radius: var(--radius-md);
+  font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s;
+}
+.qm-send-btn:hover:not(:disabled) { background: var(--color-accent-dark); }
+.qm-send-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.aq-action.primary {
+  background: var(--color-accent); color: #fff; border-color: var(--color-accent);
+}
+.aq-action.primary:hover { background: var(--color-accent-dark); }
+
 /* ── Admin Panel ──────────────────────────────────── */
 .admin-overlay {
   position: fixed;
@@ -2962,6 +3066,10 @@ textarea:focus-visible {
                 <input type="tel" id="apptPhone" name="phone" required autocomplete="tel" placeholder="05XX XXX XX XX" data-i18n="ph_phone">
               </div>
             </div>
+            <div class="form-group">
+              <label for="apptEmail" data-i18n="lbl_email">E-posta</label>
+              <input type="email" id="apptEmail" name="email" required autocomplete="email" placeholder="ornek@mail.com" data-i18n="ph_email_form">
+            </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="apptVehicle" data-i18n="lbl_vehicle">Araç Tipi</label>
@@ -3044,6 +3152,11 @@ textarea:focus-visible {
               <label for="phone" data-i18n="lbl_phone">Telefon</label>
               <input type="tel" id="phone" name="phone" placeholder="05XX XXX XX XX" required autocomplete="tel" data-i18n="ph_phone">
               <span class="field-error" id="phoneError"></span>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail" data-i18n="lbl_email">E-posta</label>
+              <input type="email" id="contactEmail" name="email" required autocomplete="email" placeholder="ornek@mail.com" data-i18n="ph_email_form">
+              <span class="field-error" id="contactEmailError"></span>
             </div>
             <div class="form-row">
               <div class="form-group">
@@ -3410,6 +3523,52 @@ textarea:focus-visible {
   </div>
 </div>
 
+<!-- ── Quote Modal ──────────────────────────────────── -->
+<div class="qm-overlay" id="qmOverlay">
+  <div class="qm-box">
+    <div class="qm-header">
+      <h3>💰 Fiyat Teklifi Oluştur</h3>
+      <button class="qm-close" id="qmClose" aria-label="Kapat">✕</button>
+    </div>
+    <div class="qm-body">
+      <div class="qm-customer">
+        <div class="qm-customer-row"><span>Müşteri</span><strong id="qmCName"></strong></div>
+        <div class="qm-customer-row"><span>E-posta</span><strong id="qmCEmail" style="color:var(--color-accent)"></strong></div>
+        <div class="qm-customer-row"><span>Araç</span><strong id="qmCVehicle"></strong></div>
+        <div class="qm-customer-row"><span>Hizmet</span><strong id="qmCService"></strong></div>
+      </div>
+
+      <div class="qm-section">
+        <div class="qm-section-head">
+          <label>Malzemeler &amp; İşlemler</label>
+          <button type="button" class="qm-add-btn" onclick="qmAddRow()">+ Ekle</button>
+        </div>
+        <div class="qm-rows-head">
+          <span>Malzeme / İşlem</span><span>Fiyat (₺)</span>
+        </div>
+        <div id="qmRows"></div>
+      </div>
+
+      <div class="qm-labor-row">
+        <label>İşçilik Ücreti (₺)</label>
+        <input type="number" id="qmLabor" min="0" placeholder="0" oninput="qmCalcTotal()">
+      </div>
+
+      <div class="qm-note-section">
+        <label>Ek Not <small>(isteğe bağlı)</small></label>
+        <textarea id="qmNote" rows="2" placeholder="Müşteriye iletmek istediğiniz ek bilgi..."></textarea>
+      </div>
+
+      <div class="qm-total-bar">
+        <span>TOPLAM</span>
+        <strong id="qmTotal">0 ₺</strong>
+      </div>
+
+      <button class="qm-send-btn" id="qmSendBtn" onclick="qmSend()">📧 Teklifi E-posta ile Gönder</button>
+    </div>
+  </div>
+</div>
+
 <!-- WhatsApp Float Button -->
 <a href="https://wa.me/905523070067" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
   <svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -3590,6 +3749,8 @@ function closeAdminPanel() {
   document.body.style.overflow = '';
 }
 
+const adminDataStore = {};
+
 function switchAdminTab(tab) {
   document.getElementById('tabQuotes').classList.toggle('active', tab === 'quotes');
   document.getElementById('tabAppts').classList.toggle('active', tab === 'appointments');
@@ -3665,17 +3826,18 @@ async function loadAdminQuotes() {
     const sLbl = { elektrik:'Elektrik', sanziman:'Şanzıman', tesisat:'Tesisat', motor:'Motor', diger:'Diğer' };
     list.innerHTML = snap.docs.map(doc => {
       const d  = doc.data();
+      adminDataStore['q_' + doc.id] = { ...d, _type: 'quote' };
       const ts = d.createdAt?.toDate ? d.createdAt.toDate().toLocaleString('tr-TR') : '—';
       const st = d.status || 'new';
       const stLabel = { new:'Yeni', seen:'Görüldü', replied:'Yanıtlandı' }[st] || st;
+      const emailBadge = d.email ? ` &bull; <span style="color:var(--color-accent)">${esc(d.email)}</span>` : ' &bull; Misafir';
       return `
       <div class="admin-quote-card status-${st}">
         <div class="aq-header">
           <div>
             <div class="aq-name">${esc(d.name)}</div>
             <div class="aq-meta">
-              <a href="tel:${esc(d.phone)}">${esc(d.phone)}</a>
-              ${d.userEmail ? ` &bull; ${esc(d.userEmail)}` : ' &bull; Misafir'}
+              <a href="tel:${esc(d.phone)}">${esc(d.phone)}</a>${emailBadge}
             </div>
           </div>
           <div class="aq-badges">
@@ -3686,6 +3848,7 @@ async function loadAdminQuotes() {
         </div>
         <div class="aq-message">${esc(d.message)}</div>
         <div class="aq-actions">
+          <button class="aq-action primary" onclick="openQuoteModal('q_${doc.id}')">💰 Teklif Gönder</button>
           <button class="aq-action" onclick="setStatus('${doc.id}','seen')">👁 Görüldü</button>
           <button class="aq-action" onclick="setStatus('${doc.id}','replied')">✅ Yanıtlandı</button>
           <button class="aq-action" onclick="window.open('tel:${esc(d.phone)}')">📞 Ara</button>
@@ -4037,7 +4200,7 @@ function clearError(inputId, errorId) {
   if (error) error.textContent = '';
 }
 
-['name','phone','vehicleType','service','message'].forEach(id => {
+['name','phone','contactEmail','vehicleType','service','message'].forEach(id => {
   const el = document.getElementById(id);
   if (el) el.addEventListener('input', () => clearError(id, id + 'Error'));
 });
@@ -4047,12 +4210,14 @@ contactForm?.addEventListener('submit', async (e) => {
   let valid = true;
   const name        = document.getElementById('name').value.trim();
   const phone       = document.getElementById('phone').value.trim();
+  const email       = document.getElementById('contactEmail').value.trim();
   const vehicleType = document.getElementById('vehicleType').value;
   const service     = document.getElementById('service').value;
   const message     = document.getElementById('message').value.trim();
 
   if (!name)                                            { showError('name',        'nameError',        'Ad soyad gereklidir.');               valid = false; }
   if (!phone || !/^[0-9\s\+\-]{10,15}$/.test(phone))  { showError('phone',       'phoneError',       'Geçerli bir telefon numarası girin.'); valid = false; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('contactEmail','contactEmailError','Geçerli bir e-posta adresi girin.'); valid = false; }
   if (!vehicleType)                                     { showError('vehicleType', 'vehicleTypeError', 'Araç tipi seçiniz.');                  valid = false; }
   if (!service)                                         { showError('service',     'serviceError',     'Hizmet seçiniz.');                    valid = false; }
   if (!message)                                         { showError('message',     'messageError',     'Mesajınızı yazınız.');                valid = false; }
@@ -4066,6 +4231,7 @@ contactForm?.addEventListener('submit', async (e) => {
     await db.collection('quotes').add({
       name,
       phone,
+      email,
       vehicleType,
       service,
       message,
@@ -4983,8 +5149,9 @@ const blogArticles = {
     btn.querySelector('.btn-text').textContent = currentLang === 'tr' ? 'Gönderiliyor…' : 'Sending…';
 
     try {
+      const apptEmail = document.getElementById('apptEmail').value.trim();
       await db.collection('appointments').add({
-        name, phone, vehicle, service, date, time,
+        name, phone, email: apptEmail, vehicle, service, date, time,
         note: note || '',
         status: 'pending',
         lang: currentLang,
@@ -5015,6 +5182,155 @@ const blogArticles = {
     }
   });
 })();
+
+/* ─── Quote / Price Offer Modal ───────────────────────── */
+let currentQuoteKey = null;
+
+document.getElementById('qmClose').addEventListener('click', closeQuoteModal);
+document.getElementById('qmOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeQuoteModal();
+});
+
+function openQuoteModal(key) {
+  const d = adminDataStore[key];
+  if (!d) return;
+  currentQuoteKey = key;
+  const vLbl = { otomobil:'Otomobil', yat:'Yat / Tekne', karavan:'Karavan', diger:'Diğer' };
+  const sLbl = { elektrik:'Elektrik & Elektronik', sanziman:'Şanzıman', tesisat:'Tesisat', motor:'Motor Bakımı', diger:'Diğer' };
+  document.getElementById('qmCName').textContent    = d.name || '—';
+  document.getElementById('qmCEmail').textContent   = d.email || '⚠ E-posta yok';
+  document.getElementById('qmCVehicle').textContent = vLbl[d.vehicleType || d.vehicle] || d.vehicleType || d.vehicle || '—';
+  document.getElementById('qmCService').textContent = sLbl[d.service] || d.service || '—';
+  document.getElementById('qmRows').innerHTML = '';
+  document.getElementById('qmLabor').value   = '';
+  document.getElementById('qmNote').value    = '';
+  document.getElementById('qmTotal').textContent = '0 ₺';
+  const btn = document.getElementById('qmSendBtn');
+  btn.disabled = false;
+  btn.textContent = '📧 Teklifi E-posta ile Gönder';
+  qmAddRow();
+  document.getElementById('qmOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeQuoteModal() {
+  document.getElementById('qmOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function qmAddRow() {
+  const div = document.createElement('div');
+  div.className = 'qm-mat-row';
+  div.innerHTML =
+    '<input type="text"   class="qm-mat-name"  placeholder="Malzeme / İşlem adı">' +
+    '<input type="number" class="qm-mat-price" placeholder="0" min="0" oninput="qmCalcTotal()">' +
+    '<button type="button" class="qm-mat-del" onclick="this.closest(\'.qm-mat-row\').remove();qmCalcTotal()">✕</button>';
+  document.getElementById('qmRows').appendChild(div);
+}
+
+function qmCalcTotal() {
+  let total = 0;
+  document.querySelectorAll('.qm-mat-price').forEach(i => { total += parseFloat(i.value) || 0; });
+  total += parseFloat(document.getElementById('qmLabor').value) || 0;
+  document.getElementById('qmTotal').textContent = total.toLocaleString('tr-TR') + ' ₺';
+  return total;
+}
+
+async function qmSend() {
+  const d = adminDataStore[currentQuoteKey];
+  if (!d) return;
+  if (!d.email) { alert('Bu müşterinin e-posta adresi kayıtlı değil.'); return; }
+
+  const materials = [];
+  document.querySelectorAll('.qm-mat-row').forEach(row => {
+    const name  = row.querySelector('.qm-mat-name').value.trim();
+    const price = parseFloat(row.querySelector('.qm-mat-price').value) || 0;
+    if (name) materials.push({ name, price });
+  });
+
+  const labor = parseFloat(document.getElementById('qmLabor').value) || 0;
+  const note  = document.getElementById('qmNote').value.trim();
+  const total = qmCalcTotal();
+
+  if (materials.length === 0 && labor === 0) {
+    alert('En az bir malzeme veya işçilik ücreti girin.'); return;
+  }
+
+  const vLbl = { otomobil:'Otomobil', yat:'Yat / Tekne', karavan:'Karavan', diger:'Diğer' };
+  const sLbl = { elektrik:'Elektrik & Elektronik', sanziman:'Şanzıman', tesisat:'Tesisat', motor:'Motor Bakımı', diger:'Diğer' };
+  const vehicleDisplay = vLbl[d.vehicleType || d.vehicle] || d.vehicleType || d.vehicle || '—';
+  const serviceDisplay = sLbl[d.service] || d.service || '—';
+
+  const matRows = materials.map(m =>
+    '<tr>' +
+    '<td style="padding:10px 14px;border-bottom:1px solid #e2e8f0;color:#1e293b">' + m.name + '</td>' +
+    '<td style="text-align:right;padding:10px 14px;border-bottom:1px solid #e2e8f0;white-space:nowrap;color:#1e293b">' + m.price.toLocaleString('tr-TR') + ' ₺</td>' +
+    '</tr>'
+  ).join('');
+
+  const noteBlock = note
+    ? '<div style="background:#f0f9ff;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:0 8px 8px 0;margin-bottom:24px">' +
+      '<p style="margin:0;color:#1e293b;font-size:14px;line-height:1.6"><strong>Not:</strong> ' + note + '</p></div>'
+    : '';
+
+  const html =
+    '<!DOCTYPE html><html><head><meta charset="UTF-8"></head>' +
+    '<body style="margin:0;padding:0;background:#f1f5f9;font-family:\'Segoe UI\',Arial,sans-serif">' +
+    '<div style="max-width:600px;margin:32px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08)">' +
+
+    '<div style="background:linear-gradient(135deg,#0a1628,#1a4f8a);padding:32px;text-align:center">' +
+    '<div style="font-size:28px;font-weight:800;color:#fff;letter-spacing:-0.5px">Er Repair</div>' +
+    '<div style="color:#94a3b8;font-size:13px;margin-top:6px">Kuşadası — Oto, Yat &amp; Karavan Tamir Servisi</div>' +
+    '</div>' +
+
+    '<div style="padding:32px">' +
+    '<p style="font-size:16px;color:#1e293b;margin:0 0 8px">Merhaba <strong>' + esc(d.name) + '</strong>,</p>' +
+    '<p style="color:#64748b;margin:0 0 24px;line-height:1.6"><strong>' + vehicleDisplay + '</strong> aracınızdaki <strong>' + serviceDisplay + '</strong> hizmetiyle ilgili talebinizi aldık. Hazırladığımız fiyat teklifini aşağıda bulabilirsiniz.</p>' +
+
+    '<table style="width:100%;border-collapse:collapse;margin-bottom:24px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden">' +
+    '<thead><tr style="background:#f8fafc">' +
+    '<th style="text-align:left;padding:12px 14px;color:#475569;font-size:13px;font-weight:600;border-bottom:1px solid #e2e8f0">Malzeme / İşlem</th>' +
+    '<th style="text-align:right;padding:12px 14px;color:#475569;font-size:13px;font-weight:600;border-bottom:1px solid #e2e8f0">Tutar</th>' +
+    '</tr></thead>' +
+    '<tbody>' + matRows +
+    '<tr><td style="padding:10px 14px;border-bottom:1px solid #e2e8f0;color:#1e293b">İşçilik</td>' +
+    '<td style="text-align:right;padding:10px 14px;border-bottom:1px solid #e2e8f0;white-space:nowrap;color:#1e293b">' + labor.toLocaleString('tr-TR') + ' ₺</td></tr>' +
+    '</tbody>' +
+    '<tfoot><tr style="background:linear-gradient(135deg,#0a1628,#1a4f8a)">' +
+    '<td style="padding:14px;color:#fff;font-weight:700;font-size:15px">TOPLAM</td>' +
+    '<td style="text-align:right;padding:14px;color:#fff;font-weight:700;font-size:15px;white-space:nowrap">' + total.toLocaleString('tr-TR') + ' ₺</td>' +
+    '</tr></tfoot></table>' +
+
+    noteBlock +
+
+    '<p style="color:#64748b;font-size:14px;line-height:1.6">Teklifi onaylamak veya soru sormak için bize ulaşabilirsiniz:</p>' +
+    '<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">' +
+    '<a href="tel:05523070067" style="display:inline-block;background:#0a1628;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px">📞 05523070067</a>' +
+    '<a href="https://wa.me/905523070067" style="display:inline-block;background:#25d366;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px">💬 WhatsApp</a>' +
+    '</div></div>' +
+
+    '<div style="background:#f8fafc;padding:20px;text-align:center;border-top:1px solid #e2e8f0">' +
+    '<p style="margin:0;color:#94a3b8;font-size:12px">Er Repair &copy; 2025 — Kuşadası, Aydın, Türkiye</p>' +
+    '<p style="margin:4px 0 0;color:#94a3b8;font-size:12px">Bu e-posta talebiniz üzerine gönderilmiştir.</p>' +
+    '</div></div></body></html>';
+
+  const btn = document.getElementById('qmSendBtn');
+  btn.disabled = true;
+  btn.textContent = 'Gönderiliyor…';
+
+  try {
+    await db.collection('mail').add({
+      to: d.email,
+      message: { subject: 'Er Repair — Fiyat Teklifiniz Hazır 🔧', html }
+    });
+    btn.textContent = '✅ Gönderildi!';
+    setTimeout(closeQuoteModal, 1800);
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = '📧 Teklifi E-posta ile Gönder';
+    alert('Gönderilemedi: ' + err.message);
+  }
+}
 
 /* ─── Blog Modal ───────────────────────────────────────── */
 const blogOverlay = document.getElementById('blogModalOverlay');
