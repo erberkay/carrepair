@@ -4074,6 +4074,21 @@ contactForm?.addEventListener('submit', async (e) => {
       status:    'new',
       createdAt: firebase.firestore.FieldValue.serverTimestamp()
     });
+    const vLblContact = { otomobil:'Otomobil', yat:'Yat / Tekne', karavan:'Karavan', diger:'Diğer' };
+    const sLblContact = { elektrik:'Elektrik & Elektronik', sanziman:'Şanzıman', tesisat:'Tesisat', motor:'Motor Bakımı', diger:'Diğer' };
+    await db.collection('mail').add({
+      to: 'berkayer032@gmail.com',
+      message: {
+        subject: '📩 Yeni Teklif Talebi — ' + name,
+        html: '<h2>Yeni İletişim Formu</h2>' +
+              '<p><b>Ad Soyad:</b> ' + name + '</p>' +
+              '<p><b>Telefon:</b> <a href="tel:' + phone + '">' + phone + '</a></p>' +
+              '<p><b>Araç Tipi:</b> ' + (vLblContact[vehicleType] || vehicleType) + '</p>' +
+              '<p><b>Hizmet:</b> ' + (sLblContact[service] || service) + '</p>' +
+              '<p><b>Mesaj:</b><br>' + message.replace(/\n/g,'<br>') + '</p>' +
+              (currentUser ? '<p><b>Kullanıcı:</b> ' + currentUser.email + '</p>' : '<p><b>Kullanıcı:</b> Misafir</p>')
+      }
+    });
     contactForm.style.display = 'none';
     formSuccess.style.display = 'block';
   } catch (err) {
@@ -4974,6 +4989,22 @@ const blogArticles = {
         status: 'pending',
         lang: currentLang,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      const vLblAppt = { otomobil:'Otomobil', yat:'Yat / Tekne', karavan:'Karavan', diger:'Diğer' };
+      const sLblAppt = { elektrik:'Elektrik & Elektronik', sanziman:'Şanzıman', tesisat:'Tesisat', motor:'Motor Bakımı', diger:'Diğer' };
+      await db.collection('mail').add({
+        to: 'berkayer032@gmail.com',
+        message: {
+          subject: '📅 Yeni Randevu Talebi — ' + name + ' (' + date + ' ' + time + ')',
+          html: '<h2>Yeni Randevu Talebi</h2>' +
+                '<p><b>Ad Soyad:</b> ' + name + '</p>' +
+                '<p><b>Telefon:</b> <a href="tel:' + phone + '">' + phone + '</a></p>' +
+                '<p><b>Araç Tipi:</b> ' + (vLblAppt[vehicle] || vehicle) + '</p>' +
+                '<p><b>Hizmet:</b> ' + (sLblAppt[service] || service) + '</p>' +
+                '<p><b>Tarih:</b> ' + date + '</p>' +
+                '<p><b>Saat:</b> ' + time + ' – ' + time.replace(/^(\d+):00$/, (_, h) => (parseInt(h)+1)+':00') + '</p>' +
+                (note ? '<p><b>Not:</b> ' + note + '</p>' : '')
+        }
       });
       form.style.display = 'none';
       success.style.display = 'block';
