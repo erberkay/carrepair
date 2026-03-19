@@ -3126,6 +3126,7 @@ textarea:focus-visible {
             <div class="success-icon">📅</div>
             <h3 data-i18n="appt_success_h">Randevu Talebiniz Alındı!</h3>
             <p data-i18n="appt_success_p">Ekibimiz en kısa sürede sizi arayarak randevuyu teyit edecek.</p>
+            <p id="apptSuccessEmail" style="margin-top:0.5rem;font-size:0.9rem;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:0.6rem 1rem;display:inline-block"></p>
           </div>
         </div>
       </div>
@@ -3197,6 +3198,7 @@ textarea:focus-visible {
             <div class="success-icon">✅</div>
             <h3 data-i18n="form_success_h">Mesajınız alındı!</h3>
             <p data-i18n="form_success_p">En kısa sürede sizi arayacağız.</p>
+            <p id="formSuccessEmail" style="margin-top:0.5rem;font-size:0.9rem;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:0.6rem 1rem;display:inline-block"></p>
           </div>
         </div>
 
@@ -4257,6 +4259,8 @@ contactForm?.addEventListener('submit', async (e) => {
     });
     contactForm.style.display = 'none';
     formSuccess.style.display = 'block';
+    document.getElementById('formSuccessEmail').textContent =
+      (currentLang === 'en' ? '📧 A price quote will be sent to: ' : '📧 Fiyat teklifiniz şu adrese gönderilecek: ') + email;
   } catch (err) {
     submitBtn.classList.remove('loading');
     submitBtn.disabled = false;
@@ -5175,6 +5179,8 @@ const blogArticles = {
       });
       form.style.display = 'none';
       success.style.display = 'block';
+      document.getElementById('apptSuccessEmail').textContent =
+        (currentLang === 'en' ? '📧 Appointment confirmation will be sent to: ' : '📧 Randevu onayı şu adrese gönderilecek: ') + apptEmail;
     } catch(err) {
       console.warn('Appointment save failed:', err);
       btn.disabled = false;
