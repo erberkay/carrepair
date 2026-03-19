@@ -485,6 +485,7 @@ section { padding: var(--space-2xl) 0; }
 .mobile-menu.open a:nth-child(5) { transition-delay: 0.25s; }
 .mobile-menu.open a:nth-child(6) { transition-delay: 0.30s; }
 .mobile-menu.open a:nth-child(7) { transition-delay: 0.35s; }
+.mobile-menu.open a:nth-child(8) { transition-delay: 0.40s; }
 .mobile-menu a:hover { color: var(--color-accent); }
 
 @media (max-width: 1024px) {
@@ -1281,6 +1282,38 @@ section { padding: var(--space-2xl) 0; }
   .about-grid { grid-template-columns: 1fr; }
   .about-stat-card { bottom: -1rem; left: 1rem; }
 }
+
+/* =========================================
+   RANDEVU (APPOINTMENT)
+   ========================================= */
+#randevu { background: var(--color-surface); }
+.randevu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+.randevu-info { padding: var(--space-sm) 0; }
+.randevu-info h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--color-heading); }
+.randevu-info > p { color: var(--color-text-muted); margin-bottom: var(--space-md); }
+.randevu-steps { display: flex; flex-direction: column; gap: 1.2rem; }
+.randevu-step { display: flex; align-items: flex-start; gap: 1rem; }
+.randevu-step-num {
+  width: 2rem; height: 2rem; min-width: 2rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff; font-weight: 700; font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.randevu-step-text strong { display: block; font-weight: 600; color: var(--color-heading); font-size: 0.95rem; }
+.randevu-step-text span { font-size: 0.85rem; color: var(--color-text-muted); }
+.randevu-form-wrap {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+@media (max-width: 768px) { .randevu-grid { grid-template-columns: 1fr; } }
 
 /* =========================================
    CONTACT
@@ -2191,6 +2224,7 @@ textarea:focus-visible {
       <li><a href="#galeri" data-i18n="nav_gallery">Galeri</a></li>
       <li><a href="#hakkimizda" data-i18n="nav_about">Hakkımızda</a></li>
       <li><a href="#sss" data-i18n="nav_faq">SSS</a></li>
+      <li><a href="#randevu" data-i18n="nav_appt">Randevu</a></li>
       <li><a href="#blog" data-i18n="nav_blog">Blog</a></li>
       <li><a href="#iletisim" data-i18n="nav_contact">İletişim</a></li>
     </ul>
@@ -2230,6 +2264,7 @@ textarea:focus-visible {
   <a href="#galeri" data-i18n="nav_gallery">Galeri</a>
   <a href="#hakkimizda" data-i18n="nav_about">Hakkımızda</a>
   <a href="#sss" data-i18n="nav_faq">SSS</a>
+  <a href="#randevu" data-i18n="nav_appt">Randevu</a>
   <a href="#blog" data-i18n="nav_blog">Blog</a>
   <a href="#iletisim" data-i18n="nav_contact">İletişim</a>
 </div>
@@ -2550,7 +2585,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="otomobil" data-label="Motor Revizyon" tabindex="0" role="button" aria-label="Motor Revizyon görselini büyüt">
           <div class="gallery-bg otomobil-bg">
-            <img src="https://images.unsplash.com/photo-1635270780528-7aae8acf04e0?auto=format&fit=crop&w=800&q=80" alt="Motor Revizyon - Otomobil Tamir" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal1_title">Motor Revizyon</span>
@@ -2560,7 +2595,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="yat" data-label="Deniz Elektroniği" tabindex="0" role="button" aria-label="Deniz Elektroniği görselini büyüt">
           <div class="gallery-bg yat-bg">
-            <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=800&q=80" alt="Deniz Elektroniği - Yat Servisi" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal2_title">Deniz Elektroniği</span>
@@ -2570,7 +2605,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="karavan" data-label="Solar Kurulum" tabindex="0" role="button" aria-label="Solar Kurulum görselini büyüt">
           <div class="gallery-bg karavan-bg">
-            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Solar Panel Kurulum - Karavan" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal3_title">Solar Kurulum</span>
@@ -2580,7 +2615,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="otomobil" data-label="Şanzıman Onarımı" tabindex="0" role="button" aria-label="Şanzıman Onarımı görselini büyüt">
           <div class="gallery-bg otomobil-bg">
-            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" alt="Şanzıman Onarımı - Oto Tamir" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-2.83 2.83M7.76 16.24l-2.83 2.83M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal4_title">Şanzıman Onarımı</span>
@@ -2590,7 +2625,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="karavan" data-label="Elektrik Sistemi" tabindex="0" role="button" aria-label="Elektrik Sistemi görselini büyüt">
           <div class="gallery-bg karavan-bg">
-            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80" alt="Elektrik Sistemi - Karavan" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal5_title">Elektrik Sistemi</span>
@@ -2600,7 +2635,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="yat" data-label="Motor Bakım" tabindex="0" role="button" aria-label="Motor Bakım görselini büyüt">
           <div class="gallery-bg yat-bg">
-            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80" alt="Motor Bakım - Tekne Servisi" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal6_title">Motor Bakım</span>
@@ -2610,7 +2645,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="otomobil" data-label="Elektrik Arıza" tabindex="0" role="button" aria-label="Elektrik Arıza görselini büyüt">
           <div class="gallery-bg otomobil-bg">
-            <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80" alt="Elektrik Arıza - Oto Tamir" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal7_title">Elektrik Arıza</span>
@@ -2620,7 +2655,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="karavan" data-label="Şasi Onarım" tabindex="0" role="button" aria-label="Şasi Onarım görselini büyüt">
           <div class="gallery-bg karavan-bg">
-            <img src="https://images.unsplash.com/photo-1532099440891-d4a56d02bf6f?auto=format&fit=crop&w=800&q=80" alt="Şasi Onarım - Karavan" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal8_title">Şasi Onarım</span>
@@ -2630,7 +2665,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="yat" data-label="Tesisat Onarım" tabindex="0" role="button" aria-label="Tesisat Onarım görselini büyüt">
           <div class="gallery-bg yat-bg">
-            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Tesisat Onarım - Yat Servisi" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal9_title">Tesisat Onarım</span>
@@ -2640,7 +2675,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="otomobil" data-label="Fren Değişimi" tabindex="0" role="button" aria-label="Fren Değişimi görselini büyüt">
           <div class="gallery-bg otomobil-bg">
-            <img src="https://images.unsplash.com/photo-1614762538418-a6f70e3bcb8b?auto=format&fit=crop&w=800&q=80" alt="Fren Değişimi - Oto Tamir" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal10_title">Fren Değişimi</span>
@@ -2650,7 +2685,7 @@ textarea:focus-visible {
 
         <div class="gallery-item square" data-category="karavan" data-label="Su Tesisatı" tabindex="0" role="button" aria-label="Su Tesisatı görselini büyüt">
           <div class="gallery-bg karavan-bg">
-            <img src="https://images.unsplash.com/photo-1535732820275-9ffd998cac22?auto=format&fit=crop&w=800&q=80" alt="Su Tesisatı - Karavan" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal11_title">Su Tesisatı</span>
@@ -2660,7 +2695,7 @@ textarea:focus-visible {
 
         <div class="gallery-item wide" data-category="yat" data-label="Deniz Elektroniği 2" tabindex="0" role="button" aria-label="Deniz Elektroniği 2 görselini büyüt">
           <div class="gallery-bg yat-bg">
-            <img src="https://images.unsplash.com/photo-1566024349885-2a285c914b60?auto=format&fit=crop&w=800&q=80" alt="Deniz Elektroniği - Yat Servisi" loading="lazy">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
           </div>
           <div class="gallery-overlay">
             <span class="gallery-item-title" data-i18n="gal12_title">Deniz Elektroniği 2</span>
@@ -2841,6 +2876,116 @@ textarea:focus-visible {
   </section>
 
   <!-- CONTACT -->
+  <!-- RANDEVU -->
+  <section id="randevu">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label fade-in" data-i18n="appt_label">Randevu</div>
+        <h2 class="section-title fade-in" data-i18n="appt_title">Online Randevu Al</h2>
+        <p class="section-subtitle fade-in" data-i18n="appt_sub">Tercih ettiğiniz tarih ve saati seçin, biz sizi bekleyelim</p>
+      </div>
+      <div class="randevu-grid">
+        <div class="randevu-info fade-in">
+          <h3 data-i18n="appt_how_title">Nasıl Çalışır?</h3>
+          <p data-i18n="appt_how_sub">3 adımda randevunuzu alın, araç teslimini planlayın.</p>
+          <div class="randevu-steps">
+            <div class="randevu-step">
+              <div class="randevu-step-num">1</div>
+              <div class="randevu-step-text">
+                <strong data-i18n="appt_step1_title">Formu Doldurun</strong>
+                <span data-i18n="appt_step1_sub">Araç tipinizi, hizmet ihtiyacınızı ve uygun tarihi seçin.</span>
+              </div>
+            </div>
+            <div class="randevu-step">
+              <div class="randevu-step-num">2</div>
+              <div class="randevu-step-text">
+                <strong data-i18n="appt_step2_title">Onay Alın</strong>
+                <span data-i18n="appt_step2_sub">Ekibimiz randevunuzu telefonla teyit eder.</span>
+              </div>
+            </div>
+            <div class="randevu-step">
+              <div class="randevu-step-num">3</div>
+              <div class="randevu-step-text">
+                <strong data-i18n="appt_step3_title">Aracınızı Getirin</strong>
+                <span data-i18n="appt_step3_sub">Belirlenen saatte servise gelin, biz hazır olacağız.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="randevu-form-wrap fade-in">
+          <form class="contact-form" id="appointmentForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="apptName" data-i18n="lbl_name">Ad Soyad</label>
+                <input type="text" id="apptName" name="name" required autocomplete="name" placeholder="Adınız ve soyadınız" data-i18n="ph_name">
+              </div>
+              <div class="form-group">
+                <label for="apptPhone" data-i18n="lbl_phone">Telefon</label>
+                <input type="tel" id="apptPhone" name="phone" required autocomplete="tel" placeholder="05XX XXX XX XX" data-i18n="ph_phone">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="apptVehicle" data-i18n="lbl_vehicle">Araç Tipi</label>
+                <select id="apptVehicle" name="vehicle" required>
+                  <option value="" data-i18n="opt_select">Seçiniz...</option>
+                  <option value="otomobil" data-i18n="opt_car">Otomobil</option>
+                  <option value="yat" data-i18n="opt_yacht">Yat / Tekne</option>
+                  <option value="karavan" data-i18n="opt_caravan">Karavan</option>
+                  <option value="diger" data-i18n="opt_other">Diğer</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="apptService" data-i18n="lbl_service">Hizmet</label>
+                <select id="apptService" name="service" required>
+                  <option value="" data-i18n="opt_select">Seçiniz...</option>
+                  <option value="elektrik" data-i18n="opt_elec">Elektrik &amp; Elektronik</option>
+                  <option value="sanziman" data-i18n="opt_gear">Şanzıman</option>
+                  <option value="tesisat" data-i18n="opt_plumb">Tesisat</option>
+                  <option value="motor" data-i18n="opt_engine">Motor Bakımı</option>
+                  <option value="diger" data-i18n="opt_other">Diğer</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="apptDate" data-i18n="lbl_date">Tarih</label>
+                <input type="date" id="apptDate" name="date" required>
+              </div>
+              <div class="form-group">
+                <label for="apptTime" data-i18n="lbl_time">Saat</label>
+                <select id="apptTime" name="time" required>
+                  <option value="" data-i18n="opt_select">Seçiniz...</option>
+                  <option value="08:00">08:00 – 09:00</option>
+                  <option value="09:00">09:00 – 10:00</option>
+                  <option value="10:00">10:00 – 11:00</option>
+                  <option value="11:00">11:00 – 12:00</option>
+                  <option value="13:00">13:00 – 14:00</option>
+                  <option value="14:00">14:00 – 15:00</option>
+                  <option value="15:00">15:00 – 16:00</option>
+                  <option value="16:00">16:00 – 17:00</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="apptNote" data-i18n="lbl_appt_note">Not (İsteğe bağlı)</label>
+              <textarea id="apptNote" name="note" rows="3" placeholder="Araç veya sorun hakkında ek bilgi..." data-i18n="ph_appt_note"></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="apptSubmitBtn">
+              <span class="btn-text" data-i18n="appt_submit">Randevu Al →</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+          <div class="form-success" id="apptSuccess" style="display:none">
+            <div class="success-icon">📅</div>
+            <h3 data-i18n="appt_success_h">Randevu Talebiniz Alındı!</h3>
+            <p data-i18n="appt_success_p">Ekibimiz en kısa sürede sizi arayarak randevuyu teyit edecek.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="iletisim">
     <div class="container">
       <div class="section-header">
@@ -3952,6 +4097,7 @@ const translations = {
     nav_gallery:     'Galeri',
     nav_about:       'Hakkımızda',
     nav_faq:         'SSS',
+    nav_appt:        'Randevu',
     nav_blog:        'Blog',
     nav_contact:     'İletişim',
     nav_call:        'Ara',
@@ -4114,6 +4260,25 @@ const translations = {
     form_submit_btn: 'Mesaj Gönder →',
     form_success_h:  'Mesajınız alındı!',
     form_success_p:  'En kısa sürede sizi arayacağız.',
+    // Randevu
+    appt_label:       'Randevu',
+    appt_title:       'Online Randevu Al',
+    appt_sub:         'Tercih ettiğiniz tarih ve saati seçin, biz sizi bekleyelim',
+    appt_how_title:   'Nasıl Çalışır?',
+    appt_how_sub:     '3 adımda randevunuzu alın, araç teslimini planlayın.',
+    appt_step1_title: 'Formu Doldurun',
+    appt_step1_sub:   'Araç tipinizi, hizmet ihtiyacınızı ve uygun tarihi seçin.',
+    appt_step2_title: 'Onay Alın',
+    appt_step2_sub:   'Ekibimiz randevunuzu telefonla teyit eder.',
+    appt_step3_title: 'Aracınızı Getirin',
+    appt_step3_sub:   'Belirlenen saatte servise gelin, biz hazır olacağız.',
+    lbl_date:         'Tarih',
+    lbl_time:         'Saat',
+    lbl_appt_note:    'Not (İsteğe bağlı)',
+    ph_appt_note:     'Araç veya sorun hakkında ek bilgi...',
+    appt_submit:      'Randevu Al →',
+    appt_success_h:   'Randevu Talebiniz Alındı!',
+    appt_success_p:   'Ekibimiz en kısa sürede sizi arayarak randevuyu teyit edecek.',
     info_address:    'Adres',
     info_phone:      'Telefon',
     info_whatsapp:   'WhatsApp',
@@ -4218,6 +4383,7 @@ const translations = {
     nav_gallery:     'Gallery',
     nav_about:       'About',
     nav_faq:         'FAQ',
+    nav_appt:        'Appointment',
     nav_blog:        'Blog',
     nav_contact:     'Contact',
     nav_call:        'Call',
@@ -4705,6 +4871,50 @@ const blogArticles = {
     }
   }
 };
+
+/* ─── Appointment Form ─────────────────────────────────── */
+(function() {
+  // Set min date to today
+  const dateInput = document.getElementById('apptDate');
+  if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+
+  const form    = document.getElementById('appointmentForm');
+  const success = document.getElementById('apptSuccess');
+  const btn     = document.getElementById('apptSubmitBtn');
+  if (!form) return;
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const name    = document.getElementById('apptName').value.trim();
+    const phone   = document.getElementById('apptPhone').value.trim();
+    const vehicle = document.getElementById('apptVehicle').value;
+    const service = document.getElementById('apptService').value;
+    const date    = document.getElementById('apptDate').value;
+    const time    = document.getElementById('apptTime').value;
+    const note    = document.getElementById('apptNote').value.trim();
+
+    if (!name || !phone || !vehicle || !service || !date || !time) return;
+
+    btn.disabled = true;
+    btn.querySelector('.btn-text').textContent = currentLang === 'tr' ? 'Gönderiliyor…' : 'Sending…';
+
+    try {
+      await db.collection('appointments').add({
+        name, phone, vehicle, service, date, time,
+        note: note || '',
+        status: 'pending',
+        lang: currentLang,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } catch(err) {
+      console.warn('Appointment save failed:', err);
+      btn.disabled = false;
+      btn.querySelector('.btn-text').textContent = currentLang === 'tr' ? 'Randevu Al →' : 'Book Appointment →';
+    }
+  });
+})();
 
 /* ─── Blog Modal ───────────────────────────────────────── */
 const blogOverlay = document.getElementById('blogModalOverlay');
